@@ -1,5 +1,5 @@
 .center-background {
-  background-image: url('../images/BackgroundofCounty.png');
+  background-image: url('images/BackgroundofCounty.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; /* Makes the background stay put */
@@ -313,6 +313,7 @@ modal-contect NOT MODAL OVERLAY*/
 }
 
 /*Slide show CSS*/
+
 
 
 
