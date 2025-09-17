@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OHS KIOSK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <style>
+    .kiosk-button a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #007a8c;
+    font-weight: bold;
+    }
+
+    .kiosk-button a:hover {
+    text-decoration: underline;
+    }
+
+    .kiosk-button img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid #007a8c;
+    padding: 10px;
+    }
+
+    </style>
+</head>
+<!--
+Jevita Requests: 
+
+
+What needs to be done:
+- a center divs
+- rounded premade buttons
+- animations with JS
+- ADA compliance is going to be huge
+- beginning screen asking if they're a veteran 
+- maybe change the buttons? I'm not sure how these will actaully work from scratch 
+                        Pages should be copy and paste for ease of use
+- for pages make them look like a website view almost
+-->
+<body class="center-background">
+    <div class="top-bar">
+    <button  onclick="location.href='index.html'" class="round-button" alt="Go Back">
+        &#8592;
+    </button>
+    </div>
+    <!-- This is your header so only nav items and a title please-->
+    <div class="main-page"> 
+        <header class="main-nav-bar" style="font-size: 20px; display: flex; justify-content: center;">
+            <h1>San Bernardino County Office Of Homeless Services</h1>
+        </header>
+        <div class="main-content">
+        <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
+        <img src="..\images\hmis banner.jpg" class="banner-img" alt="San Bernardino County Homeless Partnership">
+        <!-- Main content under the header -->
+        
+            <!-- This is a colum of text and image-->
+            <div class="content-row">
+                <div class="text-col">
+                    <h2>About the SBCHP</h2>
+                    <p>
+                        By order of the Board of Supervisors in September 2007, the San Bernardino County Homeless Partnership (SBCHP) was formed to provide a more focused approach to issues of homelessness within the County. The Partnership consists of community and faith-based organizations, educational institutions, non-profit organizations, private industry, and federal, state, and local governments.
+                    </p>
+                    <p>
+                        SBCHP was developed to promote a strong collaboration between agencies to direct the planning, development, and implementation of the County’s 10-year Strategy to end chronic homelessness. The Partnership provides leadership in creating a comprehensive countywide network of service delivery to the homeless and near homeless families and individuals through facilitating better communication, planning, coordination, and cooperation among all entities that provide services and/or resources for the relief of homelessness in San Bernardino County.
+                    </p>
+                </div>
+
+                <div class="image-col">
+                    <img src="..\images\COC Grants.jpg" alt="SBCHP Group" />
+                </div>
+
+            </div>
+            <div class="text-col" style="margin: 30px;">
+                    <h2>Who can I call if I need assistance with basic needs or other homeless resources? </h2>
+                    <p>
+                    Please contact United Way 211 by calling “211”. The 2-1-1 Coordinated Entry System (CES) is available in San Bernardino County, 24 hours a day, 7 days a week. By dialing the 3-digit calling code, 2-1-1, the caller is connected to a live, bilingual homeless assistance call specialist who will help assess the caller’s situation and streamline access to homeless assistance services, screen applicants for eligibility for these and other programs in a consistent and well-coordinated way, and assess needs to determine which interventions are the best fit for each individual and/or family.
+                    </p>
+                    
+                </div>
+        
+            <div class="row-of-buttons"> 
+                <div class="kiosk-button">
+                    <a href="#" onclick="location.href='https://sbchp.sbcounty.gov/hpn/'">
+                    <img src="../images/circle house.png" alt="Home Icon">
+                    <div>Homeless Provider Network</div>
+                    </a>
+                </div>
+                <div class="kiosk-button">
+                    <a href="#" onclick="location.href='https://sbchp.sbcounty.gov/ich/'">
+                    <img src="../images/circle bird.png" alt="Bird Icon">
+                    <div>Homeless Provider Network</div>
+                    </a>
+                </div>
+                <div class="kiosk-button">
+                    <a href="#" onclick="location.href='https://sbchp.sbcounty.gov/community-projects/point-in-time-count/'">
+                    <img src="../images/circle hnd.png" alt="Hand Icon">
+                    <div>Homeless Provider Network</div>
+                    </a>
+                </div>
+                </div>
+
+                <div class="row-of-buttons"> 
+                <div class="kiosk-button">
+                    <a href="#" onclick="location.href='https://sbchp.sbcounty.gov/community-projects/annual-homeless-summit/'">
+                    <img src="../images/circle moutain.png" alt="Mountain Icon">
+                    <div>Homeless Provider Network</div>
+                    </a>
+                </div>
+                <div class="kiosk-button">
+                    <a href="#" onclick="location.href='https://homelesstohome.sbcounty.gov/'">
+                    <img src="../images/HTH logo.png" alt="HTH Logo">
+                    <div>Homeless Provider Network</div>
+                    </a>
+                </div>
+                <div class="kiosk-button">
+                    <a href="#" onclick="location.href='https://sbchp.sbcounty.gov/countywide-case-coordination/'">
+                    <img src="../images/Ihavenoclue.jpg" alt="Mystery Icon">
+                    <div>Homeless Provider Network</div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+            <div class="modal-content">
+                <h2 id="modalTitle">Survey</h2>
+                <style>.embed-container {position: relative; height: 0; padding-bottom:80%; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe name="survey123webform" width="500" height="400" frameborder="0" marginheight="0" marginwidth="0" title="OHMIS Interest Form TEST" src="//survey123.arcgis.com/share/876617d216664155877f26ccf7336f4c" allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"></iframe></div><script>var survey123webform = document.getElementsByName('survey123webform')[0];window.addEventListener("message",e=>{if(e.data){var t=JSON.parse(e.data);["survey123:webform:formLoaded","survey123:onFormLoaded"].includes(t.event)&&t.contentHeight&&(survey123webform.parentNode.style.height=t.contentHeight+"px")&&(survey123webform.parentNode.style["padding-bottom"]="unset")}});</script>
+                <button id="closeModalBtn" class="small-box" style="margin-top: 20px;">Close</button>
+            </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        //This is what allows us to open / close surevey windows. I still need to style the buttons so they're less intrusive. but overall I'm happy 
+        //with this portion of a script. I'll make a JS file to make this cleaner soon.
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('modalOverlay');
+
+        openBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modal.focus(); // optional: trap focus for accessibility
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Optional: Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+            modal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>

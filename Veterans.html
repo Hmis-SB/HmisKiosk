@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OHS KIOSK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <style>
+        .crisis-button {
+        background-color: #79000f;
+        color: white;
+        padding: 6px 12px;
+        font-size: 14px;
+        border: 3px solid white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        }
+
+        .crisis-button:hover {
+            background-color: #79000ec1;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<!--
+Jevita Requests: 
+
+
+What needs to be done:
+- a center divs
+- rounded premade buttons
+- animations with JS
+- ADA compliance is going to be huge
+- beginning screen asking if they're a veteran 
+- maybe change the buttons? I'm not sure how these will actaully work from scratch 
+                        Pages should be copy and paste for ease of use
+- for pages make them look like a website view almost
+-->
+<body class="center-background">
+    <div class="top-bar">
+    <button  onclick="location.href='index.html'" class="round-button" alt="Go Back">
+        &#8592;
+    </button>
+    </div>
+    <!-- This is your header so only nav items and a title please-->
+    <div class="main-page"> 
+        <header class="main-nav-bar" style="font-size: 20px;">
+            <h1>San Bernardino County Office Of Veterans Affairs</h1>
+            <nav class="main-nav">
+            <a href="#" id="openModalBtn">We Contact You</a>
+            <!--<a href="#" id="openCalendarBtn">Calendar</a> -->
+            </nav>
+        </header>
+        <div class="main-content">
+        <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
+        <img src="..\images\vets.jpg" class="banner-img" alt="San Bernardino County Homeless Partnership">
+        <!-- Main content under the header -->
+            <div style="display: flex; font-size: 20px; justify-content: space-between; align-items: center; padding: 0 30px; background-color: #005eca; color: white; height: 50px;">
+                <span style="text-align: left;">Veterans Crisis Line</span>
+                <span style="text-align: center;">Dial 988 then PRESS 1</span>
+                <button class="crisis-button" onclick="location.href='https://www.veteranscrisisline.net/?gclid=CjwKEAjws7OwBRCn2Ome5tPP8gESJAAfopWsMsri8DNPlRDqObmZzbCxYhAN8-KUQ6YXdQPoRdYz7hoCMhjw_wcB'">
+                    Veteran Crisis Line
+                </button>
+            </div>
+
+
+            <!-- This is a colum of text and image-->
+            <div class="content-row">
+                <div class="text-col">
+                    <h1 style="text-align: center;"><u>Who We Are</u></h1>
+                    <p>
+                        San Bernardino County Veterans Affairs is dedicated to serving veterans, their families, and survivors by providing free services to access benefits, and resources they have earned.                    
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <div class="text-col">
+                    <h2 style="text-align: left;"><u>What We Do</u></h2>
+                    <p>
+                        We can help you apply for:                    
+                    </p>
+                    <ul>
+                        <li>Disability & Pension benefits</li>
+                        <li>Education & Vocational Readiness & Employment Programs</li>
+                        <li>California College Fee Waivers</li>
+                        <li>VA Health Care</li>
+                        <li>Burial & Memorial Benefits</li>
+                    </ul>
+                </div>
+
+                <div class="text-col">
+                    <h2 style="text-align: left;"><u>How To Reach Us</u></h2>
+                    <p>
+                     Toll Free Phone: 866 - 472 - 8387                    
+                    </p>
+                    <p>
+                        Office Locations:                   
+                    </p>
+                    <ul>
+                        <li>San Bernardino Office, 222 W. Hospitality Ln., 3rd Floor San Bernardino, CA 92415 </li>
+                        <li>Rancho Cucamonga Office, 8575 Haven Ave., Ste. 160 Rancho Cucamonga, CA 91730 </li>
+                        <li>Hesperia Office, 15900 Smoke Tree St. Hesperia, CA 92345</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- Contact Us Modal -->
+            <div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+            <div class="modal-content">
+                <h2 id="modalTitle">Contact Survey</h2>
+                <h4>How it works</h4>
+                <ol style="text-align: left;">
+                    <li>Fill out the survey</li>
+                    <li>We get an email with your infomation</li>
+                    <li>We contact you</li>
+                </ol>
+                <style>.embed-container {position: relative; height: 0; padding-bottom:80%; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe name="survey123webform" width="500" height="400" frameborder="0" marginheight="0" marginwidth="0" title="OHMIS Interest Form TEST" src="//survey123.arcgis.com/share/876617d216664155877f26ccf7336f4c" allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"></iframe></div><script>var survey123webform = document.getElementsByName('survey123webform')[0];window.addEventListener("message",e=>{if(e.data){var t=JSON.parse(e.data);["survey123:webform:formLoaded","survey123:onFormLoaded"].includes(t.event)&&t.contentHeight&&(survey123webform.parentNode.style.height=t.contentHeight+"px")&&(survey123webform.parentNode.style["padding-bottom"]="unset")}});</script>
+                <button id="closeModalBtn" class="small-box" style="margin-top: 20px;">Close</button>
+            </div>
+            </div>
+
+            <!-- Calendar Modal -->
+            <div id="calendarModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="calendarTitle" tabindex="-1">
+            <div class="modal-content">
+                <h2 id="calendarTitle">Upcoming Events</h2>
+                <!-- Replace this with your actual calendar embed or info -->
+                <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarlink" width="100%" height="400" frameborder="0"></iframe>
+                
+                <button id="closeCalendarBtn" class="small-box" style="margin-top: 20px;">Close</button>
+            </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        //This is what allows us to open / close surevey windows. I still need to style the buttons so they're less intrusive. but overall I'm happy 
+        //with this portion of a script. I'll make a JS file to make this cleaner soon.
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('modalOverlay');
+
+        openBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modal.focus(); // optional: trap focus for accessibility
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // This makes it easier to close on pc. Just press escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+            modal.style.display = 'none';
+            }
+        });
+
+        // Calendar modal logic
+        const openCalendarBtn = document.getElementById('openCalendarBtn');
+        const closeCalendarBtn = document.getElementById('closeCalendarBtn');
+        const calendarModal = document.getElementById('calendarModal');
+
+        openCalendarBtn.addEventListener('click', () => {
+            calendarModal.style.display = 'flex';
+            calendarModal.focus();
+        });
+
+        closeCalendarBtn.addEventListener('click', () => {
+            calendarModal.style.display = 'none';
+        });
+
+        // Optional: Esc key closes calendar modal too
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+                calendarModal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
