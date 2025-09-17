@@ -215,29 +215,27 @@ body {
   position: relative;
   border-radius: 40px;
 }
-
-/* Hover style */
-.btn-base:hover {
-  background-color: #555;
-}
 /*This is what makes the text gold on the button. I had no clue you can stack the hovers like this honestly */
 .btn-base:hover .btn-label {
   color: #ffcc00;
 }
-.btn-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;   /* fit entire image without cropping */
-  display: block;
+.btn-base:hover .btn-image {
+  background-color: #696868; /* darker than 141,141,141 */
 }
-
-
 .btn-image {
   flex: 1;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5px;
+  background-color: rgb(141, 141, 141); /* Optional: gives a cleaner look */
+}
+
+.btn-image img {
+  max-width: 90%;
+  max-height: 100px;
+  object-fit: contain;
+  display: block;
 }
 
 
@@ -313,6 +311,7 @@ modal-contect NOT MODAL OVERLAY*/
 }
 
 /*Slide show CSS*/
+
 
 
 
