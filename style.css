@@ -257,14 +257,16 @@ body {
   justify-content: center;
   padding: 5px;
   background-color: rgb(141, 141, 141);
+  overflow: hidden; /* prevent overflow if image is too big */
 }
 
 .btn-image img {
-  max-height: 80px;
-  width: auto;
-  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* keeps aspect ratio */
   display: block;
 }
+
 
 
 
