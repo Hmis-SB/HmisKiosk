@@ -286,17 +286,18 @@ body {
 
 @media only screen 
   and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-    
-  .btn-image img {
-    max-height: 80px;
-  }
-
-  .btn-label {
-    font-size: 17px;
-  }
+  and (max-device-width: 1024px)
+  and (orientation: portrait) {
+    /* Styles for iPad portrait */
 }
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px)
+  and (orientation: landscape) {
+    /* Styles for iPad landscape */
+}
+
 
 
 
