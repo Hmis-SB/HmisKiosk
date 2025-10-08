@@ -194,6 +194,15 @@ body {
   background-color: white;
 }
 
+.btn-base2 {
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+  background-color: grey;
+}
+
 .btn-large {
   width: 300px;
   height: 60px;
@@ -201,6 +210,10 @@ body {
 }
 
 .btn-base:hover {
+  background-color: #555;
+}
+
+.btn-base2:hover {
   background-color: #555;
 }
 /*These are the  main menu buttons css. */
