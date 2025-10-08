@@ -228,9 +228,8 @@ body {
 
 
 .box2 {
-  width: 300px;           /* fixed width to keep uniform size */
-  height: 150px;
-  font-size: 24px;        /* fixed font size for consistency */
+  width: 300px;
+  height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -238,7 +237,11 @@ body {
   overflow: hidden;
   position: relative;
   border-radius: 40px;
+  font-size: 24px;
+  align-items: stretch;
+  box-sizing: border-box;
 }
+
 
 /*This is what makes the text gold on the button. I had no clue you can stack the hovers like this honestly */
 .btn-base:hover .btn-label {
@@ -253,15 +256,16 @@ body {
   align-items: center;
   justify-content: center;
   padding: 5px;
-  background-color: rgb(141, 141, 141); /* Optional: gives a cleaner look */
+  background-color: rgb(141, 141, 141);
 }
 
 .btn-image img {
-  max-width: 90%;
-  max-height: 100px;
+  max-height: 80px;
+  width: auto;
   object-fit: contain;
   display: block;
 }
+
 
 
 .btn-label {
@@ -272,8 +276,11 @@ body {
   line-height: 40px;
   font-size: 20px;
   border-radius: 0 0 40px 40px;
-  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 /* Make buttons scale on smaller screens */
 @media (max-width: 600px) {
