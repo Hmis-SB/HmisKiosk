@@ -1,5 +1,5 @@
 .center-background {
-  background-image: url('images/BackgroundofCounty.png');
+  background-image: url('../images/BackgroundofCounty.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; /* Makes the background stay put */
@@ -13,8 +13,10 @@
 html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* Prevent scrolling the full page */
+  overflow: auto; /* Let body scroll naturally */
+  -webkit-overflow-scrolling: touch; /* ✅ Smooth scroll on iOS */
 }
+
 .main-content {
   overflow-y: auto;
   flex: 1;
@@ -151,7 +153,7 @@ body {
   transition: color 0.3s ease;
 }
 
-/*RAYMOND DONT FORGET THE HOVER ITS FOR ADA*/
+/*RAYMOND DONT FORGET THE HOVER ITS FOR ADA!!! Still have no clue how this doesn't hurt peoples eyes but hey*/
 /* This is the gold Hover color*/
 .main-nav a:hover {
   color: #ffcc00; /*This is kind of a gold*/
@@ -189,7 +191,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   color: white;
-  background-color: grey;
+  background-color: white;
 }
 
 .btn-large {
@@ -203,6 +205,15 @@ body {
 }
 /*These are the  main menu buttons css. */
 
+/*These set the color of the buttons for ADA compliance. My CSS isn't the best and this is more of a Qucik fix rather than a perm solution*/
+.box2 .btn-image {
+  background-color: #FFFAFA !important;
+}
+.btn-base:hover .btn-image {
+  background-color: #d2cfcf !important;
+}
+
+
 .box2 {
   width: 300px;           /* fixed width to keep uniform size */
   height: 150px;
@@ -215,6 +226,7 @@ body {
   position: relative;
   border-radius: 40px;
 }
+
 /*This is what makes the text gold on the button. I had no clue you can stack the hovers like this honestly */
 .btn-base:hover .btn-label {
   color: #ffcc00;
@@ -253,7 +265,7 @@ body {
 /* Make buttons scale on smaller screens */
 @media (max-width: 600px) {
   .box2 {
-    width: 90vw;          /* almost full width on small screens */
+    width: 90vw;          /* almost full width on small screens SIDE NOTE: Might be causing issue with buttons on the ipad. Either this or my guess is the overflow: hidden*/
     max-width: 300px;     /* but don’t get bigger than desktop size */
     font-size: 20px;      /* slightly smaller font */
   }
@@ -311,8 +323,6 @@ modal-contect NOT MODAL OVERLAY*/
 }
 
 /*Slide show CSS*/
-
-
 
 
 
