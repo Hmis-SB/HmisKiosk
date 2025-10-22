@@ -135,7 +135,7 @@
         alt="San Bernardino County Homeless Partnership"
       />
 
-      <button id="openMyNewModal" class="nav-button">My New Modal</button>
+      
 
       <div class="content-row">
         <div class="text-col">
@@ -190,11 +190,12 @@
             urgent medical help in the case of an overdose.
           </p>
 
-          <h2>Using Naloxone Nasal Spray</h2>
-          <p>Naloxone Quick Start Guide (English)</p>
-          <p>Naloxone Quick Start Guide (Spanish)</p>
-          <p>Naloxone Nasal Spray Training Video</p>
-          <p>Acknowledgment of Narcan Training Received (Spanish)</p>
+          <p id="openModal1" style="color: #0000EE; cursor: pointer;"><u>Naloxone Quick Start Guide (English)</u></p>
+          <p id="openModal2" style="color: #0000EE; cursor: pointer;"><u>Naloxone Quick Start Guide (Spanish)</u></p>
+          <p id="openModal3" style="color: #0000EE; cursor: pointer;"><u>Naloxone Nasal Spray Training Video</u></p> <!--https://www.youtube.com/watch?v=B9Sv64FJPhg-->
+          <p id="openModal4" style="color: #0000EE; cursor: pointer;"><u>Acknowledgment of Narcan Training Received</u></p>
+          <p id="openModal5" style="color: #0000EE; cursor: pointer;"><u>Acknowledgment of Narcan Training Received (Spanish)</u></p>
+
         </div>
       </div>
 
@@ -437,41 +438,61 @@
             -->
     </div>
     <!-- Modal for My New Modal -->
-    <div
-      id="modalMyNewModal"
-      class="modal-overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modalTitleMyNewModal"
-      tabindex="-1"
-    >
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal-overlay" role="dialog" aria-modal="true" tabindex="-1">
       <div class="modal-content">
-        <h2 id="modalTitleMyNewModal">My New Modal</h2>
-
+        <h2>Naloxone Quick Start Guide (English)</h2>
         <div class="embed-container" style="margin-top: 20px">
-          <iframe
-            name="iframeMyNewModal"
-            width="500"
-            height="400"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="My New Modal"
-            src="https://www.cdph.ca.gov/Programs/CCDPHP/sapb/Pages/Fentanyl.aspx"
-            allow="geolocation; camera;"
-          >
-          </iframe>
+          <iframe src="./PDF/Naloxone Distribution English.pdf" width="500" height="400"></iframe>
         </div>
-
-        <button
-          id="closeMyNewModalBtn"
-          class="small-box"
-          style="margin-top: 20px"
-        >
-          Close
-        </button>
+        <button id="closeModal1" style="margin-top: 20px;">Close</button>
       </div>
     </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal-overlay" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="modal-content">
+        <h2>Naloxone Quick Start Guide (Spanish)</h2>
+        <div class="embed-container" style="margin-top: 20px">
+          <iframe src="./PDF/Naloxone Distribution Spanish.pdf" width="500" height="400"></iframe>
+        </div>
+        <button id="closeModal2" style="margin-top: 20px;">Close</button>
+      </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal-overlay" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="modal-content">
+        <h2>Naloxone Nasal Spray Training Video</h2>
+        <div class="embed-container" style="margin-top: 20px">
+          <iframe src="https://www.youtube.com/embed/B9Sv64FJPhg" width="500" height="400" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <button id="closeModal3" style="margin-top: 20px;">Close</button>
+      </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div id="modal4" class="modal-overlay" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="modal-content">
+        <h2>Acknowledgment of Narcan Training Received</h2>
+        <div class="embed-container" style="margin-top: 20px">
+          <iframe src="./PDF/narcaninstructions_English.pdf" width="500" height="400"></iframe>
+        </div>
+        <button id="closeModal4" style="margin-top: 20px;">Close</button>
+      </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div id="modal5" class="modal-overlay" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="modal-content">
+        <h2>Acknowledgment of Narcan Training Received (Spanish)</h2>
+        <div class="embed-container" style="margin-top: 20px">
+          <iframe src="./PDF/narcaninstructions_spanish.pdf" width="500" height="400"></iframe>
+        </div>
+        <button id="closeModal5" style="margin-top: 20px;">Close</button>
+      </div>
+    </div>
+
 
     <script>
       function expandContent(content) {
@@ -507,34 +528,37 @@
         });
       });
 
-      // 🧠 Define setupModal BEFORE calling it
       function setupModal(openBtnId, modalId, closeBtnId) {
-        const openBtn = document.getElementById(openBtnId);
-        const modal = document.getElementById(modalId);
-        const closeBtn = document.getElementById(closeBtnId);
+      const openBtn = document.getElementById(openBtnId);
+      const modal = document.getElementById(modalId);
+      const closeBtn = document.getElementById(closeBtnId);
 
-        if (openBtn && modal && closeBtn) {
-          openBtn.addEventListener("click", () => {
-            modal.style.display = "flex";
-            modal.focus();
-          });
+      if (openBtn && modal && closeBtn) {
+        openBtn.addEventListener("click", () => {
+          modal.style.display = "flex";
+          modal.focus();
+        });
 
-          closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-          });
-        }
-      }
-      // Dismiss on click outside modal content
-      document.querySelectorAll(".modal-overlay").forEach((modal) => {
+        closeBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        // Close modal if clicking outside content
         modal.addEventListener("click", (e) => {
           if (e.target === modal) {
             modal.style.display = "none";
           }
         });
-      });
+      }
+    }
 
-      // ✅ Now it’s safe to call it AFTER the function exists
-      setupModal("openMyNewModal", "modalMyNewModal", "closeMyNewModalBtn");
+    // Call setupModal for each modal
+    setupModal("openModal1", "modal1", "closeModal1");
+    setupModal("openModal2", "modal2", "closeModal2");
+    setupModal("openModal3", "modal3", "closeModal3");
+    setupModal("openModal4", "modal4", "closeModal4");
+    setupModal("openModal5", "modal5", "closeModal5");
+
     </script>
   </div>
 </body>
