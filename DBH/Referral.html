@@ -1,339 +1,616 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OHS KIOSK</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <style>
     .kiosk-button a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #007a8c;
-    font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #007a8c;
+      font-weight: bold;
     }
 
     .kiosk-button a:hover {
-    text-decoration: underline;
+      text-decoration: underline;
     }
 
     .kiosk-button img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    border-radius: 50%;
-    border: 3px solid #007a8c;
-    padding: 10px;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 3px solid #007a8c;
+      padding: 10px;
     }
 
     .collapsible {
-    background-color: #777;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
     }
 
-    .active, .collapsible:hover {
-    background-color: #555;
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
     }
 
     .collapsible:after {
-    content: '\002B';
-    color: white;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
+      content: "\002B";
+      color: white;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
     }
 
     .active:after {
-    content: "\2212";
+      content: "\2212";
     }
 
     .content {
-    padding: 0 18px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    background-color: #f1f1f1;
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
     }
-    </style>
-    
+  </style>
 </head>
 <body class="center-background">
-    <div class="top-bar">
-    <button  onclick="location.href='../DBH.html'" class="round-button" alt="Go Back">
-        &#8592;
+  <div class="top-bar">
+    <button
+      onclick="location.href='../DBH.html'"
+      class="round-button"
+      alt="Go Back"
+    >
+      &#8592;
     </button>
-    </div>
-    <div class="main-page"> 
-        <header class="main-nav-bar" style="font-size: 20px; display: flex; justify-content: center;">
-            <h1>Outpatient Services</h1>
-        </header>
-        <div class="main-content">
-        <img src="../images/referral.png" class="banner-img" alt="San Bernardino County Homeless Partnership">
+  </div>
+  <div class="main-page">
+    <header
+      class="main-nav-bar"
+      style="font-size: 20px; display: flex; justify-content: center"
+    >
+      <h1>Outpatient Services</h1>
+    </header>
+    <div class="main-content">
+      <img
+        src="../images/referral.png"
+        class="banner-img"
+        alt="San Bernardino County Homeless Partnership"
+      />
 
-        
-            
-       
-            <div class="content-row">
-                <div class="text-col">
-                    <p>
-                        The following DBH programs do not accept direct referrals from the public. Participants must be referred into the following programs by a service provider, agency, and/or health or social services professional.
-                    <h2>Click on the title or + sign to learn more about the programs.</h2>
-                </div>
-                
-            </div>
+      <div class="content-row">
+        <div class="text-col">
+          <p>
+            The following DBH programs do not accept direct referrals from the
+            public. Participants must be referred into the following programs by
+            a service provider, agency, and/or health or social services
+            professional.
+          </p>
 
-            <div class="content-row">
-            <div class="text-col">
-            <button type="button" class="collapsible">Adult Forensic Services Programs</button>
-            <div class="content">
-                <p>Comprehensive treatment services to individuals with mental health and/or substance use needs who are involved with the criminal justice system. Referrals must originate from Forensic Services programs and/or the Mental Health Court.</p>
-
-                <h3>Choosing Healthy Options to Instill Change and Empowerment (CHOICE)</h3>
-                <p>Mental health and substance use disorder services to individuals on probation. Offices are co-located at the Probation Day Reporting Centers (DRCs) and Re-entry Services Centers.</p>
-                <p>1330 E. Cooley Dr., Colton | (909) 580-3705</p>
-                <p>1300 E. Mountain View St., Barstow | (760) 256-4230</p>
-                <p>DRCs</p>
-                <p>104 W. 4th St., San Bernardino | (909) 382-7881</p>
-                <p>15480 Ramona Ave., Victorville | (760) 243-8252</p>
-                <p>17830 Arrow Blvd., Fontana | (909) 356-6439</p>
-                <h3>Diversion Opportunity for Outpatient Recovery Services (DOORS)</h3>
-                <p>A pre-trial diversion and competency-based program that provides behavioral health treatment services to individuals classified under AB 1810 and SB 215, which are pre-trail Felony IST persons and also others who are found IST (PC1368) by the court for misdemeanor and felony charges. Referrals come from the Public Defender’s Office.</p>
-                <p>(909) 421-4690</p>
-                <h3>Re-Integrative Supportive Engagement Services (RISES)</h3>
-                <p>Support services for severe mentally ill adults recently released from county jails. RISES links adults to mental health, substance use disorder, housing an other services.</p>
-                <p>658 E. Brier Dr., San Bernardino | (909) 501-0753</p>
-                <h3>Community Supervised Treatment After Release (CSTAR)</h3>
-                <p>Court-referred outpatient program to address the mental health and substance use disorder needs of adults with a serious and persistent mental illness and repeated contact with the criminal justice system.</p>
-                <p>1330 E. Cooley Dr., Colton | (909) 580-3705</p>
-                <p>7281 Dumosa Ave., Ste. 4, Yucca Valley | (760) 853-4755</p>
-                <p>12625 Hesperia Rd., Victorville | (760) 955-8300</p>
-                <h3>Telecare Forensics Assertive Community Treatment (FACT)/Community FACT</h3>
-                <p>Designed using the Assertive Community Treatment model to enhance the lives of individuals living with severe and persistent mental illness. FACT/CFACT provide wraparound services for adults who have extensive contacts with the criminal justice system or have a history of incarceration.</p>
-                <p>431 MacKay Dr., Ste. 100, San Bernardino | (909) 433-9300</p>
-            </div>
-            <button type="button" class="collapsible">Children's System of Care</button>
-            <div class="content">
-                <p>Services for seriously, emotionally disturbed children who are not benefiting from traditional mental health services. Services range from crisis intervention to life skills and educational services. Referrals must originate from a County Mental Health program and/or a placing agency.</p>
-
-                <h3>Centralized Children’s Intensive Case Management Services (CCICMS)</h3>
-                <p>Coordination and monitoring of specialty programs including Therapeutic Behavioral Services, Success First, Group Homes, and Wraparound Services.</p>
-                <p>658 E. Brier Dr., Ste. 200, San Bernardino | (909) 501-0700</p>
-
-                <h3>Juvenile Court Behavioral Health Services (JCBHS) / Healthy Homes</h3>
-                <p>For dependents of the court including psychotropic medication referral review.</p>
-                <p>658 E. Brier Dr., Ste. 200, San Bernardino | (909) 501-0700</p>
-
-                <h3>Parent Partner Program</h3>
-                <p>Promotes partnerships between families, mental health providers, health care providers and school personnel.</p>
-                <p>658 E. Brier Dr., Ste. 200, San Bernardino | (909) 501-0700</p>
-
-                <h3>SB 163 Wraparound</h3>
-                <p>Services designed to help allow children/youth to remain in their homes, rather than moving to a group home environment. Provided in collaboration with San Bernardino County Children and Family Services and Probation Department.</p>
-                <br>
-                <p>Lutheran Social Services</p>
-                <p>41945 Big Bear Blvd., Ste. 221 – 223, Big Bear Lake | (909) 866-5070</p>
-                <p>58923 Business Center Dr., Ste. A – E, Yucca Valley | (760) 365-7209</p>
-                <br>
-                <p>South Coast Community Services</p>
-                <p>1425 W. Foothill Blvd., 3rd fl., Upland | (877) 527-7227</p>
-                <br>
-                <p>Uplift Family Services</p>
-                <p>596 N. Arrowhead Ave., San Bernardino | (909) 266-2700</p>
-                <br>
-                <p>Victor Community Support Services</p>
-                <p>222 E. Main St., Ste. 117, Barstow | (760) 255-1496</p>
-                <p>15095 Amargosa Rd., Ste. 201, 205 & 208, Victorville | (760) 245-4695</p>
-            </div>
-            <button type="button" class="collapsible">Juvenile Justice Programs</button>
-            <div class="content">
-                <p>Services for minors involved in the juvenile justice system. Referrals must originate from the San Bernardino County Probation Department.</p>
-                <h3>Court for the Individualized Treatment of Adolescents (CITA)</h3>
-                <p>Outpatient psychotherapy and psychiatric care for youth in the juvenile justice system.</p>
-                <p>780 E. Gilbert St., San Bernardino | (909) 386-0776</p>
-
-                <h3>Forensic Adolescent Services Team (FAST)</h3>
-                <p>For youth detained in a San Bernardino County Juvenile Detention and Assessment Center (JDAC) or housed at a Probation treatment facility.</p>
-                <p>900 E. Gilbert St., San Bernardino | (909) 387-7118</p>
-
-                <h3>Integrated New Family Opportunities (INFO)</h3>
-                <p>For youth released from the San Bernardino County JDAC. Services include family and group therapy, supervision, case management, and peer counseling.</p>
-                <p>755 E. Gilbert St., San Bernardino | (909) 387-7792</p>
-                <p>15345 Bonanza Rd., Victorville | (909) 387-7792</p>
-
-                <h3>Juvenile Justice Community Reintegration (JJCR)</h3>
-                <p>For youth detained in a San Bernardino County Juvenile Detention and Assessment Center (JDAC). Services include individual case planning, home visits, referrals to resources, and academic and vocational support.</p>
-                <p>755 E. Gilbert St., San Bernardino | (909) 387-7792</p>
-                <p>5345 Bonanza Rd., Victorville | (909) 387-7792</p>
-
-                <h3></h3>
-                <p></p>
-
-                
-            </div>
-            <button type="button" class="collapsible">Homeless and Supportive Services</button>
-            <div class="content">
-                <p>The Department of Behavioral Health is a part of the County’s Interagency Council on Homelessness and Homeless Provider Network.  There are four programs included in Homeless and Supportive Services:</p>
-                <h3>Innovative Remote Onsite Assistance Delivery (InnROADs)</h3>
-                <p>InnROADs works with community and county agencies to provide services to people who are experiencing homelessness and living in rural and isolated areas. InnROADs is a collaborative partnership between San Bernardino County Department of Aging and Adult Services, Behavioral Health, Public Health, and the Sheriff.
-                </p>
-                <p>
-                (909) 387-7406 | DBHInnROADsReferrals@dbh.sbcounty.gov
-                </p>
-
-                <h3>Community Supports</h3>
-                <p>Community Supports provides Housing Navigation and Housing Search for clients that have a severe mental illness and have been linked to a housing voucher/rental subsidy from the Coordinated Entry System.</p>
-                <p>(909) 387-7406</p>
-
-                <h3>Homeless Outreach Support Team (HOST)</h3>
-                <p>HOST assists homeless residents in obtaining Supplemental Security Income (SSI) and collaborates with other entities that provide outreach and engagement.</p>
-                <p>(909) 387-7406</p>
-
-                <h3>Supportive Services</h3>
-                <p>Supportive Services staff members provide tenancy supports and supportive services to those in Permanent Supportive Housing.</p>
-                <p>(909) 387-7406</p>
-            </div>
-            <button type="button" class="collapsible">Other Referral Only Service and Supports</button>
-            <div class="content">
-                <h3>Adult Continuing Care Program</h3>
-                <p>Formerly known as the Adult Residential Services (ARS) program, this program provides mental health services for adults with a mental health condition who are in need of structured level of care after transition from long-term locked residential facilities. Referrals must originate from a health provider.</p>
-                <p>850 E. Foothill Blvd., Rialto | (909) 421-9425</p>
-
-                <h3>CalWORKs</h3>
-                <p>Supportive services designed to improve the overall emotional health and employment skills of adults. Referrals must originate from the San Bernardino County Transitional Assistance Department.</p>
-                <p>Apple Valley Behavioral Health</p>
-                <p>18818 US Highway 18, Apple Valley, CA 92307/ (760) 995-8083 </p>
-                <br>
-                <p>Barstow Counseling Center</p>
-                <p>1841 E. Main St., Barstow, CA 92311 | (760) 255-5724</p>
-                <br>
-                <p>Mariposa Community Counseling</p>
-                <p>2940 Inland Empire Blvd., Ontario, CA 91764 | (909) 458-1368 </p>
-                <br>
-                <p>Mesa Counseling Center</p>
-                <p>850 E. Foothill Blvd., Rialto, CA 92376 | (909) 421-9249</p>
-                <br>
-                <h3>Coalition Against Sexual Exploitation (CASE)</h3>
-                <p>Services for sexually exploited children and youth (or those at risk for sexual exploitation). Services include mental health assessments, crisis intervention, case management, school enrollment assistance, transportation, and placement. Referrals must originate from a county agency.</p>
-                <p>San Bernardino County Children’s Network<br>825 E. Hospitality Ln., San Bernardino | (909) 383-9677</p>
-
-                <h3>Community Reintegration Services (CRS)</h3>
-                <p>Intensive case management to adults suffering from a mental health condition who are in need of additional supportive services to transition back to their community housed after receiving long-term inpatient psychiatric treatment services. Referrals must originate from a psychiatric facility or county program.</p>
-                <p>850 E. Foothill Blvd, Rialto | (909) 421-9380</p>
-
-                <h3>Conservatorship Investigation Program</h3>
-                <p>Provides assessments of adults and children considered gravely disabled due to a mental disorder by a treating hospital psychiatrist to determine whether he/she meets criteria to be placed on conservatorship. Referrals must originate from a physician while the individual is hospitalized.</p>
-                <p>850 E. Mill St., San Bernardino | (909) 798-8589</p>
-
-                <h3>Deferred Entry of Judgement (DEJ) Services</h3>
-                <p>Provides understanding of the addiction process to encourage recovery from drugs for adults.</p>
-                <p>High Desert Child, Adolescent & Family Services Center, Inc.<br>16248 Victor St., Victorville | (760) 243-7151</p>
-                <br>
-                <p>Inland Behavioral & Health Services<br>1963 N. E St., San Bernardino | (909) 881-6146</p>
-                <br>
-                <p>MHS Needles Center for Change<br>300 H St., Needles | (760) 326-4590<br>58945 Business Center Dr., Ste. J, Yucca Valley | (760) 369-1074</p>
-                <br>
-                <p>Valley Improvement Programs, Inc.<br>210 W. B St., Ontario | (909) 983-3665<br>1589 W. Ninth St., Ste. E, Upland | (909) 985-2785</p>
-                <br>
-
-                <h3>Driving Under the Influence (DUI) Programs</h3>
-                <p>Provides education, individual and interactive group counseling and referral resources for adults. Referrals must originate from the Superior Court or the Dept. of Motor Vehicles (DMV).</p>
-                <p>Alcohol Education and Recovery Services<br>12560 Central Ave., Chino | (909) 591-4761</p>
-                <br>
-                <p>Prodigy Healthcare<br>688 N. Arrowhead Ave., Ste. 101, San Bernardino | (909) 888-0149</p>
-                <br>
-                <p>Dalton and Associates<br>12209 Hesperia Rd., Ste. G, Victorville | (760) 241-1777</p>
-                <br>
-                <p>Jackson-Bibby Awareness Group<br>14420 Civic Dr., Ste. 3, Victorville | (760) 241-3300<br>222 E. Main St., Ste. 218, Barstow | (760) 256-6114<br>1200 Arizona St., Ste. A10, Redlands | (909) 792-6925</p>
-                <br>
-                <p>Mental Health Systems<br>300 H St., Needles | (760) 326-4590<br>2020 N. Waterman Ave., Ste C, San Bernardino | (909) 881-1570<br>58945 Business Center Dr., Ste J, Yucca Valley | (760) 369-1074</p>
-                <br>
-                <p>Rehabilitation and Alcohol Program<br>17205 Arrow Blvd., Fontana | (909) 356-9390</p>
-                <br>
-                <p>Social Science Services<br>18612 Santa Ana Ave., Bloomington | (909) 421-7120</p>
-                <br>
-                <p>Valley Improvement Program<br>8540 Archibald Ave., Rancho Cucamonga | (909) 987-4036<br>210 W. B St., Ontario | (909) 983-3665<br>1589 W. Ninth St., Ste. E, Upland | (909) 985-2785</p>
-                <br>
-
-                <h3>Drug Court Programs</h3>
-                <p>Monitored substance use disorder treatment program for adults or juveniles. Referrals must originate from the Superior Court.</p>
-                <p><strong>Adult Programs:</strong></p>
-                <p>Clare-Matrix<br>812 N. Euclid Avenue, Ontario | (909) 395-0888</p>
-                <br>
-                <p>High Desert Child, Adolescent & Family Center Services Center, Inc.<br>16248 Victor St., Victorville | (760) 243-7151</p>
-                <br>
-                <p>MHS Fontana Center for Change<br>1076 Santo Antonio Dr., Ste. B, Colton | (909) 433-9824<br>1874 Business Center Dr., San Bernardino | (909) 386-0437<br>58945 Business Center Dr., Ste. P, Yucca Valley | (760) 369-1074</p>
-                <br>
-                <p><strong>Juvenile Programs:</strong></p>
-                <p>Clare-Matrix<br>812 N. Euclid Ave., Ontario | (909) 395-0888</p>
-                <br>
-                <p>Inland Valley Recovery Services San Bernardino Recovery Center<br>939 North D St., San Bernardino | (909) 889-6519</p>
-                <br>
-                <p>High Desert Child, Adolescent & Family Services Center, Inc.<br>16248 Victor St., Victorville | (760) 243-7151</p>
-                <br>
-
-                <h3>Emergency Shelter Services</h3>
-                <p>Emergency housing for individuals who are homeless and living with a behavioral health condition.</p>
-                <p>(909) 388-5600</p>
-
-                <h3>Long-Term Residential Care</h3>
-                <p>Services for individuals who are being placed in or discharged from licensed, long-term, locked facilities, including Institutes for Mental Diseases (IMDs) and state hospitals. The program provides case management and transitional services to appropriate levels of care. Referrals must originate from a hospital.</p>
-                <p>(909) 421-9479</p>
-
-                <h3>Placement After Stabilization (PAS)</h3>
-                <p>Discharge planning for individuals exiting a CRT facility. Referral must originate from CRT.</p>
-                <p>(909) 501-0980</p>
-
-                <h3>Supportive Services</h3>
-                <p>Full service partnership support for individuals living in permanent supportive housing projects.</p>
-                <p>(909) 421-4633</p>
-
-                <h3>Triage, Engagement and Support Teams (TEST)</h3>
-                <p>Supports law enforcement and community partners by providing crisis intervention and support services to people in mental health crisis. Staff respond in the field alongside law enforcement or other agency personnel to initially address the crisis and provide follow-up case management and referrals.</p>
-                <p>(909) 873-4409</p>
-
-                <h3>Therapeutic Alliance Program (TAP)</h3>
-                <p>A 90-day residential treatment program for adults that addresses the unique needs of the population dealing with co-occurring disorders (mental illness and substance abuse). Referrals must originate from a hospital or other community facility.</p>
-                <p>850 E. Foothill Blvd., Rialto | (909) 421-9425</p>
-
-                <h3>Triage Transitional Services (TTS)</h3>
-                <p>Hospital diversion services including screening and assessments, crisis services, transportation and referrals to outpatient programs. Referrals must originate from Arrowhead Regional Medical Center Behavioral Health Triage.</p>
-                <p>400 N. Pepper Ave., Colton | (909) 580-2141</p>
-
-                <h3>Withdrawal Management Detox Programs</h3>
-                <p>Monitored detoxification services in a residential treatment or hospital setting.</p>
-                <p>Cedar House Life Change Center<br>18612 Santa Ana Ave., Bloomington | (909) 421-7120</p>
-                <br>
-                <p>Tarzana Treatment Centers<br>44447 10th St., Lancaster | (661) 726-2630<br>18646 Oxnard St., Tarzana | (888) 777-8565</p>
-
-            </div>
+          <h2>
+            Click on the title or + sign to learn more about the programs.
+          </h2>
         </div>
-    </div>
-            
+      </div>
 
+      <div class="content-row">
+        <div class="text-col">
+          <button type="button" class="collapsible">
+            Adult Forensic Services Programs
+          </button>
+          <div class="content">
+            <p>
+              Comprehensive treatment services to individuals with mental health
+              and/or substance use needs who are involved with the criminal
+              justice system. Referrals must originate from Forensic Services
+              programs and/or the Mental Health Court.
+            </p>
+
+            <h3>
+              Choosing Healthy Options to Instill Change and Empowerment
+              (CHOICE)
+            </h3>
+            <p>
+              Mental health and substance use disorder services to individuals
+              on probation. Offices are co-located at the Probation Day
+              Reporting Centers (DRCs) and Re-entry Services Centers.
+            </p>
+            <p>1330 E. Cooley Dr., Colton | (909) 580-3705</p>
+            <p>1300 E. Mountain View St., Barstow | (760) 256-4230</p>
+            <p>DRCs</p>
+            <p>104 W. 4th St., San Bernardino | (909) 382-7881</p>
+            <p>15480 Ramona Ave., Victorville | (760) 243-8252</p>
+            <p>17830 Arrow Blvd., Fontana | (909) 356-6439</p>
+            <h3>
+              Diversion Opportunity for Outpatient Recovery Services (DOORS)
+            </h3>
+            <p>
+              A pre-trial diversion and competency-based program that provides
+              behavioral health treatment services to individuals classified
+              under AB 1810 and SB 215, which are pre-trail Felony IST persons
+              and also others who are found IST (PC1368) by the court for
+              misdemeanor and felony charges. Referrals come from the Public
+              Defender’s Office.
+            </p>
+            <p>(909) 421-4690</p>
+            <h3>Re-Integrative Supportive Engagement Services (RISES)</h3>
+            <p>
+              Support services for severe mentally ill adults recently released
+              from county jails. RISES links adults to mental health, substance
+              use disorder, housing an other services.
+            </p>
+            <p>658 E. Brier Dr., San Bernardino | (909) 501-0753</p>
+            <h3>Community Supervised Treatment After Release (CSTAR)</h3>
+            <p>
+              Court-referred outpatient program to address the mental health and
+              substance use disorder needs of adults with a serious and
+              persistent mental illness and repeated contact with the criminal
+              justice system.
+            </p>
+            <p>1330 E. Cooley Dr., Colton | (909) 580-3705</p>
+            <p>7281 Dumosa Ave., Ste. 4, Yucca Valley | (760) 853-4755</p>
+            <p>12625 Hesperia Rd., Victorville | (760) 955-8300</p>
+            <h3>
+              Telecare Forensics Assertive Community Treatment (FACT)/Community
+              FACT
+            </h3>
+            <p>
+              Designed using the Assertive Community Treatment model to enhance
+              the lives of individuals living with severe and persistent mental
+              illness. FACT/CFACT provide wraparound services for adults who
+              have extensive contacts with the criminal justice system or have a
+              history of incarceration.
+            </p>
+            <p>431 MacKay Dr., Ste. 100, San Bernardino | (909) 433-9300</p>
+          </div>
+          <button type="button" class="collapsible">
+            Children's System of Care
+          </button>
+          <div class="content">
+            <p>
+              Services for seriously, emotionally disturbed children who are not
+              benefiting from traditional mental health services. Services range
+              from crisis intervention to life skills and educational services.
+              Referrals must originate from a County Mental Health program
+              and/or a placing agency.
+            </p>
+
+            <h3>
+              Centralized Children’s Intensive Case Management Services (CCICMS)
+            </h3>
+            <p>
+              Coordination and monitoring of specialty programs including
+              Therapeutic Behavioral Services, Success First, Group Homes, and
+              Wraparound Services.
+            </p>
+            <p>658 E. Brier Dr., Ste. 200, San Bernardino | (909) 501-0700</p>
+
+            <h3>
+              Juvenile Court Behavioral Health Services (JCBHS) / Healthy Homes
+            </h3>
+            <p>
+              For dependents of the court including psychotropic medication
+              referral review.
+            </p>
+            <p>658 E. Brier Dr., Ste. 200, San Bernardino | (909) 501-0700</p>
+
+            <h3>Parent Partner Program</h3>
+            <p>
+              Promotes partnerships between families, mental health providers,
+              health care providers and school personnel.
+            </p>
+            <p>658 E. Brier Dr., Ste. 200, San Bernardino | (909) 501-0700</p>
+
+            <h3>SB 163 Wraparound</h3>
+            <p>
+              Services designed to help allow children/youth to remain in their
+              homes, rather than moving to a group home environment. Provided in
+              collaboration with San Bernardino County Children and Family
+              Services and Probation Department.
+            </p>
+            <br />
+            <p>Lutheran Social Services</p>
+            <p>
+              41945 Big Bear Blvd., Ste. 221 – 223, Big Bear Lake | (909)
+              866-5070
+            </p>
+            <p>
+              58923 Business Center Dr., Ste. A – E, Yucca Valley | (760)
+              365-7209
+            </p>
+            <br />
+            <p>South Coast Community Services</p>
+            <p>1425 W. Foothill Blvd., 3rd fl., Upland | (877) 527-7227</p>
+            <br />
+            <p>Uplift Family Services</p>
+            <p>596 N. Arrowhead Ave., San Bernardino | (909) 266-2700</p>
+            <br />
+            <p>Victor Community Support Services</p>
+            <p>222 E. Main St., Ste. 117, Barstow | (760) 255-1496</p>
+            <p>
+              15095 Amargosa Rd., Ste. 201, 205 & 208, Victorville | (760)
+              245-4695
+            </p>
+          </div>
+          <button type="button" class="collapsible">
+            Juvenile Justice Programs
+          </button>
+          <div class="content">
+            <p>
+              Services for minors involved in the juvenile justice system.
+              Referrals must originate from the San Bernardino County Probation
+              Department.
+            </p>
+            <h3>
+              Court for the Individualized Treatment of Adolescents (CITA)
+            </h3>
+            <p>
+              Outpatient psychotherapy and psychiatric care for youth in the
+              juvenile justice system.
+            </p>
+            <p>780 E. Gilbert St., San Bernardino | (909) 386-0776</p>
+
+            <h3>Forensic Adolescent Services Team (FAST)</h3>
+            <p>
+              For youth detained in a San Bernardino County Juvenile Detention
+              and Assessment Center (JDAC) or housed at a Probation treatment
+              facility.
+            </p>
+            <p>900 E. Gilbert St., San Bernardino | (909) 387-7118</p>
+
+            <h3>Integrated New Family Opportunities (INFO)</h3>
+            <p>
+              For youth released from the San Bernardino County JDAC. Services
+              include family and group therapy, supervision, case management,
+              and peer counseling.
+            </p>
+            <p>755 E. Gilbert St., San Bernardino | (909) 387-7792</p>
+            <p>15345 Bonanza Rd., Victorville | (909) 387-7792</p>
+
+            <h3>Juvenile Justice Community Reintegration (JJCR)</h3>
+            <p>
+              For youth detained in a San Bernardino County Juvenile Detention
+              and Assessment Center (JDAC). Services include individual case
+              planning, home visits, referrals to resources, and academic and
+              vocational support.
+            </p>
+            <p>755 E. Gilbert St., San Bernardino | (909) 387-7792</p>
+            <p>5345 Bonanza Rd., Victorville | (909) 387-7792</p>
+
+            <h3></h3>
+            <p></p>
+          </div>
+          <button type="button" class="collapsible">
+            Homeless and Supportive Services
+          </button>
+          <div class="content">
+            <p>
+              The Department of Behavioral Health is a part of the County’s
+              Interagency Council on Homelessness and Homeless Provider Network.
+              There are four programs included in Homeless and Supportive
+              Services:
+            </p>
+            <h3>Innovative Remote Onsite Assistance Delivery (InnROADs)</h3>
+            <p>
+              InnROADs works with community and county agencies to provide
+              services to people who are experiencing homelessness and living in
+              rural and isolated areas. InnROADs is a collaborative partnership
+              between San Bernardino County Department of Aging and Adult
+              Services, Behavioral Health, Public Health, and the Sheriff.
+            </p>
+            <p>(909) 387-7406 | DBHInnROADsReferrals@dbh.sbcounty.gov</p>
+
+            <h3>Community Supports</h3>
+            <p>
+              Community Supports provides Housing Navigation and Housing Search
+              for clients that have a severe mental illness and have been linked
+              to a housing voucher/rental subsidy from the Coordinated Entry
+              System.
+            </p>
+            <p>(909) 387-7406</p>
+
+            <h3>Homeless Outreach Support Team (HOST)</h3>
+            <p>
+              HOST assists homeless residents in obtaining Supplemental Security
+              Income (SSI) and collaborates with other entities that provide
+              outreach and engagement.
+            </p>
+            <p>(909) 387-7406</p>
+
+            <h3>Supportive Services</h3>
+            <p>
+              Supportive Services staff members provide tenancy supports and
+              supportive services to those in Permanent Supportive Housing.
+            </p>
+            <p>(909) 387-7406</p>
+          </div>
+          <button type="button" class="collapsible">
+            Other Referral Only Service and Supports
+          </button>
+          <div class="content">
+            <h3>Adult Continuing Care Program</h3>
+            <p>
+              Formerly known as the Adult Residential Services (ARS) program,
+              this program provides mental health services for adults with a
+              mental health condition who are in need of structured level of
+              care after transition from long-term locked residential
+              facilities. Referrals must originate from a health provider.
+            </p>
+            <p>850 E. Foothill Blvd., Rialto | (909) 421-9425</p>
+
+            <h3>CalWORKs</h3>
+            <p>
+              Supportive services designed to improve the overall emotional
+              health and employment skills of adults. Referrals must originate
+              from the San Bernardino County Transitional Assistance Department.
+            </p>
+            <p>Apple Valley Behavioral Health</p>
+            <p>18818 US Highway 18, Apple Valley, CA 92307/ (760) 995-8083</p>
+            <br />
+            <p>Barstow Counseling Center</p>
+            <p>1841 E. Main St., Barstow, CA 92311 | (760) 255-5724</p>
+            <br />
+            <p>Mariposa Community Counseling</p>
+            <p>2940 Inland Empire Blvd., Ontario, CA 91764 | (909) 458-1368</p>
+            <br />
+            <p>Mesa Counseling Center</p>
+            <p>850 E. Foothill Blvd., Rialto, CA 92376 | (909) 421-9249</p>
+            <br />
+            <h3>Coalition Against Sexual Exploitation (CASE)</h3>
+            <p>
+              Services for sexually exploited children and youth (or those at
+              risk for sexual exploitation). Services include mental health
+              assessments, crisis intervention, case management, school
+              enrollment assistance, transportation, and placement. Referrals
+              must originate from a county agency.
+            </p>
+            <p>
+              San Bernardino County Children’s Network<br />825 E. Hospitality
+              Ln., San Bernardino | (909) 383-9677
+            </p>
+
+            <h3>Community Reintegration Services (CRS)</h3>
+            <p>
+              Intensive case management to adults suffering from a mental health
+              condition who are in need of additional supportive services to
+              transition back to their community housed after receiving
+              long-term inpatient psychiatric treatment services. Referrals must
+              originate from a psychiatric facility or county program.
+            </p>
+            <p>850 E. Foothill Blvd, Rialto | (909) 421-9380</p>
+
+            <h3>Conservatorship Investigation Program</h3>
+            <p>
+              Provides assessments of adults and children considered gravely
+              disabled due to a mental disorder by a treating hospital
+              psychiatrist to determine whether he/she meets criteria to be
+              placed on conservatorship. Referrals must originate from a
+              physician while the individual is hospitalized.
+            </p>
+            <p>850 E. Mill St., San Bernardino | (909) 798-8589</p>
+
+            <h3>Deferred Entry of Judgement (DEJ) Services</h3>
+            <p>
+              Provides understanding of the addiction process to encourage
+              recovery from drugs for adults.
+            </p>
+            <p>
+              High Desert Child, Adolescent & Family Services Center, Inc.<br />16248
+              Victor St., Victorville | (760) 243-7151
+            </p>
+            <br />
+            <p>
+              Inland Behavioral & Health Services<br />1963 N. E St., San
+              Bernardino | (909) 881-6146
+            </p>
+            <br />
+            <p>
+              MHS Needles Center for Change<br />300 H St., Needles | (760)
+              326-4590<br />58945 Business Center Dr., Ste. J, Yucca Valley |
+              (760) 369-1074
+            </p>
+            <br />
+            <p>
+              Valley Improvement Programs, Inc.<br />210 W. B St., Ontario |
+              (909) 983-3665<br />1589 W. Ninth St., Ste. E, Upland | (909)
+              985-2785
+            </p>
+            <br />
+
+            <h3>Driving Under the Influence (DUI) Programs</h3>
+            <p>
+              Provides education, individual and interactive group counseling
+              and referral resources for adults. Referrals must originate from
+              the Superior Court or the Dept. of Motor Vehicles (DMV).
+            </p>
+            <p>
+              Alcohol Education and Recovery Services<br />12560 Central Ave.,
+              Chino | (909) 591-4761
+            </p>
+            <br />
+            <p>
+              Prodigy Healthcare<br />688 N. Arrowhead Ave., Ste. 101, San
+              Bernardino | (909) 888-0149
+            </p>
+            <br />
+            <p>
+              Dalton and Associates<br />12209 Hesperia Rd., Ste. G, Victorville
+              | (760) 241-1777
+            </p>
+            <br />
+            <p>
+              Jackson-Bibby Awareness Group<br />14420 Civic Dr., Ste. 3,
+              Victorville | (760) 241-3300<br />222 E. Main St., Ste. 218,
+              Barstow | (760) 256-6114<br />1200 Arizona St., Ste. A10, Redlands
+              | (909) 792-6925
+            </p>
+            <br />
+            <p>
+              Mental Health Systems<br />300 H St., Needles | (760) 326-4590<br />2020
+              N. Waterman Ave., Ste C, San Bernardino | (909) 881-1570<br />58945
+              Business Center Dr., Ste J, Yucca Valley | (760) 369-1074
+            </p>
+            <br />
+            <p>
+              Rehabilitation and Alcohol Program<br />17205 Arrow Blvd., Fontana
+              | (909) 356-9390
+            </p>
+            <br />
+            <p>
+              Social Science Services<br />18612 Santa Ana Ave., Bloomington |
+              (909) 421-7120
+            </p>
+            <br />
+            <p>
+              Valley Improvement Program<br />8540 Archibald Ave., Rancho
+              Cucamonga | (909) 987-4036<br />210 W. B St., Ontario | (909)
+              983-3665<br />1589 W. Ninth St., Ste. E, Upland | (909) 985-2785
+            </p>
+            <br />
+
+            <h3>Drug Court Programs</h3>
+            <p>
+              Monitored substance use disorder treatment program for adults or
+              juveniles. Referrals must originate from the Superior Court.
+            </p>
+            <p><strong>Adult Programs:</strong></p>
+            <p>
+              Clare-Matrix<br />812 N. Euclid Avenue, Ontario | (909) 395-0888
+            </p>
+            <br />
+            <p>
+              High Desert Child, Adolescent & Family Center Services Center,
+              Inc.<br />16248 Victor St., Victorville | (760) 243-7151
+            </p>
+            <br />
+            <p>
+              MHS Fontana Center for Change<br />1076 Santo Antonio Dr., Ste. B,
+              Colton | (909) 433-9824<br />1874 Business Center Dr., San
+              Bernardino | (909) 386-0437<br />58945 Business Center Dr., Ste.
+              P, Yucca Valley | (760) 369-1074
+            </p>
+            <br />
+            <p><strong>Juvenile Programs:</strong></p>
+            <p>
+              Clare-Matrix<br />812 N. Euclid Ave., Ontario | (909) 395-0888
+            </p>
+            <br />
+            <p>
+              Inland Valley Recovery Services San Bernardino Recovery Center<br />939
+              North D St., San Bernardino | (909) 889-6519
+            </p>
+            <br />
+            <p>
+              High Desert Child, Adolescent & Family Services Center, Inc.<br />16248
+              Victor St., Victorville | (760) 243-7151
+            </p>
+            <br />
+
+            <h3>Emergency Shelter Services</h3>
+            <p>
+              Emergency housing for individuals who are homeless and living with
+              a behavioral health condition.
+            </p>
+            <p>(909) 388-5600</p>
+
+            <h3>Long-Term Residential Care</h3>
+            <p>
+              Services for individuals who are being placed in or discharged
+              from licensed, long-term, locked facilities, including Institutes
+              for Mental Diseases (IMDs) and state hospitals. The program
+              provides case management and transitional services to appropriate
+              levels of care. Referrals must originate from a hospital.
+            </p>
+            <p>(909) 421-9479</p>
+
+            <h3>Placement After Stabilization (PAS)</h3>
+            <p>
+              Discharge planning for individuals exiting a CRT facility.
+              Referral must originate from CRT.
+            </p>
+            <p>(909) 501-0980</p>
+
+            <h3>Supportive Services</h3>
+            <p>
+              Full service partnership support for individuals living in
+              permanent supportive housing projects.
+            </p>
+            <p>(909) 421-4633</p>
+
+            <h3>Triage, Engagement and Support Teams (TEST)</h3>
+            <p>
+              Supports law enforcement and community partners by providing
+              crisis intervention and support services to people in mental
+              health crisis. Staff respond in the field alongside law
+              enforcement or other agency personnel to initially address the
+              crisis and provide follow-up case management and referrals.
+            </p>
+            <p>(909) 873-4409</p>
+
+            <h3>Therapeutic Alliance Program (TAP)</h3>
+            <p>
+              A 90-day residential treatment program for adults that addresses
+              the unique needs of the population dealing with co-occurring
+              disorders (mental illness and substance abuse). Referrals must
+              originate from a hospital or other community facility.
+            </p>
+            <p>850 E. Foothill Blvd., Rialto | (909) 421-9425</p>
+
+            <h3>Triage Transitional Services (TTS)</h3>
+            <p>
+              Hospital diversion services including screening and assessments,
+              crisis services, transportation and referrals to outpatient
+              programs. Referrals must originate from Arrowhead Regional Medical
+              Center Behavioral Health Triage.
+            </p>
+            <p>400 N. Pepper Ave., Colton | (909) 580-2141</p>
+
+            <h3>Withdrawal Management Detox Programs</h3>
+            <p>
+              Monitored detoxification services in a residential treatment or
+              hospital setting.
+            </p>
+            <p>
+              Cedar House Life Change Center<br />18612 Santa Ana Ave.,
+              Bloomington | (909) 421-7120
+            </p>
+            <br />
+            <p>
+              Tarzana Treatment Centers<br />44447 10th St., Lancaster | (661)
+              726-2630<br />18646 Oxnard St., Tarzana | (888) 777-8565
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
 
-        for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
             content.style.maxHeight = null;
-            } else {
+          } else {
             content.style.maxHeight = content.scrollHeight + "px";
-            } 
+          }
         });
-        }
-</script>
+      }
+    </script>
+  </div>
 </body>

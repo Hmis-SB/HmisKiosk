@@ -1,213 +1,538 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OHS KIOSK</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <style>
     .kiosk-button a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #007a8c;
-    font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #007a8c;
+      font-weight: bold;
     }
 
     .kiosk-button a:hover {
-    text-decoration: underline;
+      text-decoration: underline;
     }
 
     .kiosk-button img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    border-radius: 50%;
-    border: 3px solid #007a8c;
-    padding: 10px;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 3px solid #007a8c;
+      padding: 10px;
+    }
+    .embed-container {
+      position: relative;
+      height: 0;
+      padding-bottom: 80%;
+      max-width: 100%;
+    }
+    .embed-container iframe,
+    .embed-container object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
     }
 
     .collapsible {
-    background-color: #777;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
     }
 
-    .active, .collapsible:hover {
-    background-color: #555;
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
     }
 
     .collapsible:after {
-    content: '\002B';
-    color: white;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
+      content: "\002B";
+      float: right;
+      font-weight: bold;
     }
 
     .active:after {
-    content: "\2212";
+      content: "\2212";
     }
 
     .content {
-    padding: 0 18px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    background-color: #f1f1f1;
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
     }
-    </style>
-    
+
+    /* Add some indent to nested items */
+    .content .collapsible {
+      padding: 18px 20px;
+      background-color: #888;
+    }
+    .content .content {
+      padding: 0 20px;
+      background-color: #eaeaea;
+    }
+
+    .modal-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+  </style>
 </head>
 <body class="center-background">
-    <div class="top-bar">
-    <button  onclick="location.href='../DBH.html'" class="round-button" alt="Go Back">
-        &#8592;
+  <div class="top-bar">
+    <button
+      onclick="location.href='../DBH.html'"
+      class="round-button"
+      alt="Go Back"
+    >
+      &#8592;
     </button>
-    </div>
-    <div class="main-page"> 
-        <header class="main-nav-bar" style="font-size: 20px; display: flex; justify-content: center;">
-            <h1>Outpatient Services</h1>
-        </header>
-        <div class="main-content">
-        <img src="../images/Outpatient.png" class="banner-img" alt="San Bernardino County Homeless Partnership">
+  </div>
+  <div class="main-page">
+    <header
+      class="main-nav-bar"
+      style="font-size: 20px; display: flex; justify-content: center"
+    >
+      <h1>SUDRS</h1>
+    </header>
+    <div class="main-content">
+      <img
+        src="../images/suds.png"
+        class="banner-img"
+        alt="San Bernardino County Homeless Partnership"
+      />
 
-        
-            
-       
-            <div class="content-row">
-                <div class="text-col">
-                    <h2>About the CYCS</h2>
-                    <p>
-                        Children and Youth Collaborative Services (CYCS) Administration oversees the Children’s System of Care (CSOC). CSOC is implemented throughout San Bernardino County through contracted agencies and offers an array of services for seriously, emotionally disturbed children who are not benefiting from traditional mental health services. Services range from crisis intervention to life skills and educational services for children and youth aged 0 to 26 years old. 
-                    </p>
-                    <h2>Administration</h2>
-                    <p>
-                        658 E. Brier Dr., Ste. 150, San Bernardino | (909) 387-5300                    
-                    </p>
-                    <p>
-                       <b>For Presumptive Transfer of Medi-Cal (AB 1299) questions, call (909) 387-5316 or email DBH-AB1299@dbh.sbcounty.gov</b> 
-                    </p>
-                </div>
-                
-            </div>
+      <button id="openMyNewModal" class="nav-button">My New Modal</button>
 
-            <div class="text-col" style="margin: 30px;">
-                <h2>Who can I call if I need assistance with basic needs or other homeless resources? </h2>
-                <p>
-                Please contact United Way 211 by calling “211”. The 2-1-1 Coordinated Entry System (CES) is available in San Bernardino County, 24 hours a day, 7 days a week. By dialing the 3-digit calling code, 2-1-1, the caller is connected to a live, bilingual homeless assistance call specialist who will help assess the caller’s situation and streamline access to homeless assistance services, screen applicants for eligibility for these and other programs in a consistent and well-coordinated way, and assess needs to determine which interventions are the best fit for each individual and/or family.
-                </p>
+      <div class="content-row">
+        <div class="text-col">
+          <p>
+            For information about alcohol and/or drug use treatment options,
+            call (800) 968-2636 for a free and confidential assessment and help
+            finding the treatment that is right for you.
+          </p>
+          <p>
+            Get the facts about Fentanyl and learn more about how you can
+            prevent an overdose: Learn More
+          </p>
+          <p>
+            For Presumptive Transfer of Medi-Cal (AB 1299) questions, call (909)
+            387-5316 or email DBH-AB1299@dbh.sbcounty.gov
+          </p>
+          <h4>What is a Substance Use Disorder (SUD)?</h4>
+          <p>
+            Substance Use Disorders occur when the recurrent use of alcohol
+            and/or drugs causes significant impairment, including health
+            problems, disability, and failure to meet major responsibilities at
+            work, school, or home.
+          </p>
+          <h4>Spotting signs in a family member or friend</h4>
+          <p>
+            A person with a SUD would have changes in appetite or sleep
+            patterns, deterioration of physical appearance, decline of grooming
+            habits, sudden weight loss or weight gain, tremors, slurred speech,
+            or impaired coordination.
+          </p>
+          <br />
+          <h2>What can I do?</h2>
+          <h4>Get help</h4>
+          <p>
+            If you suspect a family member or friend might have a problem with
+            substance use, speak to them about getting help. Treatment can be
+            arranged in different modalities to fit almost any schedule.
+            Counselors will work with you and your family member/friend to
+            design a treatment plan that works with you. When you’re ready, you
+            or your family member/friend can call (800) 968-2636 to reach our
+            Substance Use Disorder Helpline, 24-hours of the day for a free and
+            confidential assessment.
+          </p>
+          <h4>Be prepared</h4>
+          <p>
+            Naloxone (Narcan) Nasal Spray is used to temporarily reverse the
+            effects of an opioid overdose, potentially saving a life. If you
+            suspect someone you know may have an opioid use problem, having
+            Naloxone Nasal Spray nearby can provide additional time to get
+            urgent medical help in the case of an overdose.
+          </p>
+
+          <h2>Using Naloxone Nasal Spray</h2>
+          <p>Naloxone Quick Start Guide (English)</p>
+          <p>Naloxone Quick Start Guide (Spanish)</p>
+          <p>Naloxone Nasal Spray Training Video</p>
+          <p>Acknowledgment of Narcan Training Received (Spanish)</p>
+        </div>
+      </div>
+
+      <div class="text-col" style="margin: 30px">
+        <h2>
+          Click on the title or + sign to learn more about a provider or
+          program.
+        </h2>
+      </div>
+      <div class="content-row">
+        <div class="text-col">
+          <button type="button" class="collapsible">
+            Outpatient Treatment Providers
+          </button>
+          <div class="content">
+            <p>
+              Outpatient treatment programs provide alcohol and drug-related
+              individual and group counseling, individualized treatment planning
+              and case management to prevent relapse and support recovery. You
+              may call or visit a provider for services.
+            </p>
+
+            <button type="button" class="collapsible">Desert/Mounatin</button>
+            <div class="content">
+              <p>
+                Desert Mountain cities include Adelanto, Apple Valley, Barstow,
+                Big Bear, Crestline, Hesperia, Lucerne Valley, Needles, Sky
+                Forest, Trona, and Victorville.
+              </p>
+
+              <h3>Barstow Behavioral Health</h3>
+              <p>1841 E. Main St., Ste. 218, Barstow | (760) 255-5700</p>
+
+              <h3>
+                High Desert Child, Adolescent & Family Services Center, Inc.
+              </h3>
+              <p>225 Barstow Rd., Barstow | (760) 243-7151</p>
+              <p>16248 Victor St., Victorville | (760) 243-7151</p>
+
+              <h3>Apple Valley SUD Outpatient</h3>
+              <p>18818 Hwy 18, Apple Valley, CA 92307</p>
+              <p>(760) 995-8083</p>
             </div>
-            <div class="content-row">
-            <div class="text-col">
             <button type="button" class="collapsible">East Valley</button>
             <div class="content">
-                <button type="button" class="collapsible">East Valley</button>
-                <div class="content">
-                   <p> test</p>
-                </div>
-                <button type="button" class="collapsible">East Valley</button>
-                <div class="content">
-                   <p> test</p>
-                </div>
-                <button type="button" class="collapsible">East Valley</button>
-                <div class="content">
-                   <p> test</p>
-                </div>
+              <p>
+                East Valley cities include Bloomington, Colton, Grand Terrace,
+                Highland, Loma Linda, Redlands, Rialto, San Bernardino, and
+                Yucaipa.
+              </p>
 
-            </div>
-            <button type="button" class="collapsible">Desert Mountain</button>
-            <div class="content">
-                <p>Desert Mountain cities include Adelanto, Apple Valley, Barstow, Big Bear, Crestline, Hesperia, Lucerne Valley, Needles, Sky Forest, Trona, and Victorville.</p>
+              <h3>Cedar House Life Change Center</h3>
+              <p>18612 Santa Ana Ave., Bloomington | (909) 421-7120</p>
 
-                <h3>Apple Valley Community Clinic</h3>
-                <p>18818 Highway 18, Apple Valley | (760) 995-8800 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+              <h3>Inland Behavioral & Health Services, Inc.</h3>
+              <p>1963 N. E St., San Bernardino | (909) 881-6146</p>
 
-                <h3>Barstow Counseling Center</h3>
-                <p>1841 E. Main St., Barstow | (760) 255-5700 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+              <h3>
+                Inland Valley Recovery Services San Bernardino Recovery Center
+              </h3>
+              <p>939 N. D St., San Bernardino, (909) 889-6519</p>
 
-                <h3>Citrus Counseling Services</h3>
-                <p>11424 Chamberlaine Way, Ste. 11-12, Adelanto | (760) 246-0947 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-                <p>23406 Crestforest Dr., Crestline | (909) 338-4689 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+              <h3>Phoenix – SUDRS Program</h3>
+              <p>820 E Gilbert St, San Bernardino I (909) 386-8510</p>
 
-                <h3>Lutheran Social Services</h3>
-                <p>32770 Old Woman Springs Rd., Ste. C, Lucerne Valley | (760) 248-6612</p>
-                <p>41945 Big Bear Blvd., Ste. 222, Big Bear Lake | (909) 866-5070</p>
-                <p>82820 Trona Rd., Trona | (760) 372-5159</p>
+              <h3>
+                Inland Valley Recovery Services Central Valley Recovery Center
+              </h3>
+              <p>
+                1874 Business Center Drive S. San Bernardino, CA 92408 (909)
+                386-0523
+              </p>
 
-                <h3>Needles Behavioral Health Center</h3>
-                <p>1600 Bailey Ave., Unit 2, Needles | (760) 326-9313 | Open 8 a.m. – 5 p.m. Monday through Friday (Closed every other Friday)</p>
+              <h3>
+                Inland Valley Recovery Services – Central Valley Recovery Center
+              </h3>
+              <p>
+                1076 San Antonio Drive, Suite B Colton, CA 92324 (909) 433-9824
+              </p>
 
-                <h3>Victor Valley Behavioral Health</h3>
-                <p>12625 Hesperia Rd., Victorville | (760) 995-8300 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-
-                <h3>Valley Star Victorville Center</h3>
-                <p>12188 Hesperia Rd., Victorville| (760) 477-2199 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-
-                <h3></h3>
-                <p></p>
+              <h3>Rialto Behavioral Addiction Treatment Services</h3>
+              <p>850 E. Foothill Blvd., Rialto | (909) 421-9465</p>
             </div>
             <button type="button" class="collapsible">Morongo Basin</button>
             <div class="content">
-                <p>Morongo Basin cities include Joshua Tree, Morongo Valley, Twentynine Palms, and Yucca Valley.</p>
-                <h3>Valley Star Yucca Adult (FSP)</h3>
-                <p>7281 Dumosa Ave., Ste. 4, Yucca Valley | (760) 853-4755 | Open 8:30 a.m. – 5 p.m. Monday through Friday</p>
+              <p>
+                Morongo Basin cities include Joshua Tree, Morongo Valley,
+                Twentynine Palms, and Yucca Valley.
+              </p>
+              <h3>
+                High Desert Child, Adolescent, and Family Services Center, Inc
+              </h3>
+              <p>
+                58945 Business Center Dr Yucca Valley, CA 92284 (760) 610-6466
+              </p>
             </div>
             <button type="button" class="collapsible">West Valley</button>
             <div class="content">
-                <p>West Valley cities include Chino, Fontana, Montclair, Ontario, Pomona, Rancho Cucamonga, and Upland.</p>
-                <h3>Mariposa Community Counseling</h3>
-                <p>2940 Inland Empire Blvd., Ontario | (909) 458-1350 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-                <h3>South Coast Community Services</h3>
-                <p>1425 W. Foothill Blvd., Ste. 310, Upland | (909) 835 -4800</p>
-                <p>11780 Central Ave., Ste. 205, Chino | (877) 527-7227</p>
-                <h3>Vista Community Counseling</h3>
-                <p>17053 E. Foothill Blvd., Fontana | (909) 347-1300 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-                <h3>West End Family Counseling</h3>
-                <p>855 N. Euclid Ave., Ontario| (909) 983-2020</p>
-                <p>Open Monday 9 a.m. – 7:45 p.m., Tuesday 9 a.m, – 6:45 p.m., Wednesday 9 a.m. – 5:45 p.m., Thursday</p>
-                <p>9 a.m. – 4:45 p.m., and closed on Friday</p>
+              <p>
+                West Valley cities include Chino, Fontana, Montclair, Ontario,
+                Pomona, Rancho Cucamonga, and Upland.
+              </p>
+              <h3>Clare-Matrix</h3>
+              <p>812 N. Euclid Ave., Ontario | (909) 395-0888</p>
+
+              <h3>Inland Valley Recovery Services</h3>
+              <p>934 N. Mountain Ave., Ste. A – C, Upland | (909) 949-4667</p>
+
+              <h3>Mariposa Community Counseling</h3>
+              <p>2940 Inland Empire Blvd., Ontario | (909) 458-1376</p>
+
+              <h3>G&C Swan, Inc.</h3>
+              <p>
+                3286 E. Guasti Road, Suite 100 and 110, Ontario, CA 91761 |
+                (909) 920-5102
+              </p>
             </div>
-            <button type="button" class="collapsible">Services for Specific Populations</button>
+          </div>
+          <button type="button" class="collapsible">
+            Recovery Services/Centers
+          </button>
+          <div class="content">
+            <p>
+              Community based centers that support recovery by offering
+              self-help groups, resources, and education. Individuals may call
+              or visit a location near you for services.
+            </p>
+
+            <h3>Inland Valley Recovery Services – Upland Recovery Center</h3>
+            <p>934 N. Mountain Ave., Ste. A – D, Upland | (909) 949-4667</p>
+
+            <h3>
+              Inland Valley Recovery Services – San Bernardino Recovery Center
+            </h3>
+            <p>939 N. D St., San Bernardino | (909) 889-6519</p>
+
+            <h3>
+              Inland Valley Recovery Service- Central Valley Recovery Center
+            </h3>
+            <p>1076 San Antonio Drive, Suite B.</p>
+            <p>Colton, CA 92324 | (909) 433-9824</p>
+
+            <h3>Rim Family Mobile Resource Center</h3>
+            <p>28545 Hwy. 18, Skyforest | (909) 336-1800</p>
+          </div>
+          <button type="button" class="collapsible">
+            Contingency Managment
+          </button>
+          <div class="content">
+            <p>
+              An effective new treatment can help individuals stop using and
+              recover from stimulant use disorder using reinforces (e.g. gift
+              cards, prizes) when a goal for reduction of or abstinence from
+              stimulants.
+            </p>
+            <h3>Rialto Behavioral Addiction Treatment Services (RBATs)</h3>
+            <p>850 E. Foothill Blvd Rialto, CA 92376 | (909) 421-9465</p>
+
+            <h3>Mariposa Community Counseling</h3>
+            <p>2940 Inland Empire Blvd, Ontario, CA | (909) 458-1376</p>
+
+            <h3>Phoenix SUDRS</h3>
+            <p>820 E. Gilbert St, San Bernardino, CA | (909) 386-8510</p>
+          </div>
+          <button type="button" class="collapsible">
+            Perinatal Treatment Programs
+          </button>
+          <div class="content">
+            <p>
+              Intensive outpatient services for pregnant/parenting women and
+              their children.
+            </p>
+
+            <h3>Inland Behavioral & Health Services, Inc.,</h3>
+            <p>1963 N. E St., San Bernardino | (909) 881-6146</p>
+
+            <h3>Inland Valley Recovery Services</h3>
+            <p>934 N. Mountain Ave., Ste. A-D, Upland | (909) 949-4667</p>
+
+            <h3>
+              High Desert Child, Adolescent & Family Services Center, Inc.
+            </h3>
+            <p>16248 Victor St., Victorville | (760) 243-7151</p>
+          </div>
+          <button type="button" class="collapsible">
+            Narcotic Treatment Programs
+          </button>
+          <div class="content">
+            <p>
+              Medication assisted treatment for opioid substance use disorders,
+              offering medical evaluation, and counseling services
+            </p>
+            <h3>Aegis Treatment Centers, LLC</h3>
+            <p>125 W. F St., Ontario | (909) 986-4550</p>
+            <p>1050 N. Garey Avenue Pomona, CA 91767 | 909-623-6391</p>
+            <p>1889 W. Redlands Blvd., Redlands | (909) 501-5167</p>
+            <p>11776 Mariposa Rd., Ste. 103, Hesperia | (760) 956-2462</p>
+            <p>
+              222 E Main St, Suites 102 & 103 Barstow, CA 92311 | 760-956-2462
+            </p>
+            <p>
+              1111 W. Inyokern Road, Ste. B Ridgecrest, CA 93555 | 760-301-6945
+            </p>
+
+            <h3>Colton Clinical Services</h3>
+            <p>2275 E. Cooley Dr., Colton | (909) 370-1777</p>
+
+            <h3>Desert Treatment Clinic</h3>
+            <p>
+              1330 N. Indian Canyon Dr. Ste. A-C, Palm Springs | (760) 322-9065
+            </p>
+
+            <h3>Riverside Treatment Center</h3>
+            <p>1021 W. La Cadena Dr. Riverside | (951) 784-8010</p>
+          </div>
+        </div>
+      </div>
+      <!--
+            Template for nested buttons.
+
+            <button type="button" class="collapsible">[Parent Section Title]</button>
             <div class="content">
-                <p><i>The following providers offer services tailored to the needs of special populations. Services include crisis counseling, individual/group/family therapy, medication management, and recovery services</i></p>
-                <h3>EMQ Children & Family Services</h3>
-                <p>572 N. Arrowhead Ave., Ste. 100, San Bernardino | (909) 266-2700 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-                <h3>High Desert Child, Adolescent & Family Services Center</h3>
-                <p>16248 Victor St., Victorville | (760) 243-7151 | Open Monday – Thursday 8 a.m. – 6 p.m. and closed on Fridays</p>
-                <h3>Project Sister Family Services Rape/Sexual Assault Crisis Counseling</h3>
-                <p>363 S. Park Ave., Ste. 303, Pomona | (909) 623-1619 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-                <h3>Partners Against Violence</h3>
-                <p>444 N. Arrowhead Ave., Ste. 101, San Bernardino | (909) 885-8884 | Open Monday – Thursday 8 a.m. – 5 p.m. and Friday 8 a.m. to 2 p.m.</p>
-                <h3>Valley Star Children & Family Services</h3>
-                <p>1585 S. D St., Ste. 101, San Bernardino | (909) 388-2222 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-                <h3>Victor Community Support Services</h3>
-                <p>1908 Business Center Dr., Ste. 220, San Bernardino | (909) 890-5930 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-                <p>15095 Amargosa Rd., Ste. 201, Victorville | (760) 245-4695 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
-            </div></div></div>
+            
+            <button type="button" class="collapsible">[Nested Section Title 1]</button>
+            <div class="content">
+                <p>Nested content 1 goes here. You can add text, links, or even images.</p>
+            </div>
 
+            <button type="button" class="collapsible">[Nested Section Title 2]</button>
+            <div class="content">
+                <p>Nested content 2 goes here. You can also style this however you'd like.</p>
+            </div>
+
+            <button type="button" class="collapsible">[Nested Section Title 3]</button>
+            <div class="content">
+                <p>Nested content 3 goes here.</p>
+            </div>
+
+            </div>  
+            -->
     </div>
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
+    <!-- Modal for My New Modal -->
+    <div
+      id="modalMyNewModal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitleMyNewModal"
+      tabindex="-1"
+    >
+      <div class="modal-content">
+        <h2 id="modalTitleMyNewModal">My New Modal</h2>
 
-        for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-            content.style.maxHeight = null;
-            } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            } 
-        });
+        <div class="embed-container" style="margin-top: 20px">
+          <iframe
+            name="iframeMyNewModal"
+            width="500"
+            height="400"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="My New Modal"
+            src="https://www.cdph.ca.gov/Programs/CCDPHP/sapb/Pages/Fentanyl.aspx"
+            allow="geolocation; camera;"
+          >
+          </iframe>
+        </div>
+
+        <button
+          id="closeMyNewModalBtn"
+          class="small-box"
+          style="margin-top: 20px"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function expandContent(content) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+
+      function collapseContent(content) {
+        content.style.maxHeight = null;
+      }
+
+      function updateParentHeights(element) {
+        let parent = element.parentElement;
+        while (parent) {
+          if (parent.classList.contains("content")) {
+            parent.style.maxHeight = parent.scrollHeight + "px";
+          }
+          parent = parent.parentElement;
         }
-</script>
+      }
+
+      document.querySelectorAll(".collapsible").forEach((button) => {
+        button.addEventListener("click", function () {
+          const content = this.nextElementSibling;
+
+          if (content.style.maxHeight) {
+            collapseContent(content);
+          } else {
+            expandContent(content);
+          }
+
+          // Recalculate parent heights to ensure smooth nesting
+          setTimeout(() => updateParentHeights(content), 300);
+        });
+      });
+
+      // 🧠 Define setupModal BEFORE calling it
+      function setupModal(openBtnId, modalId, closeBtnId) {
+        const openBtn = document.getElementById(openBtnId);
+        const modal = document.getElementById(modalId);
+        const closeBtn = document.getElementById(closeBtnId);
+
+        if (openBtn && modal && closeBtn) {
+          openBtn.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modal.focus();
+          });
+
+          closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+          });
+        }
+      }
+      // Dismiss on click outside modal content
+      document.querySelectorAll(".modal-overlay").forEach((modal) => {
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      });
+
+      // ✅ Now it’s safe to call it AFTER the function exists
+      setupModal("openMyNewModal", "modalMyNewModal", "closeMyNewModalBtn");
+    </script>
+  </div>
 </body>
