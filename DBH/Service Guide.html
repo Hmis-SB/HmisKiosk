@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK - DBH Resources</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <style>
+    /* Keep your existing embedded and modal styling */
+    .embed-container {
+      position: relative;
+      height: 0;
+      padding-bottom: 80%;
+      max-width: 100%;
+    }
+    .embed-container iframe,
+    .embed-container object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Modal styles */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+    #modal[aria-hidden="false"] {
+      display: flex;
+    }
+    .modal-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .modal-body {
+      margin-top: 1.5rem;
+    }
+
+    .collapsible {
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
+    }
+
+    .collapsible:after {
+      content: "\002B";
+      float: right;
+      font-weight: bold;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body class="center-background">
+  <div class="top-bar">
+    <button onclick="location.href='../DBH.html'" class="round-button" alt="Go Back">&#8592;</button>
+  </div>
+
+  <div class="main-page">
+    <header class="main-nav-bar" style="font-size: 20px; display: flex; justify-content: center">
+      <h1>DBH Resources</h1>
+    </header>
+
+    <div class="main-content">
+      <img
+        src="../images/referral.png"
+        class="banner-img"
+        alt="San Bernardino County Homeless Partnership"
+      />
+
+      <div class="content-row">
+        <div class="text-col">
+          <p>
+            Please feel free to download, print and share the following DBH resources.
+          </p>
+
+          <h2>
+            Click on any item to learn more.
+          </h2>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="text-col">
+          <h3>Services Guide, Handbooks, and Provider Directories</h3>
+          <ul>
+            <li>
+            <p>
+              <b>Services Guide</b><a href="#" class="modal-trigger" data-modal-id="services-guide"> English</a> /
+              <a href="#" class="modal-trigger" data-modal-id="services-guide-spanish">Spanish</a> /
+              <a href="#" class="modal-trigger" data-modal-id="services-guide-mandarin">Mandarin</a> /
+              <a href="#" class="modal-trigger" data-modal-id="services-guide-vietnamese">Vietnamese</a> <br>
+              Note: The Services Guide is an easy-to-read resource to find mental health 
+              and substance use disorder services in San Bernardino County. It is a summary 
+              of DBH and DBH contract provider services and is not inclusive of all services and/or 
+              providers. The Provider Directory, which includes each licensed, waivered, or registered 
+              mental health provider and licensed substance use disorder services provider employed with or 
+              contracted by DBH to deliver Medi-Cal services, may be viewed below
+            </p>
+            
+            </li>
+            <li>
+              <p>
+                Mental Health Plan and Drug Medi-Cal Organized Delivery System Member Handbooks 
+                <a href="#" class="modal-trigger" data-modal-id="member-handbooks">English</a> /
+                <a href="#" class="modal-trigger" data-modal-id="member-handbooks-spanish">Spanish</a> /
+                <a href="#" class="modal-trigger" data-modal-id="member-handbooks-mandarin">Mandarin</a> /
+                <a href="#" class="modal-trigger" data-modal-id="member-handbooks-vietnamese">Vietnamese</a> 
+                – Also available in paper form free of charge upon request within 5 business days
+              </p>
+            </li>
+            <li>
+              <p>
+                Mental Health Plan and Drug Medi-Cal Organized Delivery System Member Handbooks (Large Print) 
+                <a href="#" class="modal-trigger" data-modal-id="large-print-handbooks">English</a> – Also available 
+                in paper form free of charge upon request within 5 business days
+              </p>
+            </li>
+            <li>
+              <p>
+                Mental Health Plan Organizational/Rendering Provider Directory
+                <a href="#" class="modal-trigger" data-modal-id="provider-directory">English</a> /
+                <a href="#" class="modal-trigger" data-modal-id="provider-directory">Spanish</a> /
+                <a href="#" class="modal-trigger" data-modal-id="provider-directory">Mandarin</a> /
+                <a href="#" class="modal-trigger" data-modal-id="provider-directory">Vietnamese</a>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Substance Use Disorder and Recovery Services Provider Directory
+                <a href="#" class="modal-trigger" data-modal-id="sudrs-provider-directory">English</a> /
+                <a href="#" class="modal-trigger" data-modal-id="sudrs-provider-directory">Spanish</a> /
+                <a href="#" class="modal-trigger" data-modal-id="sudrs-provider-directory">Mandarin</a> /
+                <a href="#" class="modal-trigger" data-modal-id="sudrs-provider-directory">Vietnamese</a>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Contracted Psychiatric Hospitals 
+                <a href="#" class="modal-trigger" data-modal-id="contracted-psychiatric">English</a> /
+                <a href="#" class="modal-trigger" data-modal-id="contracted-psychiatric-spanish">Spanish</a> /
+                <a href="#" class="modal-trigger" data-modal-id="contracted-psychiatric-mandarin">Mandarin</a> /
+                <a href="#" class="modal-trigger" data-modal-id="contracted-psychiatric-viernamese">Vietnamese</a>
+              </p>
+              
+            </li>
+          </ul>
+
+          <h3>DBH Resource Library</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="crisis-resources">DBH Crisis Resources (English & Spanish)</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="csu-crt-centers">Crisis Stabilization Unit (CSU) and Crisis Residential Treatment (CRT) Centers</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="urgent-care">Urgent Mental Health Care</a></li>
+          </ul>
+
+          <h3>DBH Educational Brochures (English & Spanish)</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="anxiety-disorders">Anxiety Disorders</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="bipolar">Bipolar</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="bullying">Bullying</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="depression-children">Depression in Children</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="depression-men">Depression in Men</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="depression-older-adults">Depression in Older Adults</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="depression-teenagers">Depression in Teenagers</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="depression-women">Depression in Women</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="schizophrenia">Schizophrenia</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="suicide-prevention">Suicide Prevention</a></li>
+          </ul>
+
+          <h3>DBH General Resources (English & Spanish)</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="ace">Adverse Childhood Experiences</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="community-resource-guide">Community Resource Guide</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="coping-trauma">Coping After a Traumatic Event</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="eating-disorder">Eating Disorder Collaborative</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="healthy-choices">Healthy Choices</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="rbest">Recovery Based Engagement Support (RBEST)</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="six-strategies">Six Strategies for Kids</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="behavioral-health-apps">The Peers’ Guide to Behavioral Health Apps</a></li>
+          </ul>
+
+          <h3>DBH Substance Use Disorder and Recovery Services Resources</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="care-coordination">Care Coordination</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="perinatal-services">Perinatal Services English</a></li> 
+            <li><a href="#" class="modal-trigger" data-modal-id="perinatal-services-spanish">Perinatal Services Spanish</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="sudrs-clinic-chinese">SUDRS Clinic Flyer (Chinese)</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="sudrs-clinic-vietnamese">SUDRS Clinic Flyer (Vietnamese)</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="sudrs-clinic">SUDRS Clinic Flyer</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="tips-ecigarettes">Tips for Teens – E-Cigarettes</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="tips-inhalants">Tips for Teens – Inhalants</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="tips-marijuana">Tips for Teens – Marijuana</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="tips-methamphetamine">Tips for Teens – Methamphetamine</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="tips-opioids">Tips for Teens – Opioids</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="tips-steroids">Tips for Teens – Steroids</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="tips-tobacco">Tips for Teens – Tobacco</a></li>
+          </ul>
+
+          <h3>Other Resources</h3>
+          <p>
+            Please note that the following resources are linked to local, state and federal government agencies, and websites of other organizations. A link does not constitute an endorsement of the content, viewpoint, accuracy, opinions, policies, products, services, or accessibility of that website. Once you link to another website from this website, you are subject to the terms and conditions of that website.
+          </p>
+
+          <h3>Substance Use Disorder Resources</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="naloxone-guide">Naloxone Quick Start Guide</a> (<a href="#" class="modal-trigger" data-modal-id="naloxone-guide-spanish">Spanish</a>)</li>
+            <li><a href="#" class="modal-trigger" data-modal-id="naloxone-video">Naloxone Nasal Spray Training Video</a></li>
+          </ul>
+          <!--
+          <h3>Suicide Prevention Resources</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="disaster-distress">Disaster Distress Helpline</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="suicide-lifeline">Suicide Prevention Lifeline</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="suicide-resource-center">Suicide Prevention Resource Center</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="trevor-project">The Trevor Project</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="veterans-affairs">Veterans Affairs Suicide Prevention</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="veterans-crisis-line">Veterans Crisis Line</a></li>
+          </ul>
+          Commenting out since they're websites-->
+
+          <!--
+          <h3>San Bernardino County Resources</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="united-way-211">United Way 211</a></li>
+          </ul>
+            
+          <h3>Statewide Mental Health Resources</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="council-developmental-disabilities">California State Council on Developmental Disabilities</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="cdc">Centers for Disease Control</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="each-mind-matters">Each Mind Matters</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="know-the-signs">Know the Signs</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="lgbtq-youth-resources">Lesbian, Gay, Bisexual, and Transgender Youth Resources</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="mental-health-america">Mental Health America</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="nami">National Alliance on Mental Illness (NAMI)</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="nimh">National Institute of Mental Health</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="national-suicide-prevention">National Suicide Prevention Lifeline</a></li>
+          </ul>
+           Commenting these out since they're websites-->
+          <h3>American Sign Language (ASL) Interpretation Videos for Medi-Cal Members</h3>
+          <ul>
+            <li><a href="#" class="modal-trigger" data-modal-id="interpreter-services">Access to Interpreter Services</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="billing-protections">Billing Protections</a></li>
+            <li><a href="#" class="modal-trigger" data-modal-id="Default Enrollment Pilot">Default Enrollment Pilot</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Container -->
+  <div id="modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+    <div class="modal-content" role="document">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Modal content injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Collapsible script (same as before)
+    document.querySelectorAll(".collapsible").forEach((button) => {
+      button.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+        this.classList.toggle("active");
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+
+    // Modal data content object (simplified for example)
+    const modalContents = {
+  "services-guide": `
+
+   
+    <div class="embed-container">
+      <iframe
+        src="./PDF/English Guide.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Services Guide document"
+        title="Services Guide PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "services-guide-spanish": `
+    <h2>Services Guide Spanish</h2>
+   
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Spanish Guide.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Services Guide document"
+        title="Services Guide PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "services-guide-mandarin": `
+
+    
+    <div class="embed-container">
+      <iframe
+        src="./PDF/MANDARIN.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Services Guide document"
+        title="Services Guide PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "services-guide-vietnamese": `
+    
+
+    <div class="embed-container">
+      <iframe
+        src="./PDF/VIETNAMESE.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Services Guide document"
+        title="Services Guide PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "services-guide-sort": `
+    <h2>Services Guide</h2>
+    
+    <div class="embed-container">
+      <iframe
+        src="https://example.com/services-guide.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Services Guide document"
+        title="Services Guide PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "member-handbooks": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Handbook English.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Member Handbooks document"
+        title="Member Handbooks PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "member-handbooks-spanish": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Handbook Spanish.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Member Handbooks document"
+        title="Member Handbooks PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "member-handbooks-mandarin": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Handbook Mandarin.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Member Handbooks document"
+        title="Member Handbooks PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "member-handbooks-vietnamese": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Handbook Vietnamese.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Member Handbooks document"
+        title="Member Handbooks PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "large-print-handbooks": `
+    <div class="embed-container">
+      <iframe
+        src="https://example.com/large-print-handbooks.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Large Print Handbooks"
+        title="Large Print Handbooks PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "provider-directory": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/PD-English.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Provider Directory"
+        title="Provider Directory PDF"
+      ></iframe>
+    </div>
+  `,
+  "provider-directory-spanish": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/PD-Spanish.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Provider Directory"
+        title="Provider Directory PDF"
+      ></iframe>
+    </div>
+  `,
+  "provider-directory-mandarin": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/PD-Mandarin.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Provider Directory"
+        title="Provider Directory PDF"
+      ></iframe>
+    </div>
+  `,
+  "provider-directory-vietnamese": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/PD-Vietnamese.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Provider Directory"
+        title="Provider Directory PDF"
+      ></iframe>
+    </div>
+  `,
+  
+
+  "sudrs-provider-directory": `
+    <h2>SUDRS Provider Directory</h2>
+    <p>Substance Use Disorder and Recovery Services resources...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/sudrs-english.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="SUDRS Provider Directory"
+        title="SUDRS Provider Directory PDF"
+      ></iframe>
+    </div>
+  `,
+  "sudrs-provider-directory-spanish": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/sudrs-spanish.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="SUDRS Provider Directory"
+        title="SUDRS Provider Directory PDF"
+      ></iframe>
+    </div>
+  `,
+  
+  "sudrs-provider-directory-mandarin": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/sudrs-mandarin.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="SUDRS Provider Directory"
+        title="SUDRS Provider Directory PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "sudrs-provider-directory-vietnamese": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/sudrs-vietnamese.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="SUDRS Provider Directory"
+        title="SUDRS Provider Directory PDF"
+      ></iframe>
+    </div>
+  `,
+  
+
+  "contracted-psychiatric": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/CPH - English.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Contracted Psychiatric Hospitals document"
+        title="Contracted Psychiatric Hospitals PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "contracted-psychiatric-spanish": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/CPH - Spanish.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Contracted Psychiatric Hospitals document"
+        title="Contracted Psychiatric Hospitals PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "contracted-psychiatric-mandarin": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/CPH - Mandarin.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Contracted Psychiatric Hospitals document"
+        title="Contracted Psychiatric Hospitals PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "contracted-psychiatric-vietnamese": `
+    <div class="embed-container">
+      <iframe
+        src="./PDF/CPH - Vietnamese.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Contracted Psychiatric Hospitals document"
+        title="Contracted Psychiatric Hospitals PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "crisis-resources": `
+    <div class="embed-container">
+      <iframe
+        src="https://example.com/crisis-resources.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="DBH Crisis Resources"
+        title="DBH Crisis Resources PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "csu-crt-centers": `
+
+    
+    <div class="embed-container">
+      <iframe
+        src="https://example.com/csu-crt-centers.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="CSU and CRT Centers"
+        title="CSU and CRT Centers PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "urgent-care": `
+
+    <div class="embed-container">
+      <iframe
+        src="https://example.com/urgent-care.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Urgent Mental Health Care"
+        title="Urgent Mental Health Care PDF"
+      ></iframe>
+    </div>
+  `,
+
+  // Educational Brochures
+  "anxiety-disorders": `
+
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Anxiety Disorders.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Anxiety Disorders Brochure"
+        title="Anxiety Disorders Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "bipolar": `
+
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Bipolar.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Bipolar Brochure"
+        title="Bipolar Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "bullying": `
+    <h2>Bullying</h2>
+    <p>Information about bullying...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Bullying.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Bullying Brochure"
+        title="Bullying Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "depression-children": `
+    <h2>Depression in Children</h2>
+    <p>Information about depression in children...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Depression in Children"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Depression in Children Brochure"
+        title="Depression in Children Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "depression-men": `
+    <h2>Depression in Men</h2>
+    <p>Information about depression in men...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Depression in Men.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Depression in Men Brochure"
+        title="Depression in Men Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "depression-older-adults": `
+    <h2>Depression in Older Adults</h2>
+    <p>Information about depression in older adults...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Depression in Older Adults.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Depression in Older Adults Brochure"
+        title="Depression in Older Adults Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "depression-teenagers": `
+    <h2>Depression in Teenagers</h2>
+    <p>Information about depression in teenagers...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Depression in Teenagers.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Depression in Teenagers Brochure"
+        title="Depression in Teenagers Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "depression-women": `
+    <h2>Depression in Women</h2>
+    <p>Information about depression in women...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Depression in Women.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Depression in Women Brochure"
+        title="Depression in Women Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "schizophrenia": `
+    <h2>Schizophrenia</h2>
+    <p>Information about schizophrenia...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/schizophrenia.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Schizophrenia Brochure"
+        title="Schizophrenia Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "suicide-prevention": `
+    <h2>Suicide Prevention</h2>
+    <p>Information and resources on suicide prevention...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Suicide Prevention.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Suicide Prevention Brochure"
+        title="Suicide Prevention Brochure PDF"
+      ></iframe>
+    </div>
+  `,
+
+  // General Resources
+  "ace": `
+    <h2>Adverse Childhood Experiences</h2>
+    <p>Information on ACE...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Adverse Childhood Experiences.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Adverse Childhood Experiences Brochure"
+        title="Adverse Childhood Experiences PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "community-resource-guide": `
+    <h2>Community Resource Guide</h2>
+    <p>Guide and resources...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Community Resource Guide.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Community Resource Guide"
+        title="Community Resource Guide PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "eating-disorder": `
+    <h2>Coping After a Traumatic Event</h2>
+    <p>Support and guidance...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Easting Disorder Collaborative.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Coping After Trauma"
+        title="Coping After Trauma PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "healthy-choices": `
+    <h2>Crisis Contacts</h2>
+    <p>Emergency contact info...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Healthy Choices.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Crisis Contacts"
+        title="Crisis Contacts PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "rbest": `
+    <h2>Disability Rights and Advocacy</h2>
+    <p>Information and resources...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Disability Rights"
+        title="Disability Rights PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "six-strategies": `
+    <h2>Health and Wellness</h2>
+    <p>Tips and guides...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Six Strategies for Kids.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Health and Wellness"
+        title="Health and Wellness PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "behavioral-health-apps": `
+    <h2>The Peers' Guide to Behavioral Health Apps</h2>
+    <p>Information for Behavioral Health Apps...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/The Peers’ Guide to Behavioral Health Apps.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Immigration Resources"
+        title="Immigration Resources PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "care-coordination": `
+    <h2>Legal Aid</h2>
+    <p>Legal support and info...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Care Coordination.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Legal Aid"
+        title="Legal Aid PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "perinatal-services": `
+    <h2>Mental Health Plan</h2>
+    <p>Plan details and info...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Perinatal Services Eng.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Mental Health Plan"
+        title="Mental Health Plan PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "perinatal-services-spanish": `
+    <h2>Mental Health Plan</h2>
+    <p>Plan details and info...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Perinatal Services Spanish.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Mental Health Plan"
+        title="Mental Health Plan PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "sudrs-clinic-chinese": `
+    <h2>Mental Health Resources</h2>
+    <p>Resources for mental health...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/SUDRS Clinic Flyer (Chinese).pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Mental Health Resources"
+        title="Mental Health Resources PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "sudrs-clinic-vietnamese": `
+    <h2>Mental Health Resources</h2>
+    <p>Resources for mental health...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/SUDRS Clinic Flyer (Vietnamese).pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Mental Health Resources"
+        title="Mental Health Resources PDF"
+      ></iframe>
+    </div>
+  `,
+
+
+  "naloxone-guide": `
+    <h2>Naloxone Quick Start Guide</h2>
+    <p>Guide content here...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/narcan.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Quick Start Guide"
+        title="Naloxone Guide PDF"
+      ></iframe>S
+    </div>
+  `,
+
+  "naloxone-guide-spanish": `
+    <h2>Naloxone Quick Start Guide (Spanish)</h2>
+    <p>Guide content here...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Naloxone Quick Start Guide (Spanish).pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Quick Start Guide"
+        title="Naloxone Guide PDF"
+      ></iframe>
+    </div>
+  `,
+
+  "naloxone-video": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/watch?v=KEOq6fUWNtA"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "sudrs-clinic-vietnamese": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/SUDRS Clinic Flyer (Vietnamese).pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "sudrs-clinic": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/SUDRS Clinic Flyer.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "tips-ecigarettes": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Tips for Teens –  E-Cigarettes.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "tips-inhalants": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Tips for Teens – Inhalants.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "tips-marijuana": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Tips for Teens – Marijuana.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "tips-methamphetamine": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Tips for Teens – Methamphetamine.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "tips-opioids": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Tips for Teens – Opioids.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "tips-tobacco": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="./PDF/Tips for Teens – Tobacco.pdf"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "suicide-lifeline": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "suicide-resource-center": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "disaster-distress": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "trevor-project": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "veterans-affairs": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "veterans-crisis-line": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "united-way-211": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "council-developmental-disabilities": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "cdc": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "each-mind-matters": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "know-the-signs": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "lgbtq-youth-resources": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "mental-health-america": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "national-suicide-prevention": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/embed/examplevideo"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "interpreter-services": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/watch?v=ol5IOmXFjqg"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "billing-protections": `
+    <h2>Naloxone Nasal Spray Training Video</h2>
+    <p>Video content or links...</p>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/watch?v=kvYrvZiPVv0"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "Default Enrollment Pilot": `
+    <h2>Default Enrollment Pilot</h2>
+    <div class="embed-container">
+      <iframe
+        src="https://www.youtube.com/watch?v=ZHlIpoDsaBg"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Naloxone Nasal Spray Training Video"
+        title="Naloxone Training Video"
+      ></iframe>
+    </div>
+  `,
+
+  "default": `
+    <h2>Content Coming Soon</h2>
+    <p>We're working on adding this content shortly.</p>
+  `,
+};
+
+
+
+    // Modal logic
+    const modal = document.getElementById("modal");
+    const modalBody = document.getElementById("modal-body");
+    const modalCloseBtn = modal.querySelector(".modal-close");
+
+    function openModal(contentKey) {
+      if (modalContents[contentKey]) {
+        modalBody.innerHTML = modalContents[contentKey];
+      } else {
+        modalBody.innerHTML = "<p>Content is not available at the moment.</p>";
+      }
+      modal.setAttribute("aria-hidden", "false");
+      modal.style.display = "flex";
+      modal.focus();
+    }
+
+    function closeModal() {
+      modal.setAttribute("aria-hidden", "true");
+      modal.style.display = "none";
+      modalBody.innerHTML = "";
+    }
+
+    // Open modal on trigger click
+    document.querySelectorAll(".modal-trigger").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const modalId = link.getAttribute("data-modal-id");
+        openModal(modalId);
+      });
+    });
+
+    // Close modal on close button click
+    modalCloseBtn.addEventListener("click", closeModal);
+
+    // Close modal when clicking outside modal content
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close modal on ESC key press
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
