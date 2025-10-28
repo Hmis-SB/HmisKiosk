@@ -13,7 +13,8 @@
 html, body {
   height: 100%;
   margin: 0;
-  overflow: auto; /* Let body scroll naturally */
+  overflow-y: auto;   /* normal vertical scrolling */
+  overflow-x: hidden; /* no horizontal scroll */
   -webkit-overflow-scrolling: touch; /* ✅ Smooth scroll on iOS */
 }
 
