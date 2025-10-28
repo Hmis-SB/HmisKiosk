@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+  <style>
+    .crisis-button {
+      background-color: #79000f;
+      color: white;
+      padding: 6px 12px;
+      font-size: 14px;
+      border: 3px solid white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .crisis-button:hover {
+      background-color: #79000ec1;
+      color: #ffffff;
+    }
+    .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .embed-container {
+    position: relative;
+    height: 0;
+    padding-bottom: 80%;
+    max-width: 100%;
+  }
+
+  .embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+   .nav-button {
+        background-color: #003366;
+        color: white;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        flex: 1;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+
+        /* Make sure exactly 4 buttons fit with spacing */
+        .button-row > .nav-button {
+        max-width: calc(25% - 10px); /* 4 columns with 20px gaps */
+        }
+
+        .nav-button:hover {
+        background-color: #0055aa;
+        color: #ffcc00;
+        }
+    .tab-container {
+  width: calc(100% - 40px); /* full width minus 20px margins on both sides */
+  margin: 20px;             /* 20px margin all around (top, sides, bottom) */
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  background-color: #003366;
+}
+
+.tablink {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  background-color: #003366;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.tablink:hover {
+  background-color: #0055aa;
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+  background-color: white;
+  color: #333;
+  border-top: 1px solid #ddd;
+}
+
+  </style>
+</head>
+<!--
+Jevita Requests: 
+
+
+What needs to be done:
+- a center divs
+- rounded premade buttons
+- animations with JS
+- ADA compliance is going to be huge
+- beginning screen asking if they're a veteran 
+- maybe change the buttons? I'm not sure how these will actaully work from scratch 
+                        Pages should be copy and paste for ease of use
+- for pages make them look like a website view almost
+-->
+<body class="center-background">
+  <div class="top-bar">
+    <button
+      onclick="location.href='index.html'"
+      class="round-button"
+      alt="Go Back"
+    >
+      &#8592;
+    </button>
+  </div>
+  <!-- This is your header so only nav items and a title please-->
+  <div class="main-page">
+    <header class="main-nav-bar" style="font-size: 20px">
+      <h1>Department of Preschool Services</h1>
+      <nav class="main-nav">
+        <a href="#" onclick="location.href='Preschool_Spanish.html'">Spanish</a>
+      </nav>
+    </header>
+    <div class="main-content">
+      <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
+      <img
+        src="images\preschoolback.png"
+        class="banner-img"
+        alt="San Bernardino County Homeless Partnership"
+      />
+      <!-- Main content under the header -->
+
+      <!-- This is a colum of text and image-->
+
+      <div class="content-row">
+        <div class="text-col">
+          <h2 style="text-align: left">
+            <b>What is Head Start/Early Head Start?</b>
+          </h2>
+          <p>
+            Head Start and Early Head Start are free Federal Programs for
+            pregnant mothers and children from ages 0 to 5 from low-income
+            families. Children who attend Head Start receive comprehensive child
+            development services, which include participation in a variety of
+            educational activities following an established curriculum. Children
+            also receive medical and dental screenings, healthy meals and snacks
+            and have social interaction with other children in planned indoor
+            and outdoor activities in age appropriate playgrounds that meet ADA
+            requirements.
+          </p>
+          <p>
+            Children with disabilities are streamlined into the Head Start
+            classes. Pregnant mothers receive ongoing screenings and are
+            provided with health education by a registered nurse in order to
+            promote a healthy birth. The program provides activities that help
+            children grow mentally, socially, emotionally and physically and
+            encourages them to form good personal and health habits, enjoy
+            playing with toys, working on tasks with classmates, and become
+            prepared for kindergarten.
+          </p>
+          
+
+        </div>
+
+        <div class="text-col">
+          <h2 style="text-align: left"><b>How Do I Enroll My Child?</b></h2>
+          <ul>
+            <li>
+              Families must meet the income criteria (qualifications are based
+              on income documentation).
+            </li>
+            <li>Children must be between 0 and 5 years old.</li>
+            <li>There is no fee for enrollment.</li>
+            <li>Applications are accepted continuously.</li>
+          </ul>
+          <h2>Out of County/State applications:</h2>
+          <p>
+            PSD is allowed to accept applications only for residents of San
+            Bernardino County. If you live outside of San Bernardino County, but
+            plan on moving here within the near future, please attach a brief
+            note with your application, stating the time of your planned move
+            and anticipated location to assist us in better serving your needs.
+            Although we are unable to hold slots, please be assured we will make
+            every effort to assist you in every way possible. For further
+            information, call us at
+          </p>
+          <p><b>1-888-KIDS 025</b> or <b>1.888.543.7025.</b></p>
+        </div>
+      </div>
+      <div class="content-row">
+        <div class="text-col">
+          <h2>Steps for Enrollment</h2>
+          <p>
+            Staff working with families provide services to the family and
+            child, such as Mental Health, Psychological, and Nutrition Services,
+            plus linkage to other community resources.
+          </p>
+        </div>
+        <!-- ===== Two-Tab Section ===== -->
+        <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tablink" onclick="openTab('Tab1', this, '#003366')" id="defaultTab">Step 1</button>
+            <button class="tablink" onclick="openTab('Tab2', this, '#0055aa')">Step 2</button>
+        </div>
+
+        <div id="Tab1" class="tabcontent">
+                <P>
+                <h3>Complete and submit online form</h3>
+                </P>
+                <p>
+                    The San Bernardino County Preschool Services is now accepting applications for Head Start, Early Head Start and State Preschool for the 2025-2026 school year!
+                </p>
+                <div class="nav-button" id="openInterestEnglish">Online Interest Form</div>
+        </div>
+
+        <div id="Tab2" class="tabcontent">
+            <h3>You will be contacted within two weeks</h3>
+            <p>A Program Generalist in your area will contact you within two weeks to schedule an appointment to complete the application process.</p>
+            <p><b>To expedite the process, it will be helpful to have the following documents available:</b></p>
+            <ul>
+                <li>Child’s Birth Certificate</li>
+                <li>Verification of Family Income</li>
+                <li>Immunization Verification</li>
+            </ul>
+            <p>If you have any questions or wish to make an appointment, please call the Generalist at the location nearest you.</p>
+            <div class="nav-button" id="openContact">Contact Us</div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal for Interest Form English -->
+<div
+  id="modalInterestEnglish"
+  class="modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalTitleInterestEnglish"
+  tabindex="-1"
+>
+  <div class="modal-content">
+    <h2 id="modalTitleInterestEnglish">Online Interest Form English</h2>
+    <div class="embed-container" style="margin-top: 20px">
+      <iframe
+        name="iframe3"
+        width="500"
+        height="400"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="ChildPlus Application English"
+        src="https://www.childplus.net/apply/en-us/F171123B3817F1E1FD66FE800C8E8747/5222CA66B4F4D4593B9B2A099582B8B5"
+        allow="geolocation; camera;"
+      ></iframe>
+    </div>
+    <button id="closeInterestEnglishBtn" class="small-box" style="margin-top: 20px">
+      Close
+    </button>
+  </div>
+</div>
+
+<div
+  id="modalContact"
+  class="modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalContact"
+  tabindex="-1"
+>
+  <div class="modal-content">
+    <h2 id="modalContact">Contact Us</h2>
+    <div class="embed-container" style="margin-top: 20px">
+      <h2>Preschool Services Administration</h2>
+      <p>
+        County of San Bernardino <br>
+        Preschool Services Department<br>
+        662 South Tippecanoe Avenue<br>
+        San Bernardino, CA 92415-0630<br>
+        (888) KIDS – 025 and (888) 543-7025<br>
+      </p>
+      <p>
+        For more information and eligibility requirements for the programs listed please contact us via: PSDCEUStaff@psd.sbcounty.gov
+      </p>
+    </div>
+    <button id="closeContact" class="small-box" style="margin-top: 20px">
+      Close
+    </button>
+  </div>
+</div>
+<!-- Modal for Interest Form Spanish -->
+<div
+  id="modalInterestSpanish"
+  class="modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalTitleInterestSpanish"
+  tabindex="-1"
+>
+  <div class="modal-content">
+    <h2 id="modalTitleInterestSpanish">Online Interest Form Spanish</h2>
+    <div class="embed-container" style="margin-top: 20px">
+      <iframe
+        name="iframe4"
+        width="500"
+        height="400"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="ChildPlus Application Spanish"
+        src="https://www.childplus.net/apply/es/F171123B3817F1E1FD66FE800C8E8747/5222CA66B4F4D4593B9B2A099582B8B5"
+        allow="geolocation; camera;"
+      ></iframe>
+    </div>
+    <button id="closeInterestSpanishBtn" class="small-box" style="margin-top: 20px">
+      Close
+    </button>
+  </div>
+</div>
+  <!-- === Modal Script === -->
+<script>
+  // Reusable modal setup function
+  function setupModal(openBtnId, modalId, closeBtnId) {
+    const openBtn = document.getElementById(openBtnId);
+    const modal = document.getElementById(modalId);
+    const closeBtn = document.getElementById(closeBtnId);
+
+    if (openBtn && modal && closeBtn) {
+      openBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modal.focus();
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+    }
+  }
+
+  // Initialize both modals
+  setupModal("openInterestEnglish", "modalInterestEnglish", "closeInterestEnglishBtn");
+  setupModal("openInterestSpanish", "modalInterestSpanish", "closeInterestSpanishBtn");
+  setupModal("openContact", "modalContact", "closeContact");
+  // Allow closing with ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".modal-overlay").forEach((modal) => {
+        modal.style.display = "none";
+      });
+    }
+  });
+  function openTab(tabName, elmnt, color) {
+  const tabcontent = document.getElementsByClassName("tabcontent");
+  const tablinks = document.getElementsByClassName("tablink");
+
+  // Hide all tab contents
+  for (let i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Reset all tab buttons
+  for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  // Show selected tab
+  document.getElementById(tabName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Open default tab on load
+document.getElementById("defaultTab").click();
+</script>
+</body>

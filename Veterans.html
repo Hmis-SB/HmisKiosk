@@ -60,8 +60,9 @@ What needs to be done:
             <div style="display: flex; font-size: 20px; justify-content: space-between; align-items: center; padding: 0 30px; background-color: #005eca; color: white; height: 50px;">
                 <span style="text-align: left;">Veterans Crisis Line</span>
                 <span style="text-align: center;">Dial 988 then PRESS 1</span>
-                <button class="crisis-button" onclick="location.href='https://www.veteranscrisisline.net/?gclid=CjwKEAjws7OwBRCn2Ome5tPP8gESJAAfopWsMsri8DNPlRDqObmZzbCxYhAN8-KUQ6YXdQPoRdYz7hoCMhjw_wcB'">
-                    Veteran Crisis Line
+                <!--location.href='https://www.veteranscrisisline.net/?gclid=CjwKEAjws7OwBRCn2Ome5tPP8gESJAAfopWsMsri8DNPlRDqObmZzbCxYhAN8-KUQ6YXdQPoRdYz7hoCMhjw_wcB'-->
+                <button id="openModalBtn" class="crisis-button">
+                    Veterans Crisis Line
                 </button>
             </div>
 
@@ -110,14 +111,20 @@ What needs to be done:
             <!-- Contact Us Modal -->
             <div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
             <div class="modal-content">
-                <h2 id="modalTitle">Contact Survey</h2>
-                <h4>How it works</h4>
-                <ol style="text-align: left;">
-                    <li>Fill out the survey</li>
-                    <li>We get an email with your infomation</li>
-                    <li>We contact you</li>
-                </ol>
+                <h2 id="modalTitle">Veteran Crisis Line</h2>
+                <h4>24/7, confidential crisis support</h4>
+                <h4>for Veterans and their loved ones</h4>
+                <p>You don't have to be enrolled in VA benefits or health care to connect.</p>
+
+                <h3 style="text-align: left;">Support Options</h3>
+                <ul style="text-align: left;">
+                    <li><h2>Dial 988 then Press 1</h2></li>
+                    <li><h2>Chat Online via: veteranscrisisline.net</h2></li>
+                    <li><h2>Text 838255</h2></li>
+                </ul>
+                <!--
                 <style>.embed-container {position: relative; height: 0; padding-bottom:80%; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe name="survey123webform" width="500" height="400" frameborder="0" marginheight="0" marginwidth="0" title="OHMIS Interest Form TEST" src="//survey123.arcgis.com/share/876617d216664155877f26ccf7336f4c" allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"></iframe></div><script>var survey123webform = document.getElementsByName('survey123webform')[0];window.addEventListener("message",e=>{if(e.data){var t=JSON.parse(e.data);["survey123:webform:formLoaded","survey123:onFormLoaded"].includes(t.event)&&t.contentHeight&&(survey123webform.parentNode.style.height=t.contentHeight+"px")&&(survey123webform.parentNode.style["padding-bottom"]="unset")}});</script>
+                -->
                 <button id="closeModalBtn" class="small-box" style="margin-top: 20px;">Close</button>
             </div>
             </div>

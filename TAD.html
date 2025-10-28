@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <style>
+    /* Wrapper ensures 20px margin and responsive width */
+.iframe-wrapper {
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  outline: none;
+}
+
+/* Iframe itself stretches edge-to-edge inside wrapper */
+.iframe-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 600px; /* adjust as needed */
+  border: none;
+  outline: none;
+}
+
+  </style>
+</head>
+
+<body class="center-background">
+  <div class="top-bar">
+    <button
+      onclick="location.href='index.html'"
+      class="round-button"
+      alt="Go Back"
+    >
+      &#8592;
+    </button>
+  </div>
+  <!-- This is your header so only nav items and a title please-->
+  <div class="main-page">
+    <header
+      class="main-nav-bar"
+      style="font-size: 20px; display: flex; justify-content: center"
+    >
+      <h1 style="text-align: center">TAD: BenefitsCal</h1>
+    </header>
+    <div class="main-content">
+      <div class="content-row">
+      <div class="iframe-wrapper" style="outline: none;">
+        <iframe
+          src="https://benefitscal.com/Help/help-center/HCHCH"
+          title="Example Embedded Page"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+        <div class="text-col">
+          <section>
+            <div class="step">
+              <h3>TAD MISSION STATEMENT</h3>
+              <p>
+                The mission of the Transitional Assistance Department is to enhance the quality of life in the 
+                communities we serve by providing economic support to individuals and families. We are 
+                committed to working collaboratively to provide our services accurately and efficiently, 
+                with a high emphasis on integrity, respect and customer service.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Full-width iframe with 20px side margins -->
+
+
+      </div>
+      
+    </div>
+    </div>
+  </div>
+</body>
