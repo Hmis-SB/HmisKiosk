@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+  <style>
+    .crisis-button {
+      background-color: #79000f;
+      color: white;
+      padding: 6px 12px;
+      font-size: 14px;
+      border: 3px solid white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .crisis-button:hover {
+      background-color: #79000ec1;
+      color: #ffffff;
+    }
+    .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .embed-container {
+    position: relative;
+    height: 0;
+    padding-bottom: 80%;
+    max-width: 100%;
+  }
+
+  .embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+   .nav-button {
+        background-color: #003366;
+        color: white;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        flex: 1;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+
+        /* Make sure exactly 4 buttons fit with spacing */
+        .button-row > .nav-button {
+        max-width: calc(25% - 10px); /* 4 columns with 20px gaps */
+        }
+
+        .nav-button:hover {
+        background-color: #0055aa;
+        color: #ffcc00;
+        }
+    .tab-container {
+  width: calc(100% - 40px); /* full width minus 20px margins on both sides */
+  margin: 20px;             /* 20px margin all around (top, sides, bottom) */
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  background-color: #003366;
+}
+
+.tablink {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  background-color: #003366;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.tablink:hover {
+  background-color: #0055aa;
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+  background-color: white;
+  color: #333;
+  border-top: 1px solid #ddd;
+}
+
+  </style>
+</head>
+<!--
+Jevita Requests: 
+
+
+What needs to be done:
+- a center divs
+- rounded premade buttons
+- animations with JS
+- ADA compliance is going to be huge
+- beginning screen asking if they're a veteran 
+- maybe change the buttons? I'm not sure how these will actaully work from scratch 
+                        Pages should be copy and paste for ease of use
+- for pages make them look like a website view almost
+-->
+<body class="center-background">
+  <div class="top-bar">
+    <button
+      onclick="location.href='index.html'"
+      class="round-button"
+      alt="Go Back"
+    >
+      &#8592;
+    </button>
+  </div>
+  <!-- This is your header so only nav items and a title please-->
+  <div class="main-page">
+    <header class="main-nav-bar" style="font-size: 20px">
+      <h1>Department of Public Health</h1>
+     
+    </header>
+    <div class="main-content">
+      <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
+      
+      <!-- Main content under the header -->
+
+      <!-- This is a colum of text and image-->
+
+      <div class="content-row">
+        <div class="text-col">
+          <h2 style="text-align: left">
+            <b>Welcome</b>
+          </h2>
+          <p>
+            Our dedicated staff works to prevent epidemics and the spread of disease, protect against environmental hazards, prevent injuries, 
+            promote and encourage healthy behaviors, respond to disasters and assist communities in recovery, and assure the quality and 
+            accessibility of health services throughout the County.
+          </p>
+          <p>
+            To achieve this goal, we place a high value on strong working alliances with local community groups representing the diverse 
+            populations who live in all areas of our large County.
+          </p>
+          <p>
+            We encourage you to explore our website and take advantage of the information it contains. We welcome your ideas on how we 
+            can improve services and provide you with useful health information.
+          </p>
+          
+
+        </div>
+
+        
+     
+      
+    </div>
+  </div>
+<!-- Modal for Interest Form English -->
+<div
+  id="modalInterestEnglish"
+  class="modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalTitleInterestEnglish"
+  tabindex="-1"
+>
+  <div class="modal-content">
+    <h2 id="modalTitleInterestEnglish">Online Interest Form English</h2>
+    <div class="embed-container" style="margin-top: 20px">
+      <iframe
+        name="iframe3"
+        width="500"
+        height="400"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="ChildPlus Application English"
+        src="https://www.childplus.net/apply/en-us/F171123B3817F1E1FD66FE800C8E8747/5222CA66B4F4D4593B9B2A099582B8B5"
+        allow="geolocation; camera;"
+      ></iframe>
+    </div>
+    <button id="closeInterestEnglishBtn" class="small-box" style="margin-top: 20px">
+      Close
+    </button>
+  </div>
+</div>
+
+<div
+  id="modalContact"
+  class="modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalContact"
+  tabindex="-1"
+>
+  <div class="modal-content">
+    <h2 id="modalContact">Contact Us</h2>
+    <div class="embed-container" style="margin-top: 20px">
+      <h2>Preschool Services Administration</h2>
+      <p>
+        County of San Bernardino <br>
+        Preschool Services Department<br>
+        662 South Tippecanoe Avenue<br>
+        San Bernardino, CA 92415-0630<br>
+        (888) KIDS – 025 and (888) 543-7025<br>
+      </p>
+      <p>
+        For more information and eligibility requirements for the programs listed please contact us via: PSDCEUStaff@psd.sbcounty.gov
+      </p>
+    </div>
+    <button id="closeContact" class="small-box" style="margin-top: 20px">
+      Close
+    </button>
+  </div>
+</div>
+<!-- Modal for Interest Form Spanish -->
+<div
+  id="modalInterestSpanish"
+  class="modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalTitleInterestSpanish"
+  tabindex="-1"
+>
+  <div class="modal-content">
+    <h2 id="modalTitleInterestSpanish">Online Interest Form Spanish</h2>
+    <div class="embed-container" style="margin-top: 20px">
+      <iframe
+        name="iframe4"
+        width="500"
+        height="400"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="ChildPlus Application Spanish"
+        src="https://www.childplus.net/apply/es/F171123B3817F1E1FD66FE800C8E8747/5222CA66B4F4D4593B9B2A099582B8B5"
+        allow="geolocation; camera;"
+      ></iframe>
+    </div>
+    <button id="closeInterestSpanishBtn" class="small-box" style="margin-top: 20px">
+      Close
+    </button>
+  </div>
+</div>
+  <!-- === Modal Script === -->
+<script>
+  // Reusable modal setup function
+  function setupModal(openBtnId, modalId, closeBtnId) {
+    const openBtn = document.getElementById(openBtnId);
+    const modal = document.getElementById(modalId);
+    const closeBtn = document.getElementById(closeBtnId);
+
+    if (openBtn && modal && closeBtn) {
+      openBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modal.focus();
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+    }
+  }
+
+  // Initialize both modals
+  setupModal("openInterestEnglish", "modalInterestEnglish", "closeInterestEnglishBtn");
+  setupModal("openInterestSpanish", "modalInterestSpanish", "closeInterestSpanishBtn");
+  setupModal("openContact", "modalContact", "closeContact");
+  // Allow closing with ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".modal-overlay").forEach((modal) => {
+        modal.style.display = "none";
+      });
+    }
+  });
+  function openTab(tabName, elmnt, color) {
+  const tabcontent = document.getElementsByClassName("tabcontent");
+  const tablinks = document.getElementsByClassName("tablink");
+
+  // Hide all tab contents
+  for (let i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Reset all tab buttons
+  for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  // Show selected tab
+  document.getElementById(tabName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Open default tab on load
+document.getElementById("defaultTab").click();
+</script>
+</body>
