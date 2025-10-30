@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK - DBH Resources</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <style>
+    /* Keep your existing embedded and modal styling */
+    .embed-container {
+      position: relative;
+      height: 0;
+      padding-bottom: 80%;
+      max-width: 100%;
+    }
+    .embed-container iframe,
+    .embed-container object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Modal styles */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+    #modal[aria-hidden="false"] {
+      display: flex;
+    }
+    .modal-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .modal-body {
+      margin-top: 1.5rem;
+    }
+
+    .collapsible {
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
+    }
+
+    .collapsible:after {
+      content: "\002B";
+      float: right;
+      font-weight: bold;
+    }
+    .kiosk-button img {
+      width: 200px; /* Adjust width as needed */
+      height: auto; /* Keeps aspect ratio */
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body class="center-background">
+  <div class="top-bar">
+    <button
+      onclick="location.href='../Public Health.html'"
+      class="round-button"
+      alt="Go Back"
+    >
+      &#8592;
+    </button>
+  </div>
+
+  <div class="main-page">
+    <header
+      class="main-nav-bar"
+      style="font-size: 20px; display: flex; justify-content: center"
+    >
+      <h1>Vital Statistics Registration Office</h1>
+    </header>
+
+    <div class="main-content">
+      <img
+        src="./Images/copy.png"
+        class="banner-img"
+        alt="San Bernardino County Homeless Partnership"
+      />
+
+      <div class="content-row">
+        <div class="text-col">
+          <h2>
+            ATTENTION – We issue certificates of births, deaths, and fetal
+            deaths for events occurring in the last 24 months.
+          </h2>
+          <p>
+            The Vital Statistics Registration Office (VSRO) is responsible for
+            registering all births and deaths and issuing burial permits in San
+            Bernardino County. Our office will hold the record for 24 months,
+            all records older than 24 months must be purchased at the San
+            Bernardino County Hall of Records. We are located at 340 N. Mountain
+            View Avenue, San Bernardino, CA 92415. Hours of operation are Monday
+            – Friday, 8:00 AM – 5:00 PM.
+          </p>
+        </div>
+      </div>
+      <div class="content-row">
+        <div class="text-col">
+          <h3>
+            The Vital Statistics Registration Office Lobby is open no
+            appointments are necessary
+          </h3>
+          <p>Please email VS@dph.sbcounty.gov or 909-381-8990</p>
+        </div>
+      </div>
+
+      <div class="row-of-buttons">
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Request a Certificate.png" alt="Home Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Certified Copy Eligibility.png" alt="Bird Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Burial Permits.png" alt="Hand Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/amend.png" alt="Hand Icon" />
+          </a>
+        </div>
+      </div>
+
+      <div class="row-of-buttons">
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Funeral Home Information.png" alt="Home Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Out of hospital births.png" alt="Bird Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Auth.png" alt="Hand Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Frequently Asked Questions.png" alt="Hand Icon" />
+          </a>
+        </div>
+      </div>
+
+      <div class="content-row">
+        <div class="text-col" style="text-align: center">
+          <h2 style="text-align: center">VRSO Location</h2>
+          <p>340 N. Mountain View Avenue</p>
+          <p>San Bernardino, CA 92415</p>
+          <p>Monday – Friday, 8:00 AM – 5:00 PM</p>
+          <p>(909) 381-8990</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

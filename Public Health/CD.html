@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK - DBH Resources</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <style>
+    /* Keep your existing embedded and modal styling */
+    .embed-container {
+      position: relative;
+      height: 0;
+      padding-bottom: 80%;
+      max-width: 100%;
+    }
+    .embed-container iframe,
+    .embed-container object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Modal styles */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+    #modal[aria-hidden="false"] {
+      display: flex;
+    }
+    .modal-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .modal-body {
+      margin-top: 1.5rem;
+    }
+
+    .collapsible {
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
+    }
+
+    .collapsible:after {
+      content: "\002B";
+      float: right;
+      font-weight: bold;
+    }
+    .kiosk-button img {
+  width: 200px;   /* Adjust width as needed */
+  height: auto;   /* Keeps aspect ratio */
+}
+
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body class="center-background">
+  <div class="top-bar">
+    <button onclick="location.href='../Public Health.html'" class="round-button" alt="Go Back">&#8592;</button>
+  </div>
+
+  <div class="main-page">
+    <header class="main-nav-bar" style="font-size: 20px; display: flex; justify-content: center">
+      <h1>Communicable Disease</h1>
+    </header>
+
+    <div class="main-content">
+      <img
+        src="./Images/easy Access Clinic.png"
+        class="banner-img"
+        alt="San Bernardino County Homeless Partnership"
+      />
+
+      <div class="content-row">
+        <div class="text-col">
+          <p>
+            The Communicable Disease Section (CDS) performs disease surveillance, implements 
+            infection control measures, and provides education designed to reduce or manage the rate of 
+            infectious diseases that are consistent with California law.  
+          </p>
+          <p>CDS works to contain diseases by:</p>
+          <ul>
+            <li>Investigating reports of communicable diseases and outbreaks </li>
+            <li>Providing case management services </li>
+            <li>Facilitating lab testing to confirm the presence of disease </li>
+            <li>Educating health providers and the public</li>
+            <li>Monitoring disease trends</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row-of-buttons">
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Primary_Care.png" alt="Home Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Pediatrics.png" alt="Bird Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a
+            href="#"
+            onclick="location.href=''"
+          >
+            <img src="Images/Immunizations.png" alt="Hand Icon" />
+          </a>
+        </div>
+         <div class="kiosk-button">
+          <a
+            href="#"
+            onclick="location.href=''"
+          >
+            <img src="Images/Dental.png" alt="Hand Icon" />
+          </a>
+        </div>
+      </div>
+
+      <div class="row-of-buttons">
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Sexual_Health.png" alt="Home Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" onclick="location.href=''">
+            <img src="Images/Teen_Health.png" alt="Bird Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a
+            href="#"
+            onclick="location.href=''"
+          >
+            <img src="Images/Patient_Information.png" alt="Hand Icon" />
+          </a>
+        </div>
+         <div class="kiosk-button">
+          <a
+            href="#"
+            onclick="location.href=''"
+          >
+            <img src="Images/Health_Centers_Health_Library.png" alt="Hand Icon" />
+          </a>
+        </div>
+      </div>
+
+            <div class="content-row">
+                <div class="text-col">
+                    <h2>Adelanto Health Center</h2>
+                    <p>
+                      11336 Bartlett Avenue, Suite 11
+                    </p>
+                    <p>
+                      Adelanto, CA 92301
+                    </p>
+                </div>
+
+                <div class="text-col">
+                   <h2>Hesperia Health Center</h2>
+                   <p>16453 Bear Valley Rd</p>
+                   <p>Hesperia, CA 92345</p>
+                </div>
+
+                <div class="text-col" >
+                   <h2>Ontario Health Center</h2>
+                   <p>150 E. Holt Blvd.</p>
+                   <p>Ontario, CA 91761</p>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <div class="text-col">
+                    <h2>Barstow Public Health Clinic</h2>
+                    <p>
+                      303 E. Mountain View St.
+                    </p>
+                    <p>
+                      Barstow, CA 92311
+                    </p>
+                </div>
+
+                
+                <div class="text-col" >
+                   <h2>San Bernardino Health Center</h2>
+                   <p>590 N. D St.</p>
+                   <p>San Bernardino, CA 92401</p>
+                </div>
+
+                <div class="text-col">
+                   <h2>Big Bear Public Health Clinic</h2>
+                   <p>477 Summit Blvd.</p>
+                   <p>P.O. Box 2835</p>
+                   <p>Big Bear Lake, CA 92315</p>
+                </div>
+            </div>
+
+            <div class="content-row">
+              <div class="text-col" >
+                   <h2>Needles Public Health Clinic</h2>
+                   <p>1406 Bailey Ave., Ste D</p>
+                   <p>Needles, CA 92363</p>
+                </div>
+            </div>
+            <p style="text-align: center;"><b>To schedule a clinic appointment, please call 1 (800) 722-4777.</b></p>
+            <p><b>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).
+
+</b></p>
+            
+    </div>
+  </div>
+
+
+
+  
+</body>
+</html>

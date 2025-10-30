@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <style>
+    .kiosk-button a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #007a8c;
+      font-weight: bold;
+    }
+
+    .kiosk-button a:hover {
+      text-decoration: underline;
+    }
+
+    .kiosk-button img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 3px solid #007a8c;
+      padding: 10px;
+    }
+    .embed-container {
+      position: relative;
+      height: 0;
+      padding-bottom: 80%;
+      max-width: 100%;
+    }
+    .embed-container iframe,
+    .embed-container object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .collapsible {
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
+    }
+
+    .collapsible:after {
+      content: "\002B";
+      float: right;
+      font-weight: bold;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+
+    /* Add some indent to nested items */
+    .content .collapsible {
+      padding: 18px 20px;
+      background-color: #003366;
+    }
+    .content .content {
+      padding: 0 20px;
+      background-color: #eaeaea;
+    }
+
+    .modal-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body class="center-background">
+  <div class="top-bar">
+    <button
+      onclick="location.href='../DBH.html'"
+      class="round-button"
+      alt="Go Back"
+    >
+      &#8592;
+    </button>
+  </div>
+  <div class="main-page">
+    <header
+      class="main-nav-bar"
+      style="font-size: 20px; display: flex; justify-content: center"
+    >
+      <h1>Other Services and Support</h1>
+    </header>
+    <div class="main-content">
+      <img
+        src="../images/otherservs.png"
+        class="banner-img"
+        alt="San Bernardino County Homeless Partnership"
+      />
+
+    
+
+      <div class="content-row">
+        <div class="text-col">
+          <p>
+            The following programs provide a variety of behavioral health
+            related services and supports, separate from outpatient services,
+            for specific communities. These programs serve existing DBH
+            consumers and members of the community who meet criteria for
+            services. You may call or visit a provider for more information. If
+            you’re not sure which location to call or if you have additional
+            questions about how to access these services, call (888) 743-1478.
+          </p>
+          <p>
+            Get the facts about Fentanyl and learn more about how you can
+            prevent an overdose: Learn More
+          </p>
+          <h2>Click on the title or + sign to learn more about a program.</h2>
+        </div>
+      </div>
+
+      
+      <div class="content-row">
+        <div class="text-col">
+          <button type="button" class="collapsible">
+            Services for Children, Transitional Age Youth, and Familes
+          </button>
+          <div class="content">
+            <button type="button" class="collapsible">
+              Family Resource Centers(FRC)
+            </button>
+            <div class="content">
+              <p>
+                FRC’s provide services specific to the needs of the communities
+                served including mental health education, workshops, community
+                counseling, adult skill based education programs and parenting
+                support. Serving children, youth and families.
+              </p>
+
+              <h3>
+                Ontario Montclair School District Health and Wellness Services
+              </h3>
+              <p>1556 S. Sultana Ave., Ontario | (909) 418-6923</p>
+
+              <h3>Pacific Clinics</h3>
+              <p>58457 29 Palms Hwy Suite 102A Yucca Valley | (760) 228-9657</p>
+              <p>572 North Arrowhead Ave. San Bernardino | (877) 722-2737</p>
+
+              <h3>Rim Family Services</h3>
+              <p>28545 Hwy.18, Skyforest | (909) 336-1800</p>
+
+              <h3>Riverside San Bernardino County Indian Health, Inc.</h3>
+              <p>11980 Mt. Vernon Ave. Grand Terrace | (909) 864-1097</p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>12421 Hesperia Rd., Suite 2 Victorville | (760) 243-5417</p>
+              <p>
+                600 N. Arrowhead Ave., Ste.300, San Bernardino | (909) 522-4656
+              </p>
+            </div>
+            <button type="button" class="collapsible">
+              Student Assistance Program(SAP)
+            </button>
+            <div class="content">
+              <p>
+                School-based supportive service programs for students and
+                families which provides education and early interventions for
+                substance abuse, mental health, academic, emotional and social
+                issues.
+              </p>
+
+              <h3>Desert Mountain Children’s Center</h3>
+              <p>17800 Hwy. 18, Apple Valley | (760) 552-6700</p>
+              <p>
+                58967 Business Center Dr., Ste. C – E, Yucca Valley | (760)
+                369-3130
+              </p>
+
+              <h3>Lutheran Social Services</h3>
+              <p>
+                41945 Big Bear Blvd., Ste. 222, Big Bear Lake | (909) 866-5070
+              </p>
+
+              <h3>Mountain Counseling and Training</h3>
+              <p>340 Hwy. 138, Crestline | (909) 336-3330</p>
+
+              <h3>South Coast Community Services</h3>
+              <p>1030 Nevada St., Ste. 200, Redlands | (877) 527-7227</p>
+              <p>34324 Yucaipa Blvd., Ste. B – D, Yucaipa | (877) 527-7227</p>
+              <p>1425 W. Foothill Ste. 201, Upland | (877) 527-7227</p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>
+                600 N. Arrowhead Ave., Ste 300, San Bernardino | (909) 522-4656
+              </p>
+
+              <h3>West End Family Counseling</h3>
+              <p>855 Euclid Ave., Ontario | (909) 983-2020</p>
+
+              <p>
+                The Mental Health Student Services Act (MHSSA) was implemented
+                via Senate Bill 75 to encourage partnerships between county
+                mental health departments, local education districts, and
+                community-based organizations to deliver mental health services
+                to youth and their families. These partnerships work to
+                remove/reduce barriers, stigma, and discrimination, identify
+                early signs of unmet mental health needs, and prevent unmet
+                mental health needs from becoming severe and disabling. San
+                Bernardino County Department of Behavioral Health has partnered
+                with the following organizations and districts:
+              </p>
+
+              <h3>Desert Mountain Community Services</h3>
+              <p>17800 Hwy. 18, Apple Valley | (760) 955-3555</p>
+              <p>Serving: Silver Valley School District</p>
+
+              <h3>South Coast Community Services</h3>
+              <p>27261 Las Ramblas, Ste. 220, Mission Viejo | (714) 966-8650</p>
+              <p>
+                Serving: Colton Joint Unified School District and
+                Yucaipa-Calimesa Joint Unified School District
+              </p>
+
+              <p>
+                Some of the services provided through the San Bernardino County
+                MHSSA program are:
+              </p>
+
+              <ul>
+                <li>Mental Health Assessments</li>
+                <li>Wellness Fairs/Family Wellness Nights</li>
+                <li>Presentations</li>
+                <li>Referrals</li>
+                <li>Youth Mental Health First Aid</li>
+                <li>Adverse Childhood Experiences (ACEs) Training for Staff</li>
+                <li>Parent Mental Health Training</li>
+                <li>
+                  Collaborations Between Behavioral Health Department and
+                  Military Bases
+                </li>
+                <li>Back to School Nights</li>
+              </ul>
+            </div>
+            <button type="button" class="collapsible">
+              Transitional Aged Youth (TAY) Centers
+            </button>
+            <div class="content">
+              <p>
+                TAY centers provide outpatient behavioral health services and
+                other supports to youth, ages 16 to 26. You may contact a
+                location nearest you for more information.
+              </p>
+              <h3>Mental Health Systems, Inc., Ontario TAY Center</h3>
+              <p>316 E. E St., Ontario | (909) 983-4466</p>
+
+              <h3>
+                San Bernardino One Stop Transitional Age Youth (TAY) Center
+              </h3>
+              <p>780 E. Gilbert Street, San Bernardino, CA | (909) 387-7194</p>
+
+              <h3>
+                Valley Star Community Services – Ontario One Stop TAY Center
+              </h3>
+              <p>316 East E. Street, Ontario | (909) 983-4466</p>
+
+              <h3>
+                Valley Star Community Services One Stop TAY Center (Yucca
+                Valley)
+              </h3>
+              <p>
+                58471 29 Palms Hwy., Ste. 102, Yucca Valley | (760) 853-4888
+              </p>
+
+              <h3>
+                Victor Community Support Services – Victorville Campus TAY
+                Center
+              </h3>
+              <p>12421 Hesperia Rd., Ste. #2, Victorville, | (760) 243-5417</p>
+
+              <h3>Barstow Campus TAY Center</h3>
+              <p>222 E. Main St., Ste. 106, Barstow | (760) 243-5417</p>
+            </div>
+            <button type="button" class="collapsible">
+              Resilience Promotion in African American Children (RPIAAC)
+            </button>
+            <div class="content">
+              <p>
+                School-based supportive service program designed to enhance the
+                academic performance of at-risk African American students and
+                their families by providing mental health and substance use
+                disorder education and addressing their cultural and
+                socio-emotional needs.
+              </p>
+              <h3>Young Visionaries Youth Leadership Academy</h3>
+              <p>696 S. Tippecanoe Ave., San Bernardino | (909) 723-1695</p>
+
+              <h3>A Greater Hope</h3>
+              <p>
+                9681 Business Center Dr. Ste. B, Rancho Cucamonga | (909)
+                652-0552
+              </p>
+              <p>610 E Main St, Barstow | (760) 256-0432</p>
+            </div>
+
+            <h3>Specialty Children’s Services</h3>
+            <p>
+              The following programs and services are designed for seriously,
+              emotionally disturbed children who are not benefiting from
+              traditional mental health services and their families. Services
+              range from crisis intervention to life skills and educational
+              services. You may call or visit a provider for more information.
+            </p>
+
+            <button type="button" class="collapsible">
+              Early Identification & intervention Services (EIIS)
+            </button>
+            <div class="content">
+              <p>
+                For children, up to nine years of age, who are not displaying
+                age appropriate interactions and attachment.
+              </p>
+
+              <h3>Citrus Counseling Services</h3>
+              <p>101 E. Redlands Blvd., Ste. 215, Redlands | (909) 793-1078</p>
+
+              <h3>Desert Mountain Children’s Center</h3>
+              <p>17800 Hwy. 18, Apple Valley | (760) 955-3601</p>
+              <p>42007 Fox Farm Rd., Ste. 2A, Big Bear Lake | (909) 866-2165</p>
+              <p>
+                58967 Business Center Dr., Ste. C – E, Yucca Valley | (760)
+                369-3130
+              </p>
+
+              <h3>Hearts & Lives</h3>
+              <p>24028 Lake Dr. Crestline | (909) 338-3222</p>
+              <p>27307 State Hwy. 189 Ste 205, Blue Jay | (909) 338-3222</p>
+
+              <h3>Lutheran Social Services</h3>
+              <p>
+                309 E. Mountain View St. Suite 100, Barstow | (760) 256-7279
+              </p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>
+                1908 Business Center Dr., Ste. 109, San Bernardino| (909)
+                890-5930
+              </p>
+
+              <h3>West End Family Counseling</h3>
+              <p>1420 Milliken Ave., Ste. 508, Ontario | (909) 988-2418</p>
+            </div>
+
+            <button type="button" class="collapsible">
+              School-Aged Treatment Services (SATS)
+            </button>
+            <div class="content">
+              <p>
+                For children and youth with a mental health disorder that
+                interferes with their academic performance or functioning in
+                family, school, or community.
+              </p>
+
+              <h3>Chino Valley Unified School District</h3>
+              <p>13461 Ramona Ave, Chino | (909) 628-1201</p>
+
+              <h3>Desert Mountain Children’s Center</h3>
+              <p>17800 Hwy. 18, Apple Valley | (760) 552-6700</p>
+              <p>42007 Fox Farm Rd., Ste. 2A, Big Bear Lake | (909) 866-2165</p>
+              <p>
+                58967 Business Center Dr., Ste. C- E, Yucca Valley | (760)
+                369-3130
+              </p>
+
+              <h3>Mountain Counseling and Training</h3>
+              <p>340 Hwy. 138, Crestline | (909) 336-3330</p>
+
+              <h3>
+                Ontario Montclair School District/ Robert Hardy Professional
+                Development Center
+              </h3>
+              <p>515 S. Bon View Ave., Ontario | (909) 930-6793</p>
+
+              <h3>
+                San Bernardino County Schools/Barbara Phelps Community Day
+                School
+              </h3>
+              <p>1812 W. Park Ave., Redlands | (909) 748-0259</p>
+
+              <h3>South Coast Community Services</h3>
+              <p>1030 Nevada St., Ste. 200, Redlands | (909) 792-0747</p>
+              <p>1425 W. Foothill Blvd., 3rd fl., Upland | (877) 527-7227</p>
+              <p>1461 E. Cooley Dr., Ste. 100, Colton | (909) 835-4800</p>
+              <p>34324 Yucaipa Blvd., Ste. C, Yucaipa | (909) 790-1300</p>
+
+              <h3>Upland Unified School District</h3>
+              <p>601 5th Ave., Upland | (909) 949-6526</p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>1053 N. D St., San Bernardino | (909) 522-4656</p>
+
+              <h3>West End Family Counseling Services</h3>
+              <p>855 Euclid Ave., Ontario | (909) 983-2020</p>
+            </div>
+            <button type="button" class="collapsible">
+              Screening, Assessment, Referral & Treatment (SART)
+            </button>
+            <div class="content">
+              <p>
+                For children and youth with a mental health disorder that
+                interferes with their academic performance or functioning in
+                family, school, or community.
+              </p>
+
+              <h3>Citrus Counseling Services</h3>
+              <p>101 E. Redlands Blvd., Ste. 215, Redlands | (909) 793-1078</p>
+
+              <h3>Desert Mountain Children’s Center</h3>
+              <p>17800 Hwy. 18, Apple Valley | (760) 552-6700</p>
+              <p>
+                42007 Fox Farm Rd., Ste. 2 A, Big Bear Lake | (909) 866-2165
+              </p>
+              <p>
+                58967 Business Center Dr., Ste. C – E, Yucca Valley | (760)
+                369-3130
+              </p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>
+                1908 Business Center Dr., Ste. 109, San Bernardino | (909)
+                890-5930
+              </p>
+
+              <h3>West End Family Counseling</h3>
+              <p>1420 Milliken Ave., Ste. 508, Ontario | (909) 988-2418</p>
+            </div>
+
+            <button type="button" class="collapsible">
+              Sucess First/Early Wrap
+            </button>
+            <div class="content">
+              <p>
+                Services for seriously emotionally disturbed, un-served or
+                underserved children, ages 0 to 18.
+              </p>
+
+              <h3>Lutheran Social Services</h3>
+              <p>
+                309 E. Mountain View St., Ste. 100 – 102 & 104, Barstow | (760)
+                256-7279
+              </p>
+              <p>
+                41945 Big Bear Blvd., Ste. 221 – 223, Big Bear | (909) 866-5070
+              </p>
+              <p>
+                58923 Business Center Dr., Ste. A – E, Yucca Valley | (760)
+                365-7209
+              </p>
+
+              <h3>Mental Health Systems, Inc.</h3>
+              <p>
+                9570 N. Center Ave., Ste. 110, Rancho Cucamonga | (909) 980-2789
+              </p>
+
+              <h3>Mountain Counseling and Training, Inc.</h3>
+              <p>340 Hwy. 138, Crestline | (909) 336-3330</p>
+
+              <h3>South Coast Community Services</h3>
+              <p>1425 W. Foothill Blvd., 3rd fl., Upland | (877) 527-7227</p>
+              <p>1461 E. Cooley Dr., Ste. 100, Colton | (909) 835-4800</p>
+
+              <h3>Pacific Clinics</h3>
+              <p>
+                572 & 596 N. Arrowhead Ave., San Bernardino | (909) 266-2700
+              </p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>
+                1908 S. Business Center Dr., Ste. 109, San Bernardino | (909)
+                890-5930
+              </p>
+              <p>
+                15095 Armargosa Rd., Ste. 201, 205, 208, Victorville | (760)
+                245-4695
+              </p>
+            </div>
+            <button type="button" class="collapsible">
+              Therapeutic Behavioral Services (TBS)
+            </button>
+            <div class="content">
+              <p>
+                Intensive one-on-one, short outpatient treatment intervention
+                designed to support short-term treatment goals of children, ages
+                0 to 21.
+              </p>
+
+              <h3>Lutheran Social Services</h3>
+              <p>
+                41945 Big Bear Blvd., Ste. 221 – 223, Big Bear | (909) 866-5070
+              </p>
+              <p>
+                58923 Business Center Dr., Ste. A – E, Yucca Valley | (760)
+                365-7209
+              </p>
+
+              <h3>Mental Health Systems, Inc.</h3>
+              <p>790 Via Lata, Ste. 300, Colton | (909) 433-0445</p>
+
+              <h3>Mountain Counseling and Training, Inc.</h3>
+              <p>340 Hwy. 138, Crestline | (909) 336-3330</p>
+
+              <h3>South Coast Community Services</h3>
+              <p>
+                1425 W. Foothill Blvd., Ste. 201 & 310, Upland | (877) 527-7227
+              </p>
+
+              <h3>Pacific Clinics</h3>
+              <p>
+                572 & 596 N. Arrowhead Ave., San Bernardino | (909) 266-2700
+              </p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>12421 Hesperia Rd., Suite 2, Victorville | (760) 243-5417</p>
+            </div>
+          </div>
+
+          <button type="button" class="collapsible">Clubhouses</button>
+          <div class="content">
+            <p>
+              Peer-Run Support Centers for individuals managing their behavioral
+              health. Services include support groups, social activities,
+              community connection opportunities and other wellness services.
+              Individuals may or may not be accessing clinical services. You may
+              call or visit a location for more information. Open Monday through
+              Friday from 9 – 4 p.m.
+            </p>
+
+            <h3>A Place to Go</h3>
+            <p>
+              32770 Old Woman Springs Rd., Ste. B, Lucerne Valley | (760)
+              248-2327
+            </p>
+
+            <h3>Amazing Place</h3>
+            <p>2940 Inland Empire Blvd., Ontario | (909) 458-1396</p>
+
+            <h3>
+              C.A.R.E. Center (Consumer Advocacy & Recovery Engagement Center)
+              Clubhouse
+            </h3>
+            <p>34366 Yucaipa Blvd., Yucaipa | (909) 266-2794</p>
+
+            <h3>Central Valley FUN</h3>
+            <p>1501 S. Riverside Ave Rialto | (909) 877-4889</p>
+
+            <h3>Desert Stars</h3>
+            <p>1841 E. Main St., Barstow | (760) 255-5705</p>
+
+            <h3>Hopeful Horizons</h3>
+            <p>58457 29 Palms Hwy #102B, Yucca Valley | (760) 369-4057</p>
+
+            <h3>Pathways to Recovery</h3>
+            <p>17053 E. Foothill Blvd., Ste. B, Fontana | (909) 347-1373</p>
+
+            <h3>Spike’s Clubhouse</h3>
+            <p>1004 Broadway Suite B, Needles | (760) 623-0855</p>
+
+            <h3>Serenity</h3>
+            <p>12625 Hesperia Rd., Ste. B, Victorville | (760) 955-6224</p>
+
+            <h3>Team House</h3>
+            <p>201 W. Mill St., San Bernardino | (909) 388-5640</p>
+          </div>
+
+          <button type="button" class="collapsible">
+            Prevention & Early Intervention Programs
+          </button>
+          <div class="content">
+            <p>
+              PEI programs and services are designed to prevent mental illness
+              from becoming severe and disabling and include short-term
+              counseling and referrals. You may contact a program directly for
+              more information.
+            </p>
+
+            <button type="button" class="collapsible">
+              Community Wholeness & Enrichment(CWE)
+            </button>
+            <div class="content">
+              <p>
+                Supports individuals displaying the early onset of mental
+                illness by educating families, referring to community supports,
+                and de-stigmatizing mental health. Serving children, adults, and
+                families.
+              </p>
+              <h3>Rim Family Services</h3>
+              <p>28545 Hwy. 18, P.O. Box 578. Skyforest | (909)336-1800</p>
+
+              <h3>South Coast Community Services</h3>
+              <p>425 W. Foothill Ste, 201, Upland | (877)527-7227</p>
+              <p>1030 Nevada St., Ste. 200, Redlands | (877) 527-7227</p>
+              <p>34324 Yucaipa Blvd., Ste. B – D, Yucaipa | (877) 527-7227</p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>12421 Hesperia Rd. Ste, 2, Victorville | (760) 243-5417</p>
+            </div>
+            <button type="button" class="collapsible">
+              Environmental Prevention Providers
+            </button>
+            <div class="content">
+              <p>
+                Partner agencies which host and/or facilitate a variety of
+                community presentations, special events, and clubs in an effort
+                to educate community members about the risks of drug use and
+                prevent or reduce substance use.
+              </p>
+
+              <h3>Department of Public Health/Friday Night Live</h3>
+              <p>340 N. Mountain Ave. San Bernardino | (800) 782-4264</p>
+
+              <h3>Institute for Public Strategies</h3>
+              <p>15490 Civic Dr. Ste 102, Victorville | (760) 843-7003</p>
+              <p>242 E. Airport Dr. Ste 205, San Bernardino | (909) 266-1660</p>
+
+              <h3>Reach Out, Inc</h3>
+              <p>1126 W. Foothill Blvd. Ste 250, Upland | (909) 982-8641</p>
+              <p>7248 Joshua Lane, Yucca Valley | (760) 365-7130</p>
+
+              <h3>Rim Family Services</h3>
+              <p>28545 Highway 18, Skyforest | (909) 339-1800</p>
+              <p>40880 Pedder Rd. Big Bear Lake | (909) 366-0545</p>
+            </div>
+            <button type="button" class="collapsible">
+              Family Resource Center (FRC)
+            </button>
+            <div class="content">
+              <p>
+                FRC’s provide services specific to the needs of the communities
+                served including mental health education, workshops, community
+                counseling, adult skill based education programs and parenting
+                support. Serving children, youth and families.
+              </p>
+
+              <h3>
+                Ontario Montclair School District Health and Wellness Services
+              </h3>
+              <p>1556 S. Sultana Ave., Ontario | (909) 418-6923</p>
+
+              <h3>Pacific Clinics</h3>
+              <p>58457 29 Palms Hwy Suite 102A Yucca Valley | (760) 228-9657</p>
+              <p>
+                572 N. Arrowhead Ave. Ste 100 San Bernardino | (877) 722-2737
+              </p>
+
+              <h3>Rim Family Services</h3>
+              <p>28545 Hwy.18, Skyforest | (909) 336-1800F</p>
+
+              <h3>Riverside San Bernardino County Indian Health, Inc.</h3>
+              <p>11980 Mt. Vernon Ave. Grand Terrace | (909) 864-1097</p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>600 N. Arrowhead Ave., San Bernardino | (909) 522-4656</p>
+              <p>12421 Hesperia Rd., Suite 2, Victorville | (760) 243-5417</p>
+
+              <h3>The Mom and Dad Project</h3>
+              <p>41820 Garstin Drive, Big Bear Lake | (909) 878-2326</p>
+            </div>
+            <button type="button" class="collapsible">
+              Improving Detection and Early Access (IDEA)
+            </button>
+            <div class="content">
+              <p>
+                The IDEA Program supports Transitional Age Youth (ages 16–25)
+                who are at high risk of developing psychosis or experiencing
+                their first episode. Youth as young as 12 may be considered on a
+                case-by-case basis. The program offers early intervention,
+                treatment, and supportive services to help them and their
+                families navigate challenges, build coping skills, and improve
+                communication, with the goal of promoting wellness and recovery
+                during this important stage of life.
+              </p>
+
+              <h3>One-Stop TAY Center</h3>
+              <p>780 E Gilbert St San Bernardino, CA 92415 | (909) 387-8615</p>
+            </div>
+            <button type="button" class="collapsible">
+              Military Services & Family Support Program (MSFS)
+            </button>
+            <div class="content">
+              <p>
+                In-home and on-location services tailored to the needs of active
+                duty and retired military personnel and their families.
+              </p>
+
+              <h3>Pacific Clinics</h3>
+              <p>572 N. Arrowhead Avenue, San Bernardino | (909) 266-2770</p>
+              <p>
+                58457 Twentynine Palms Hwy, Suite 102A, Yucca Valley | (760)
+                228-9657
+              </p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>222 E. Main St., Ste. 117, Barstow | (760) 255-1496</p>
+            </div>
+            <button type="button" class="collapsible">
+              Native American Resource Center
+            </button>
+            <div class="content">
+              <p>
+                Services and resources focused on the needs of American Indian
+                and Alaskan Native individuals and families.
+              </p>
+              <h3>Riverside-San Bernardino County Indian Health, Inc.</h3>
+              <p>11980 Mt. Vernon Ave., Grand Terrace | (909) 684-1097</p>
+            </div>
+            <button type="button" class="collapsible">
+              Older Adults Community Services (OACS)
+            </button>
+            <div class="content">
+              <p>
+                In-home and on-location mobile wellness services for older
+                adults including physical and behavioral health screenings,
+                prevention activities, and safety education.
+              </p>
+
+              <h3>Rim Family Services</h3>
+              <p>28545 Hwy. 18, P.O. Box 578 Skyforest | (909)336-1800</p>
+
+              <h3>
+                San Bernardino County Department of Aging & Adult Services
+              </h3>
+              <p>686 E. Mill St. San Bernardino | (800)510-2020</p>
+
+              <h3>West End Family Counseling</h3>
+              <p>855 N. Euclid Ave., Ontario | (909) 983-2020</p>
+            </div>
+            <button type="button" class="collapsible">
+              Promotores de Salud / Community Health Workers
+            </button>
+            <div class="content">
+              <p>
+                Prevention program designed to address the needs of San
+                Bernardino County’s culturally diverse communities by providing
+                mental health awareness, education, prevention, and resources
+              </p>
+
+              <h3>Asian American Resource Center</h3>
+              <p>
+                <i
+                  >The target services population is the Asian and Pacific
+                  Islander community</i
+                >
+              </p>
+              <p>1133 S. E St., San Bernardino | (909) 383-0164</p>
+
+              <h3>Hearts & Lives</h3>
+              <p>
+                <i
+                  >The target services population is the Latinx community in the
+                  Mountain region</i
+                >
+              </p>
+              <p>24028 Lake Dr., Ste. A, Crestline | (909) 338-3222</p>
+              <p>
+                27307 State Hwy. 189, Ste. 204-205, Blue Jay | (909) 744-9722
+              </p>
+
+              <h3>Pacific Clinics</h3>
+              <p>
+                572 N. Arrowhead Ave. Ste. 100, San Bernardino | (877)722-2737
+              </p>
+
+              <h3>Riverside-San Bernardino County Indian Health, Inc.</h3>
+              <p>
+                <i
+                  >The target services populations are the LGBTQ+, African
+                  American, and Native American communities</i
+                >
+              </p>
+              <p>11980 Mt. Vernon Ave., Grand Terrace | (909) 864-1097</p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>
+                <i
+                  >The target services population is the Latinx community in the
+                  West End and High Desert regions</i
+                >
+              </p>
+              <p>12421 Hesperia Rd. Ste. 2., Victorville | (760)243-5417</p>
+              <p>
+                600 N. Arrowhead Ave, Ste. 300 San Bernardino | (909) 522-4656
+              </p>
+            </div>
+            <button type="button" class="collapsible">
+              Resilience Promotion in African Children (RPIAAC)
+            </button>
+            <div class="content">
+              <p>
+                School-based supportive service program designed to enhance the
+                academic performance of at-risk African American students and
+                their families by providing mental health and substance use
+                disorder education and addressing their cultural and
+                socio-emotional needs.
+              </p>
+
+              <h3>Young Visionaries Youth Leadership Academy</h3>
+              <p>696 S. Tippecanoe Ave., San Bernardino | (909) 723-1695</p>
+
+              <h3>A Greater Hope</h3>
+              <p>
+                9681 Business Center Dr Ste. B, Rancho Cucamonga, CA 91730 |
+                (909) 652-0552
+              </p>
+              <p>610 E Main St, Barstow, CA 92311 | (760) 256-0432</p>
+            </div>
+            <button type="button" class="collapsible">
+              Student Assistance Program (SAP)
+            </button>
+            <div class="content">
+              <p>
+                School-based supportive service programs for students and
+                families which provides education and early interventions for
+                substance abuse, mental health, academic, emotional and social
+                issues.
+              </p>
+
+              <h3>Desert Mountain Children’s Center</h3>
+              <p>17800 Hwy. 18, Apple Valley | (760) 552-6700</p>
+              <p>
+                58967 Business Center Dr., Ste. C – E, Yucca Valley | (760)
+                369-3130
+              </p>
+
+              <h3>Lutheran Social Services</h3>
+              <p>
+                41945 Big Bear Blvd., Ste. 222, Big Bear Lake | (909) 866-5070
+              </p>
+
+              <h3>Mountain Counseling and Training</h3>
+              <p>340 Hwy. 138, Crestline | (909) 336-3330</p>
+
+              <h3>South Coast Community Services</h3>
+              <p>1030 Nevada St., Ste. 200, Redlands | (909) 335-7067</p>
+              <p>1461 E. Cooley Dr., Ste. 100, Colton | (909) 980-6700</p>
+              <p>34324 Yucaipa Blvd., Ste. B – D, Yucaipa | (877) 527-7227</p>
+              <p>1425 W. Foothill Stie/ 201 and 310, Upland | (877) 527-7227</p>
+
+              <h3>Victor Community Support Services</h3>
+              <p>600 N. Arrowhead Ave., San Bernardino | (909) 522-4656</p>
+
+              <h3>West End Family Counseling</h3>
+              <p>855 Euclid Ave., Ontario | (909) 983-2020</p>
+
+              <p>
+                The Mental Health Student Services Act (MHSSA) was implemented
+                via Senate Bill 75 to encourage partnerships between county
+                mental health departments, local education districts, and
+                community-based organizations to deliver mental health services
+                to youth and their families. These partnerships work to
+                remove/reduce barriers, stigma, and discrimination, identify
+                early signs of unmet mental health needs, and prevent unmet
+                mental health needs from becoming severe and disabling. San
+                Bernardino County Department of Behavioral Health has partnered
+                with the following organizations and districts:
+              </p>
+
+              <h3>Desert Mountain Community Services</h3>
+              <p>17800 Hwy. 18, Apple Valley | (760) 955-3555</p>
+              <p>Serving: Silver Valley School District</p>
+
+              <h3>South Coast Community Services</h3>
+              <p>27261 Las Ramblas, Ste. 220, Mission Viejo | (714) 966-8650</p>
+              <p>
+                Serving: Colton Joint Unified School District and
+                Yucaipa-Calimesa Joint Unified School District
+              </p>
+              <br />
+              <p>
+                Some of the services provided through the San Bernardino County
+                MHSSA program are:
+              </p>
+              <ul>
+                <li>Mental Health Assessments</li>
+                <li>Wellness Fairs/Family Wellness Nights</li>
+                <li>Presentations</li>
+                <li>Referrals</li>
+                <li>Youth Mental Health First Aid</li>
+                <li>Adverse Childhood Experiences (ACEs) Training for Staff</li>
+                <li>Parent Mental Health Training</li>
+                <li>
+                  Collaborations Between Behavioral Health Department and
+                  Military Bases
+                </li>
+                <li>Back to School Nights</li>
+              </ul>
+            </div>
+          </div>
+          <button type="button" class="collapsible">
+            Residential Treatment
+          </button>
+          <div class="content">
+            <button type="button" class="collapsible">
+              Crisis Residential Treatment Centers(CRT)
+            </button>
+            <div class="content">
+              <p>
+                Short-term (up to 90-day) voluntary residential mental health
+                treatment centers for individuals age 18 to 59 experiencing an
+                acute psychiatric episode or crisis. Open 24 hours a day, 365
+                days a year, including holidays.
+              </p>
+
+              <h3>Casa Paseo Center</h3>
+              <p>720 E. Gilbert Ave., San Bernardino | (909) 332-6000</p>
+
+              <h3>Desert Hill Center</h3>
+              <p>16552 Sunhill Dr., Victorville | (760) 780-4400</p>
+
+              <h3>Morongo Oasis Center</h3>
+              <p>60805 29 Palms Hwy., Joshua Tree | (760) 974-5990</p>
+
+              <h3>Wellspring Center</h3>
+              <p>15217 San Bernardino Ave., Fontana | (951) 643-2150</p>
+            </div>
+            <button type="button" class="collapsible">
+              Serving Transitional Age Youth (The Stay) Residential Treatment
+            </button>
+            <div class="content">
+              <p>
+                Voluntary, 14 bed, short-term crisis residential facility for
+                youth ages 18 to 26 in need of a higher-level of care than
+                outpatient mental health, but lower than a psychiatric hospital.
+                STAY receives referrals from hospitals, behavioral health
+                clinics and self-referrals from youth countywide. Open 24 hours
+                a day, 365 days a year, including holidays.
+              </p>
+
+              <h3>The STAY – Valley Star Behavioral Health Inc.</h3>
+              <p>780 E. Gilbert St., San Bernardino | (909) 763-4760</p>
+            </div>
+            <button type="button" class="collapsible">
+              SUD Residential Treatment Program
+            </button>
+            <div class="content">
+              <p>
+                Provides SUD services in a home-like setting, while attending
+                treatment services. Treatment services include group counseling,
+                individual counseling, and alcohol and drug education.
+              </p>
+
+              <h3>Cedar House Life Change Center</h3>
+              <p>18612 Santa Ana Ave., Bloomington | (909) 421-7120</p>
+
+              <h3>Inland Valley Recovery Services</h3>
+              <p>934 N. Mountain Ave., Ste. A & B, Upland | (909) 949-4667</p>
+              <p>1260 Arrow Hwy., Bldg. C., Upland | (909) 932-1069</p>
+
+              <h3>Tarzana Treatment Centers</h3>
+              <p>44447 10th St., Lancaster | (661) 726-2630</p>
+              <p>18646 Oxnard St., Tarzana | (888) 777-8565</p>
+
+              <h3>Varp, Inc.</h3>
+              <p>
+                Gibson House for Men, 1100 N. D St., San Bernardino | (909)
+                884-0840
+              </p>
+              <p>
+                Gibson House for Women, 1135 N. D St., San Bernardino | (909)
+                888-6956
+              </p>
+            </div>
+          </div>
+          <button type="button" class="collapsible">
+            Other Specialized Programs
+          </button>
+          <div class="content">
+            <button type="button" class="collapsible">
+              Community Supervised Treatment After Release (CSTAR)
+            </button>
+            <div class="content">
+              <p>
+                Outpatient mental health treatment services to current and/or
+                prior justice involved individuals voluntarily seeking
+                transitional assistance upon their reentry to community.
+              </p>
+
+              <p>
+                1330 E. Cooley Dr., Colton (909) 580-3705 | Hotline (909)
+                963-9783
+              </p>
+            </div>
+            <button type="button" class="collapsible">
+              Employment Program
+            </button>
+            <div class="content">
+              <p>
+                Employment preparation, on-the-job training, and referrals to
+                Department of Rehabilitation counselors.
+              </p>
+              <p>Administration/East Valley | (909) 421-9430</p>
+              <p>
+                High Desert, 12625 Hesperia Rd., Victorville |(760) 995-8306
+              </p>
+              <p>
+                TAY Services, 17053 E. Foothill Blvd., Fontana | (909) 347-1344
+              </p>
+              <p>
+                West Valley, 2940 Inland Empire Blvd., Ontario | (909) 458-1322
+              </p>
+            </div>
+            <button type="button" class="collapsible">
+              Recovery Based Engagement Support Teams (RBEST)
+            </button>
+            <div class="content">
+              <p>
+                Provides field-based services including outreach, engagement,
+                case management, family education, support, and therapy for
+                individuals with untreated mental illness.
+              </p>
+              <p>(909) 421-9452</p>
+            </div>
+            <button type="button" class="collapsible">
+              Homeless and Supportive Services
+            </button>
+            <div class="content">
+              <p>
+                If you are struggling with homelessness, please dial 2-1-1 from
+                any phone to be connected to a live person who can provide you
+                with housing assistance information and other supportive
+                resources. United Way 211 is available 24 hours a day, 7 days a
+                week and in English and Spanish. You may also visit
+                www.211sb.org.
+              </p>
+              <p>
+                DBH also works to combat homelessness through a variety of
+                referral only programs. For more information on these programs
+                visit the Referral Only Programs webpage or view the information
+                below.
+              </p>
+              <h3>Innovative Remote Onsite Assistance Delivery (InnROADs)</h3>
+              <p>
+                InnROADs works with community and county agencies to provide
+                services to people who are experiencing homelessness and living
+                in rural and isolated areas. InnROADs is a collaborative
+                partnership between San Bernardino County Department of Aging
+                and Adult Services, Behavioral Health, Public Health, and the
+                Sheriff.
+              </p>
+              <p>(909) 387-7406 | DBHInnROADsReferrals@dbh.sbcounty.gov</p>
+
+              <h3>Community Supports</h3>
+              <p>
+                Community Supports provides Housing Navigation and Housing
+                Search for clients that have a severe mental illness and have
+                been linked to a housing voucher/rental subsidy from the
+                Coordinated Entry System.
+              </p>
+              <p>(909) 387-7406</p>
+
+              <h3>Homeless Outreach Support Team (HOST)</h3>
+              <p>
+                HOST assists homeless residents in obtaining Supplemental
+                Security Income (SSI) and collaborates with other entities that
+                provide outreach and engagement.
+              </p>
+              <p>(909) 387-7406</p>
+              <h3>Supportive Services</h3>
+              <p>
+                Supportive Services staff members provide tenancy supports and
+                supportive services to those in Permanent Supportive Housing.
+              </p>
+              <p>(909) 387-7406</p>
+            </div>
+          </div>
+          <button type="button" class="collapsible">
+            Narcotic Treatment Programs
+          </button>
+          <div class="content">
+            <p>
+              Medication assisted treatment for opioid substance use disorders,
+              offering medical evaluation, and counseling services
+            </p>
+            <h3>Aegis Treatment Centers, LLC</h3>
+            <p>125 W. F St., Ontario | (909) 986-4550</p>
+            <p>1050 N. Garey Avenue Pomona, CA 91767 | 909-623-6391</p>
+            <p>1889 W. Redlands Blvd., Redlands | (909) 501-5167</p>
+            <p>11776 Mariposa Rd., Ste. 103, Hesperia | (760) 956-2462</p>
+            <p>
+              222 E Main St, Suites 102 & 103 Barstow, CA 92311 | 760-956-2462
+            </p>
+            <p>
+              1111 W. Inyokern Road, Ste. B Ridgecrest, CA 93555 | 760-301-6945
+            </p>
+
+            <h3>Colton Clinical Services</h3>
+            <p>2275 E. Cooley Dr., Colton | (909) 370-1777</p>
+
+            <h3>Desert Treatment Clinic</h3>
+            <p>
+              1330 N. Indian Canyon Dr. Ste. A-C, Palm Springs | (760) 322-9065
+            </p>
+
+            <h3>Riverside Treatment Center</h3>
+            <p>1021 W. La Cadena Dr. Riverside | (951) 784-8010</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+            Template for nested buttons.
+
+            <button type="button" class="collapsible">[Parent Section Title]</button>
+            <div class="content">
+            
+            <button type="button" class="collapsible">[Nested Section Title 1]</button>
+            <div class="content">
+                <p>Nested content 1 goes here. You can add text, links, or even images.</p>
+            </div>
+
+            <button type="button" class="collapsible">[Nested Section Title 2]</button>
+            <div class="content">
+                <p>Nested content 2 goes here. You can also style this however you'd like.</p>
+            </div>
+
+            <button type="button" class="collapsible">[Nested Section Title 3]</button>
+            <div class="content">
+                <p>Nested content 3 goes here.</p>
+            </div>
+
+            </div>  
+            -->
+
+  <!-- Modal for My New Modal -->
+  <div
+    id="modalMyNewModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitleMyNewModal"
+    tabindex="-1"
+  >
+    <div class="modal-content">
+      <h2 id="modalTitleMyNewModal">My New Modal</h2>
+
+      <div class="embed-container" style="margin-top: 20px">
+        <iframe
+          name="iframeMyNewModal"
+          width="500"
+          height="400"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="My New Modal"
+          src="RBEST AOT Referral Form.pdf"
+          allow="geolocation; camera;"
+        >
+        </iframe>
+      </div>
+
+      <button
+        id="closeMyNewModalBtn"
+        class="small-box"
+        style="margin-top: 20px"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function expandContent(content) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+
+    function collapseContent(content) {
+      content.style.maxHeight = null;
+    }
+
+    function updateParentHeights(element) {
+      let parent = element.parentElement;
+      while (parent) {
+        if (parent.classList.contains("content")) {
+          parent.style.maxHeight = parent.scrollHeight + "px";
+        }
+        parent = parent.parentElement;
+      }
+    }
+
+    document.querySelectorAll(".collapsible").forEach((button) => {
+      button.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+
+        if (content.style.maxHeight) {
+          collapseContent(content);
+        } else {
+          expandContent(content);
+        }
+
+        // Recalculate parent heights to ensure smooth nesting
+        setTimeout(() => updateParentHeights(content), 300);
+      });
+    });
+
+    // 🧠 Define setupModal BEFORE calling it
+    function setupModal(openBtnId, modalId, closeBtnId) {
+      const openBtn = document.getElementById(openBtnId);
+      const modal = document.getElementById(modalId);
+      const closeBtn = document.getElementById(closeBtnId);
+
+      if (openBtn && modal && closeBtn) {
+        openBtn.addEventListener("click", () => {
+          modal.style.display = "flex";
+          modal.focus();
+        });
+
+        closeBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+      }
+    }
+    // Dismiss on click outside modal content
+    document.querySelectorAll(".modal-overlay").forEach((modal) => {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+
+    // ✅ Now it’s safe to call it AFTER the function exists
+    setupModal("openMyNewModal", "modalMyNewModal", "closeMyNewModalBtn");
+  </script>
+</body>

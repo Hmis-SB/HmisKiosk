@@ -1,319 +1,305 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OHS KIOSK</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="images/favicon.png" />
-  <style>
-    .crisis-button {
-      background-color: #79000f;
-      color: white;
-      padding: 6px 12px;
-      font-size: 14px;
-      border: 3px solid white;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OHS KIOSK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <script>
+        let slideIndex = 1;
 
-    .crisis-button:hover {
-      background-color: #79000ec1;
-      color: #ffffff;
-    }
-    .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
 
-  .embed-container {
-    position: relative;
-    height: 0;
-    padding-bottom: 80%;
-    max-width: 100%;
-  }
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
 
-  .embed-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-   .nav-button {
-        background-color: #003366;
-        color: white;
-        padding: 20px;
-        border-radius: 20px;
-        text-align: center;
-        flex: 1;
-        font-size: 1rem;
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        }
+
+        // Run after page loads
+        window.onload = function() {
+        showSlides(slideIndex);
+}
+
+
+        //This is what allows us to open / close surevey windows. I still need to style the buttons so they're less intrusive. but overall I'm happy 
+        //with this portion of a script. I'll make a JS file to make this cleaner soon.
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('modalOverlay');
+
+        openBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modal.focus(); // optional: trap focus for accessibility
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // This makes it easier to close on pc. Just press escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+            modal.style.display = 'none';
+            }
+        });
+
+        // Calendar modal logic
+        const openCalendarBtn = document.getElementById('openCalendarBtn');
+        const closeCalendarBtn = document.getElementById('closeCalendarBtn');
+        const calendarModal = document.getElementById('calendarModal');
+
+        openCalendarBtn.addEventListener('click', () => {
+            calendarModal.style.display = 'flex';
+            calendarModal.focus();
+        });
+
+        closeCalendarBtn.addEventListener('click', () => {
+            calendarModal.style.display = 'none';
+        });
+
+        // Optional: Esc key closes calendar modal too
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+                calendarModal.style.display = 'none';
+            }
+        });
+
+
+    </script>
+    <style>
+                * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; margin:0}
+        .mySlides {display: none}
+        img {vertical-align: middle;}
+
+        /* Slideshow container */
+        .slideshow-container {
+        max-width: 100%;
+        position: relative;
+        margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
         }
 
-        /* Make sure exactly 4 buttons fit with spacing */
-        .button-row > .nav-button {
-        max-width: calc(25% - 10px); /* 4 columns with 20px gaps */
+        /* Position the "next button" to the right */
+        .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
         }
 
-        .nav-button:hover {
-        background-color: #0055aa;
-        color: #ffcc00;
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
         }
-    .tab-container {
-  width: calc(100% - 40px); /* full width minus 20px margins on both sides */
-  margin: 20px;             /* 20px margin all around (top, sides, bottom) */
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-}
 
+        /* Caption text */
+        .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        }
 
-.tab-buttons {
-  display: flex;
-  justify-content: center;
-  background-color: #003366;
-}
+        /* Number text (1/3 etc) */
+        .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+        }
 
-.tablink {
-  flex: 1;
-  padding: 12px 16px;
-  border: none;
-  background-color: #003366;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
+        /* The dots/bullets/indicators */
+        .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        }
 
-.tablink:hover {
-  background-color: #0055aa;
-}
+        .active, .dot:hover {
+        background-color: #717171;
+        }
 
-.tabcontent {
-  display: none;
-  padding: 20px;
-  background-color: white;
-  color: #333;
-  border-top: 1px solid #ddd;
-}
+        /* Fading animation */
+        .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+        }
 
-  </style>
+        @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+        }
+    </style>
 </head>
-<!--
-Jevita Requests: 
 
-
-What needs to be done:
-- a center divs
-- rounded premade buttons
-- animations with JS
-- ADA compliance is going to be huge
-- beginning screen asking if they're a veteran 
-- maybe change the buttons? I'm not sure how these will actaully work from scratch 
-                        Pages should be copy and paste for ease of use
-- for pages make them look like a website view almost
--->
 <body class="center-background">
-  <div class="top-bar">
-    <button
-      onclick="location.href='index.html'"
-      class="round-button"
-      alt="Go Back"
-    >
-      &#8592;
+    <div class="top-bar">
+    <button  onclick="location.href='index.html'" class="round-button" alt="Go Back">
+        &#8592;
     </button>
-  </div>
-  <!-- This is your header so only nav items and a title please-->
-  <div class="main-page">
-    <header class="main-nav-bar" style="font-size: 20px">
-      <h1>Department of Public Health</h1>
-     
-    </header>
-    <div class="main-content">
-      <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
-      
-      <!-- Main content under the header -->
+    </div>
+    <!-- This is your header so only nav items and a title please-->
+    <div class="main-page"> 
+        <header class="main-nav-bar" style="font-size: 20px;">
+            <h1>Department of Public Health</h1>
+            <nav class="main-nav">
+            <a href="#" onclick="location.href='./Public Health/Clinic Operations.html'">Clinic Operations</a>
+            <a href="#" onclick="location.href='./Public Health/WIC.html'">WIC</a>
+            <a href="#" onclick="location.href='./Public Health/Vitals.html'">Vital Statistics Registration Office</a>
+            <a href="#" onclick="location.href='./Public Health/CD.html'">Communicable Disease</a>
+            </nav>
+        </header>
+        <div class="main-content">
+        <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
+            <div class="slideshow-container">
 
-      <!-- This is a colum of text and image-->
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="images/dbh landing.jpg" style="width:100%">
+            </div>
 
-      <div class="content-row">
-        <div class="text-col">
-          <h2 style="text-align: left">
-            <b>Welcome</b>
-          </h2>
-          <p>
-            Our dedicated staff works to prevent epidemics and the spread of disease, protect against environmental hazards, prevent injuries, 
-            promote and encourage healthy behaviors, respond to disasters and assist communities in recovery, and assure the quality and 
-            accessibility of health services throughout the County.
-          </p>
-          <p>
-            To achieve this goal, we place a high value on strong working alliances with local community groups representing the diverse 
-            populations who live in all areas of our large County.
-          </p>
-          <p>
-            We encourage you to explore our website and take advantage of the information it contains. We welcome your ideas on how we 
-            can improve services and provide you with useful health information.
-          </p>
-          
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="images/dbh ASL.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="images/dbh suicide prevention.jpg" style="width:100%">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+
+        <!-- Main content under the header -->
+        
+            <!-- This is a colum of text and image-->
+            <div class="content-row">
+                <div class="text-col">
+                    <h2>
+                        Mission                 
+                    </h2>
+                    <p>
+                        Working in partnership to promote, improve, and protect health, wellness, safety and quality of life in San Bernardino County.
+                    </p>
+                </div>
+
+                <div class="text-col" style="background-color: lightgrey; padding: 10px;">
+                    <h1 style="text-align: left;"><b>Welcome</b></h1>
+                    <p>
+                       Our dedicated staff works to prevent epidemics and the spread of disease, 
+                       protect against environmental hazards, prevent injuries, promote and encourage 
+                       healthy behaviors, respond to disasters and assist communities in recovery, 
+                       and assure the quality and accessibility of health services throughout the County.                 
+                    </p>
+                    
+                    <p>
+                        To achieve this goal, we place a high value on strong working alliances with 
+                        local community groups representing the diverse populations who live in all 
+                        areas of our large County.
+                    </p>
+                    
+                    <p>
+                        We encourage you to explore our website and take advantage of the information 
+                        it contains. We welcome your ideas on how we can improve services and provide 
+                        you with useful health information.
+                    </p>
+                </div>
+
+            </div>
+            <!-- Contact Us Modal -->
+            <div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+            <div class="modal-content">
+                <h2 id="modalTitle">Contact Survey</h2>
+                <h4>How it works</h4>
+                <ol style="text-align: left;">
+                    <li>Fill out the survey</li>
+                    <li>We get an email with your infomation</li>
+                    <li>We contact you</li>
+                </ol>
+                <style>.embed-container {position: relative; height: 0; padding-bottom:80%; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe name="survey123webform" width="500" height="400" frameborder="0" marginheight="0" marginwidth="0" title="OHMIS Interest Form TEST" src="//survey123.arcgis.com/share/876617d216664155877f26ccf7336f4c" allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"></iframe></div><script>var survey123webform = document.getElementsByName('survey123webform')[0];window.addEventListener("message",e=>{if(e.data){var t=JSON.parse(e.data);["survey123:webform:formLoaded","survey123:onFormLoaded"].includes(t.event)&&t.contentHeight&&(survey123webform.parentNode.style.height=t.contentHeight+"px")&&(survey123webform.parentNode.style["padding-bottom"]="unset")}});</script>
+                <button id="closeModalBtn" class="small-box" style="margin-top: 20px;">Close</button>
+            </div>
+            </div>
+
+            <!-- Calendar Modal -->
+            <div id="calendarModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="calendarTitle" tabindex="-1">
+            <div class="modal-content">
+                <h2 id="calendarTitle">Upcoming Events</h2>
+                <!-- Replace this with your actual calendar embed or info -->
+                <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendarlink" width="100%" height="400" frameborder="0"></iframe>
+                
+                <button id="closeCalendarBtn" class="small-box" style="margin-top: 20px;">Close</button>
+            </div>
+            </div>
+
 
         </div>
-
-        
-     
-      
     </div>
-  </div>
-<!-- Modal for Interest Form English -->
-<div
-  id="modalInterestEnglish"
-  class="modal-overlay"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="modalTitleInterestEnglish"
-  tabindex="-1"
->
-  <div class="modal-content">
-    <h2 id="modalTitleInterestEnglish">Online Interest Form English</h2>
-    <div class="embed-container" style="margin-top: 20px">
-      <iframe
-        name="iframe3"
-        width="500"
-        height="400"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="ChildPlus Application English"
-        src="https://www.childplus.net/apply/en-us/F171123B3817F1E1FD66FE800C8E8747/5222CA66B4F4D4593B9B2A099582B8B5"
-        allow="geolocation; camera;"
-      ></iframe>
-    </div>
-    <button id="closeInterestEnglishBtn" class="small-box" style="margin-top: 20px">
-      Close
-    </button>
-  </div>
-</div>
+    
 
-<div
-  id="modalContact"
-  class="modal-overlay"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="modalContact"
-  tabindex="-1"
->
-  <div class="modal-content">
-    <h2 id="modalContact">Contact Us</h2>
-    <div class="embed-container" style="margin-top: 20px">
-      <h2>Preschool Services Administration</h2>
-      <p>
-        County of San Bernardino <br>
-        Preschool Services Department<br>
-        662 South Tippecanoe Avenue<br>
-        San Bernardino, CA 92415-0630<br>
-        (888) KIDS – 025 and (888) 543-7025<br>
-      </p>
-      <p>
-        For more information and eligibility requirements for the programs listed please contact us via: PSDCEUStaff@psd.sbcounty.gov
-      </p>
-    </div>
-    <button id="closeContact" class="small-box" style="margin-top: 20px">
-      Close
-    </button>
-  </div>
-</div>
-<!-- Modal for Interest Form Spanish -->
-<div
-  id="modalInterestSpanish"
-  class="modal-overlay"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="modalTitleInterestSpanish"
-  tabindex="-1"
->
-  <div class="modal-content">
-    <h2 id="modalTitleInterestSpanish">Online Interest Form Spanish</h2>
-    <div class="embed-container" style="margin-top: 20px">
-      <iframe
-        name="iframe4"
-        width="500"
-        height="400"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="ChildPlus Application Spanish"
-        src="https://www.childplus.net/apply/es/F171123B3817F1E1FD66FE800C8E8747/5222CA66B4F4D4593B9B2A099582B8B5"
-        allow="geolocation; camera;"
-      ></iframe>
-    </div>
-    <button id="closeInterestSpanishBtn" class="small-box" style="margin-top: 20px">
-      Close
-    </button>
-  </div>
-</div>
-  <!-- === Modal Script === -->
-<script>
-  // Reusable modal setup function
-  function setupModal(openBtnId, modalId, closeBtnId) {
-    const openBtn = document.getElementById(openBtnId);
-    const modal = document.getElementById(modalId);
-    const closeBtn = document.getElementById(closeBtnId);
-
-    if (openBtn && modal && closeBtn) {
-      openBtn.addEventListener("click", () => {
-        modal.style.display = "flex";
-        modal.focus();
-      });
-
-      closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-      });
-    }
-  }
-
-  // Initialize both modals
-  setupModal("openInterestEnglish", "modalInterestEnglish", "closeInterestEnglishBtn");
-  setupModal("openInterestSpanish", "modalInterestSpanish", "closeInterestSpanishBtn");
-  setupModal("openContact", "modalContact", "closeContact");
-  // Allow closing with ESC key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      document.querySelectorAll(".modal-overlay").forEach((modal) => {
-        modal.style.display = "none";
-      });
-    }
-  });
-  function openTab(tabName, elmnt, color) {
-  const tabcontent = document.getElementsByClassName("tabcontent");
-  const tablinks = document.getElementsByClassName("tablink");
-
-  // Hide all tab contents
-  for (let i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Reset all tab buttons
-  for (let i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-
-  // Show selected tab
-  document.getElementById(tabName).style.display = "block";
-  elmnt.style.backgroundColor = color;
-}
-
-// Open default tab on load
-document.getElementById("defaultTab").click();
-</script>
 </body>
+<script>
+    
+</script>
+
+</html>
+
+
+
+
+

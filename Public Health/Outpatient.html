@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OHS KIOSK</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <style>
+    .kiosk-button a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #007a8c;
+    font-weight: bold;
+    }
+
+    .kiosk-button a:hover {
+    text-decoration: underline;
+    }
+
+    .kiosk-button img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid #007a8c;
+    padding: 10px;
+    }
+
+    .collapsible {
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active, .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
+    }
+
+    .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    }
+
+    .active:after {
+    content: "\2212";
+    }
+
+    .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+    }
+    </style>
+    
+</head>
+<body class="center-background">
+    <div class="top-bar">
+    <button  onclick="location.href='../DBH.html'" class="round-button" alt="Go Back">
+        &#8592;
+    </button>
+    </div>
+    <div class="main-page"> 
+        <header class="main-nav-bar" style="font-size: 20px; display: flex; justify-content: center;">
+            <h1>Outpatient Services</h1>
+        </header>
+        <div class="main-content">
+        <img src="../images/Outpatient.png" class="banner-img" alt="San Bernardino County Homeless Partnership">
+
+        
+            
+       
+            <div class="content-row">
+                <div class="text-col">
+                    <h2>About the CYCS</h2>
+                    <p>
+                        Children and Youth Collaborative Services (CYCS) Administration oversees the Children’s System of Care (CSOC). CSOC is implemented throughout San Bernardino County through contracted agencies and offers an array of services for seriously, emotionally disturbed children who are not benefiting from traditional mental health services. Services range from crisis intervention to life skills and educational services for children and youth aged 0 to 26 years old. 
+                    </p>
+                    <h2>Administration</h2>
+                    <p>
+                        658 E. Brier Dr., Ste. 150, San Bernardino | (909) 387-5300                    
+                    </p>
+                    <p>
+                       <b>For Presumptive Transfer of Medi-Cal (AB 1299) questions, call (909) 387-5316 or email DBH-AB1299@dbh.sbcounty.gov</b> 
+                    </p>
+                </div>
+                
+            </div>
+
+            <div class="text-col" style="margin: 30px;">
+                <h2>Who can I call if I need assistance with basic needs or other homeless resources? </h2>
+                <p>
+                Please contact United Way 211 by calling “211”. The 2-1-1 Coordinated Entry System (CES) is available in San Bernardino County, 24 hours a day, 7 days a week. By dialing the 3-digit calling code, 2-1-1, the caller is connected to a live, bilingual homeless assistance call specialist who will help assess the caller’s situation and streamline access to homeless assistance services, screen applicants for eligibility for these and other programs in a consistent and well-coordinated way, and assess needs to determine which interventions are the best fit for each individual and/or family.
+                </p>
+            </div>
+            <div class="content-row">
+            <div class="text-col">
+            <button type="button" class="collapsible">East Valley</button>
+            <div class="content">
+                <h3>Mesa Counseling Services</h3>
+                <p>850 E. Foothill Blvd., Rialto | (909) 421-9301 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+
+                <h3>Phoenix Community Counseling Center</h3>
+                <p>820 E. Gilbert St., San Bernardino | (909) 387-7200 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+
+                <h3>South Coast Community Services</h3>
+                <p>1030 Nevada St., Ste. 200, Redlands | (909) 792-0747</p>
+                <p>34324 Yucaipa Blvd., Ste. B – D, Yucaipa | (909) 790-0210</p>
+
+                <h3>Valley Star Community Services </h3>
+                <p>1585 S D. St., Ste. 101, San Bernardino, CA 92408 | (909) 388-2222 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+            </div>
+            <button type="button" class="collapsible">Desert Mountain</button>
+            <div class="content">
+                <p>Desert Mountain cities include Adelanto, Apple Valley, Barstow, Big Bear, Crestline, Hesperia, Lucerne Valley, Needles, Sky Forest, Trona, and Victorville.</p>
+
+                <h3>Apple Valley Community Clinic</h3>
+                <p>18818 Highway 18, Apple Valley | (760) 995-8800 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+
+                <h3>Barstow Counseling Center</h3>
+                <p>1841 E. Main St., Barstow | (760) 255-5700 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+
+                <h3>Citrus Counseling Services</h3>
+                <p>11424 Chamberlaine Way, Ste. 11-12, Adelanto | (760) 246-0947 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+                <p>23406 Crestforest Dr., Crestline | (909) 338-4689 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+
+                <h3>Lutheran Social Services</h3>
+                <p>32770 Old Woman Springs Rd., Ste. C, Lucerne Valley | (760) 248-6612</p>
+                <p>41945 Big Bear Blvd., Ste. 222, Big Bear Lake | (909) 866-5070</p>
+                <p>82820 Trona Rd., Trona | (760) 372-5159</p>
+
+                <h3>Needles Behavioral Health Center</h3>
+                <p>1600 Bailey Ave., Unit 2, Needles | (760) 326-9313 | Open 8 a.m. – 5 p.m. Monday through Friday (Closed every other Friday)</p>
+
+                <h3>Victor Valley Behavioral Health</h3>
+                <p>12625 Hesperia Rd., Victorville | (760) 995-8300 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+
+                <h3>Valley Star Victorville Center</h3>
+                <p>12188 Hesperia Rd., Victorville| (760) 477-2199 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+
+                <h3></h3>
+                <p></p>
+            </div>
+            <button type="button" class="collapsible">Morongo Basin</button>
+            <div class="content">
+                <p>Morongo Basin cities include Joshua Tree, Morongo Valley, Twentynine Palms, and Yucca Valley.</p>
+                <h3>Valley Star Yucca Adult (FSP)</h3>
+                <p>7281 Dumosa Ave., Ste. 4, Yucca Valley | (760) 853-4755 | Open 8:30 a.m. – 5 p.m. Monday through Friday</p>
+            </div>
+            <button type="button" class="collapsible">West Valley</button>
+            <div class="content">
+                <p>West Valley cities include Chino, Fontana, Montclair, Ontario, Pomona, Rancho Cucamonga, and Upland.</p>
+                <h3>Mariposa Community Counseling</h3>
+                <p>2940 Inland Empire Blvd., Ontario | (909) 458-1350 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+                <h3>South Coast Community Services</h3>
+                <p>1425 W. Foothill Blvd., Ste. 310, Upland | (909) 835 -4800</p>
+                <p>11780 Central Ave., Ste. 205, Chino | (877) 527-7227</p>
+                <h3>Vista Community Counseling</h3>
+                <p>17053 E. Foothill Blvd., Fontana | (909) 347-1300 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+                <h3>West End Family Counseling</h3>
+                <p>855 N. Euclid Ave., Ontario| (909) 983-2020</p>
+                <p>Open Monday 9 a.m. – 7:45 p.m., Tuesday 9 a.m, – 6:45 p.m., Wednesday 9 a.m. – 5:45 p.m., Thursday</p>
+                <p>9 a.m. – 4:45 p.m., and closed on Friday</p>
+            </div>
+            <button type="button" class="collapsible">Services for Specific Populations</button>
+            <div class="content">
+                <p><i>The following providers offer services tailored to the needs of special populations. Services include crisis counseling, individual/group/family therapy, medication management, and recovery services</i></p>
+                <h3>EMQ Children & Family Services</h3>
+                <p>572 N. Arrowhead Ave., Ste. 100, San Bernardino | (909) 266-2700 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+                <h3>High Desert Child, Adolescent & Family Services Center</h3>
+                <p>16248 Victor St., Victorville | (760) 243-7151 | Open Monday – Thursday 8 a.m. – 6 p.m. and closed on Fridays</p>
+                <h3>Project Sister Family Services Rape/Sexual Assault Crisis Counseling</h3>
+                <p>363 S. Park Ave., Ste. 303, Pomona | (909) 623-1619 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+                <h3>Partners Against Violence</h3>
+                <p>444 N. Arrowhead Ave., Ste. 101, San Bernardino | (909) 885-8884 | Open Monday – Thursday 8 a.m. – 5 p.m. and Friday 8 a.m. to 2 p.m.</p>
+                <h3>Valley Star Children & Family Services</h3>
+                <p>1585 S. D St., Ste. 101, San Bernardino | (909) 388-2222 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+                <h3>Victor Community Support Services</h3>
+                <p>1908 Business Center Dr., Ste. 220, San Bernardino | (909) 890-5930 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+                <p>15095 Amargosa Rd., Ste. 201, Victorville | (760) 245-4695 | Open 8 a.m. – 5 p.m. Monday through Friday</p>
+            </div></div></div>
+
+    </div>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+        }
+</script>
+</body>

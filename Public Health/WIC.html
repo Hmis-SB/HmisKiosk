@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OHS KIOSK</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <style>
+    .kiosk-button a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #007a8c;
+    font-weight: bold;
+    }
+
+    .kiosk-button a:hover {
+    text-decoration: underline;
+    }
+
+    .kiosk-button img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid #007a8c;
+    padding: 10px;
+    }
+    
+    /* Modal styles */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+    #modal[aria-hidden="false"] {
+      display: flex;
+    }
+    .modal-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .modal-body {
+      margin-top: 1.5rem;
+    }
+
+
+    </style>
+</head>
+<body class="center-background">
+    <div class="top-bar">
+    <button  onclick="location.href='../Public Health.html'" class="round-button" alt="Go Back">
+        &#8592;
+    </button>
+    </div>
+    <div class="main-page"> 
+        <header class="main-nav-bar" style="font-size: 20px; display: flex; justify-content: center;">
+            <h1>Women, Infants and Children Program</h1>
+        </header>
+        <div class="main-content">
+        <img src="./Images/WIC.png" class="banner-img" alt="San Bernardino County Homeless Partnership">
+
+            <div class="content-row">
+                <div class="text-col">
+                    <h1>Welcome to the San Bernardino County Department of Public Health WIC Program</h1>
+                    <p>
+                        For more than 35 years, the San Bernardino Department of Public Health WIC 
+                        program has helped expectant families, new parents, infants, and young children 
+                        get healthy foods, nutrition education, breastfeeding support, and community resources.
+                    </p>
+                    <!--
+                    <a href="#" class="modal-trigger" data-modal-id="services-guide">goblin</a>
+                    -->
+                    <button class="btn-base2 btn-large modal-trigger" data-modal-id="services-guide">Do I Qualify?</button>
+                    <p><i>This program is funded by the U.S. Department of Agriculture (USDA).</i></p>
+                </div>
+            </div>
+             <div class="content-row">
+                <div class="text-col">
+                    <h2>To Apply for WIC or Make an Appointment</h2>
+                    <p>Call us or Text</p>
+                    <p>ApplySBWIC or</p>
+                    <p>SolicitarSBWIC</p>
+                    <p>to 1-800-472-2321</p>
+                </div>
+                <div class="text-col">
+                    <h2>To Apply for WIC or Make an Appointment</h2>
+                    <p>Call us or Text</p>
+                    <p>ChangeSBWIC or</p>
+                    <p>CambiarSBWIC</p>
+                    <p>to 1-800-472-2321</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+      <!-- ✅ Add this modal HTML -->
+  <div id="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+    <script>
+        // Collapsible script (same as before)
+    document.querySelectorAll(".collapsible").forEach((button) => {
+      button.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+        this.classList.toggle("active");
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+
+    // Modal data content object (simplified for example)
+    const modalContents = {
+  "services-guide": `
+<div >
+        <h2>Do I Qualify?</h2>
+        <p>To qualify for WIC, you must meet ALL four requirements below.</p>
+        <ol style="text-align: left;">
+            <li>
+                <h3>Fall into a category</h3>
+                <ul style="list-style-type:circle;">
+                    <li>Pregnant</li>
+                    <li>Breastfeeding</li>
+                    <li>Had a baby within the last six months</li>
+                    <li>Have a child under the age of five</li>
+                    <li>Experienced a pregnancy loss/termination</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Live in California</h3>
+            </li>
+            <li>
+                <h3>Meet WIC income guidelines</h3>
+            </li>
+            <li>
+                <h3>Nutrition Risk</h3>
+                <p>
+                    “Nutrition risk” means that an individual has medical-based or dietary-based conditions. 
+                    Examples of medical-based conditions include anemia (low blood levels), underweight, or history 
+                    of poor pregnancy outcome. A dietary-based condition includes, for example, a poor diet.
+                </p>
+            </li>
+        </ol>
+        <p>We welcome military/working/migrant families, fathers, foster parents and legal guardians 
+            (e.g. grandparents) with eligible children. Families who receive Medi-Cal/Medicaid, 
+            CalFresh/SNAP, or CalWORKs may qualify. Services are available to anyone who meets the 
+            program requirements regardless of immigration status, race, color, national origin, 
+            gender, religion, age, or disability.
+        </p>
+        <h3>Applying to WIC is Easy!</h3>
+        <p>
+            To see if you are eligible for the WIC program, call us or text ApplySBWIC or 
+            SolicitarSBWIC to (800) 472-2321. WIC staff can do an eligibility assessment and let 
+            you know what documentation you will need to enroll on the program. Please review how 
+            we are offering services at this time.
+        </p>
+        </div>
+   
+    <h1><h1>
+  `,
+  };
+
+
+
+    // Modal logic
+    const modal = document.getElementById("modal");
+    const modalBody = document.getElementById("modal-body");
+    const modalCloseBtn = modal.querySelector(".modal-close");
+
+    function openModal(contentKey) {
+      if (modalContents[contentKey]) {
+        modalBody.innerHTML = modalContents[contentKey];
+      } else {
+        modalBody.innerHTML = "<p>Content is not available at the moment.</p>";
+      }
+      modal.setAttribute("aria-hidden", "false");
+      modal.style.display = "flex";
+      modal.focus();
+    }
+
+    function closeModal() {
+      modal.setAttribute("aria-hidden", "true");
+      modal.style.display = "none";
+      modalBody.innerHTML = "";
+    }
+
+    // Open modal on trigger click
+    document.querySelectorAll(".modal-trigger").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const modalId = link.getAttribute("data-modal-id");
+        openModal(modalId);
+      });
+    });
+
+    // Close modal on close button click
+    modalCloseBtn.addEventListener("click", closeModal);
+
+    // Close modal when clicking outside modal content
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close modal on ESC key press
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+        closeModal();
+      }
+    });
+    </script>
+</body>
