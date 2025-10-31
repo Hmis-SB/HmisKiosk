@@ -72,7 +72,51 @@
       outline: none;
       font-size: 15px;
     }
+    .collapsible {
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
 
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
+    }
+
+    .collapsible:after {
+      content: "\002B";
+      float: right;
+      font-weight: bold;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+
+    /* Add some indent to nested items */
+    .content .collapsible {
+      padding: 18px 20px;
+      background-color: #003366;
+    }
+    .content .content {
+      padding: 0 20px;
+      background-color: #eaeaea;
+    }
     .active,
     .collapsible:hover {
       background-color: #0055aa;
@@ -626,7 +670,159 @@
     <p>Call 1 (800) 722-4777 to make an appointment at our Public Health Centers and Clinics. Visit each one below to find out what services each location provides.</p>
 
     <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
-  </div>
+    <div class="text-col">
+            <button type="button" class="collapsible">Adelanto Health Center</button>
+            <div class="content">
+                <h1>Adelanto Health Center</h1>
+                <p>Location:</p>
+                <p>11336 Bartlett Ave., Ste 11</p>
+                <p>Adelanto, CA 92301</p>
+
+                <h3>Hours of Operation:</h3>
+                <p>Monday – Friday, 8AM – 5PM</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Immunizations</p>
+                <p>Pediatrics</p>
+                <p>Primary Care</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+            </div>
+            <button type="button" class="collapsible">Ontario Health Center</button>
+            <div class="content">
+                <h1>Ontario Health Center</h1>
+                <p>Location:</p>
+                <p>150 E. Holt Blvd.</p>
+                <p>Ontario, CA 91761</p>
+                <p>Monday – Friday, 8AM – 5PM</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Maternal Health</p>
+                <p>HIV Services</p>
+                <p>Pediatrics</p>
+                <p>Immunizations</p>
+                <p>TB Skin Testing</p>
+                <p>Primary Care</p>
+                <p>Dental</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+            </div>
+            <button type="button" class="collapsible">Barstow Public Health Clinic</button>
+            <div class="content">
+                <h1>Barstow Public Health Clinic</h1>
+                <p>Location:</p>
+                <p>303 E. Mountain View St.</p>
+                <p>Barstow, CA 92311</p>
+                <p>Thursday only, 9 a.m. – 4 p.m.</p>
+
+                <h3>Services:</h3>
+                <p>Immunizations</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+            </div>
+            <button type="button" class="collapsible">Needles Public Health Clinic</button>
+            <div class="content">
+                <h1>Needles Public Health Clinic</h1>
+                <p>Location:</p>
+                <p>1406 Bailey Ave., Ste. D</p>
+                <p>Needles, CA 92363</p>
+                <p>Monday – Thursday, 7 a.m. – 5:30 p.m.</p>
+                <p>For Primary Care appointments, call</p>
+                <p>(760) 326-9230.</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Immunizations</p>
+                <p>TB Skin Testing</p>
+                <p>Primary Care</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+            </div>
+            <button type="button" class="collapsible">Hesperia Health Center</button>
+            <div class="content">
+               <h1>Hesperia Health Center</h1>
+                <p>Location:</p>
+                <p>16453 Bear Valley Rd</p>
+                <p>Hesperia, CA 92345</p>
+
+                <h3>Hours of Operation:</h3>
+                <p>Monday – Friday, 8AM – 5PM</p>
+                <p>Wednesday Only 5PM – 8PM (Primary Care and Reproductive Health Services only)</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Immunizations</p>
+                <p>Pediatrics</p>
+                <p>Primary Care</p>
+                <p>Maternal Health</p>
+                <p>Dental</p>
+                <p>HIV Services</p>
+                <p>Dog Licensing</p>
+                <p>TB Skin Testing</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+
+            </div>
+            <button type="button" class="collapsible">San Bernardino Health Center</button>
+            <div class="content">
+               <h1>San Bernardino Health Center</h1>
+                <p>Location:</p>
+                <p>590 N. D St.</p>
+                <p>San Bernardino, CA 92401</p>
+
+                <h3>Hours of Operation:</h3>
+                <p>Monday – Friday, 8 a.m.-5 p.m.</p>
+                <p>Monday, 5PM – 7PM (HIV-Specialty Clinic)</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Immunizations</p>
+                <p>Pediatrics</p>
+                <p>Primary Care</p>
+                <p>Maternal Health</p>
+                <p>HIV Services</p>
+                <p>TB Skin Testing</p>
+                <p>Dental</p>
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+
+            </div>
+            <button type="button" class="collapsible">Redlands Community Center</button>
+            <div class="content">
+               <h1>Redlands Community Center</h1>
+                <p>Location:</p>
+                <p>111 West Lugonia Ave.</p>
+                <p>Redlands, CA 92374</p>
+                <p>Phone: 9097987572</p>
+            </div>
+            <button type="button" class="collapsible">Big Bear Public Health Center</button>
+            <div class="content">
+               <h1>Big Bear Public Health Center</h1>
+                <p>Location:</p>
+                <p>477 Summit Blvd.</p>
+                <p>P.O. Box 2835</p>
+                <p>Big Bear Lake, CA 92315</p>
+
+                <h3>Hours of Operation:</h3>
+                <p>Fridays only, 9AM – 4PM</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+
+            </div>
+            </div>
+            </div>
+    </div>
 </div>
 
   `,
@@ -638,10 +834,31 @@
   const modalCloseBtn = modal.querySelector(".modal-close");
 
   function openModal(contentKey) {
-    modalBody.innerHTML = modalContents[contentKey] || "<p>Content not available.</p>";
-    modal.setAttribute("aria-hidden", "false");
-    modal.style.display = "flex";
-  }
+  modalBody.innerHTML = modalContents[contentKey] || "<p>Content not available.</p>";
+  modal.setAttribute("aria-hidden", "false");
+  modal.style.display = "flex";
+
+  // Rebind collapsible logic here
+  modalBody.querySelectorAll(".collapsible").forEach((button) => {
+    button.addEventListener("click", function () {
+      const content = this.nextElementSibling;
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+
+      // Update parent heights
+      let parent = content.parentElement;
+      while (parent) {
+        if (parent.classList && parent.classList.contains("content")) {
+          parent.style.maxHeight = parent.scrollHeight + "px";
+        }
+        parent = parent.parentElement;
+      }
+    });
+  });}
 
   function closeModal() {
     modal.setAttribute("aria-hidden", "true");
@@ -669,6 +886,38 @@
   document.addEventListener("keydown", e => {
     if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
   });
+   function expandContent(content) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+
+    function collapseContent(content) {
+      content.style.maxHeight = null;
+    }
+
+    function updateParentHeights(element) {
+      let parent = element.parentElement;
+      while (parent) {
+        if (parent.classList.contains("content")) {
+          parent.style.maxHeight = parent.scrollHeight + "px";
+        }
+        parent = parent.parentElement;
+      }
+    }
+
+    document.querySelectorAll(".collapsible").forEach((button) => {
+      button.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+
+        if (content.style.maxHeight) {
+          collapseContent(content);
+        } else {
+          expandContent(content);
+        }
+
+        // Recalculate parent heights to ensure smooth nesting
+        setTimeout(() => updateParentHeights(content), 300);
+      });
+    });
 </script>
 
 </body>
