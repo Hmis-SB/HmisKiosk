@@ -104,6 +104,7 @@
       background-color: #f1f1f1;
     }
   </style>
+
 </head>
 <body class="center-background">
   <div class="top-bar">
@@ -160,22 +161,22 @@
 
       <div class="row-of-buttons">
         <div class="kiosk-button">
-          <a href="#" onclick="location.href=''">
+          <a href="#" class="modal-trigger" data-modal-id="request-certificate">
             <img src="Images/Request a Certificate.png" alt="Home Icon" />
           </a>
         </div>
         <div class="kiosk-button">
-          <a href="#" onclick="location.href=''">
+          <a href="#" class="modal-trigger" data-modal-id="Pediatrics">
             <img src="Images/Certified Copy Eligibility.png" alt="Bird Icon" />
           </a>
         </div>
         <div class="kiosk-button">
-          <a href="#" onclick="location.href=''">
+          <a href="#" class="modal-trigger" data-modal-id="Immunizations">
             <img src="Images/Burial Permits.png" alt="Hand Icon" />
           </a>
         </div>
         <div class="kiosk-button">
-          <a href="#" onclick="location.href=''">
+          <a href="#" class="modal-trigger" data-modal-id="dental">
             <img src="Images/amend.png" alt="Hand Icon" />
           </a>
         </div>
@@ -183,22 +184,22 @@
 
       <div class="row-of-buttons">
         <div class="kiosk-button">
-          <a href="#" onclick="location.href=''">
+          <a href="#" class="modal-trigger" data-modal-id="sexual health">
             <img src="Images/Funeral Home Information.png" alt="Home Icon" />
           </a>
         </div>
         <div class="kiosk-button">
-          <a href="#" onclick="location.href=''">
+          <a href="#" class="modal-trigger" data-modal-id="teen">
             <img src="Images/Out of hospital births.png" alt="Bird Icon" />
           </a>
         </div>
         <div class="kiosk-button">
-          <a href="#" onclick="location.href=''">
+          <a href="#" class="modal-trigger" data-modal-id="services-guide">
             <img src="Images/Auth.png" alt="Hand Icon" />
           </a>
         </div>
         <div class="kiosk-button">
-          <a href="#" onclick="location.href=''">
+          <a href="#" class="modal-trigger" data-modal-id="FAQ">
             <img src="Images/Frequently Asked Questions.png" alt="Hand Icon" />
           </a>
         </div>
@@ -215,4 +216,349 @@
       </div>
     </div>
   </div>
+
+    
+
+  <!-- Modal structure -->
+<div id="modal" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div id="modal-body" class="modal-body"></div>
+  </div>
+</div>
+
+  <script>
+  // Modal content definitions (edit or add more as needed)
+  const modalContents = {
+    "request-certificate": `
+<div class="content-row">
+        <div class="text-col">
+          <p  style="text-align: left;">
+            When requesting a Certified Birth or Death Certificate in person, please bring your completed application. 
+            The Sworn Statement must be signed in the presence of the local registrar staff. Requests received by mail 
+            must be accompanied by a notarized sworn statement. To determine if you are eligible for a certified copy and 
+            for details about informational copies, visit our Certified Copy Eligibility webpage.
+          </p>
+          <h2>Fees – Effective 01-01-2022</h2>
+          <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 15px; text-align: left;">
+            <tr style="background-color: #f7f7f7;">
+              <td style="padding: 12px;">Birth Certificates</td>
+              <td style="text-align: right; padding: 12px;">$32.00</td>
+            </tr>
+            <tr style="background-color: #ffffff;">
+              <td style="padding: 12px;">Death Certificates</td>
+              <td style="text-align: right; padding: 12px;">$24.00</td>
+            </tr>
+            <tr style="background-color: #f7f7f7;">
+              <td style="padding: 12px;">Fetal Death Certificates (Use the Death Certificate Request Form. Please write “Fetal Death” at the top of the form.)</td>
+              <td style="text-align: right; padding: 12px;">$21.00</td>
+            </tr>
+          </table>
+          <h3>Payments By Mail</h3>
+          <section style="text-align: left;">
+          <p>
+            If requesting by mail, send your completed application and include payment in the form of a personal check, 
+            postal, bank money order (International Money Order only for out-of-country requests.)
+          </p>
+          <p>
+            <b>
+              PLEASE DO NOT SEND CASH.
+            </b>
+          </p>
+          <p>
+            Make payable to “County of San Bernardino.”
+          </p>
+          <p>
+            Remit payments to:
+          </p>
+          <p>
+            Department of Public Health
+          </p>
+          <p>
+            340 N. Mt. View Ave.
+          </p>
+          <p>
+            San Bernardino, CA 92415-0038
+          </p>
+          <p>
+            <b>
+              Payments In Person
+            </b>
+          </p>
+          <p>
+            Acceptable payment methods in person are cash, check, money order and credit/debit.
+          </p>
+          <p>
+            <b>
+              ALL Credit/Debit Transaction will include a fee of $2.00 or 2.55%, whichever is greater.
+            </b>
+          </p>
+          <p>
+            If no record is found, <b>the fee will be retained</b> for searching as required by California Health & Safety Code 103650 and a Certificate of No Record will be issued.
+          </p>
+          </section>
+        </div>
+      </div>
+  `,
+  "Pediatrics": `
+<div class="content-row">
+    <div class="text-col">
+    <section style="text-align: left;">
+    <h2 style="text-align: center;">Certified Copy Eligibility</h2>
+    <p>
+      The California Health and Safety code, Section 103526, permits only authorized persons to receive a certified copy of a vital record. 
+      Those who are not authorized will receive a certified informational copy marked “INFORMATIONAL, NOT A VALID DOCUMENT TO ESTABLISH IDENTITY.” 
+      In order to receive a certified copy you must fill out an application and indicate your relationship and sign a sworn statement.
+    </p>
+    <p>
+      <b>The Department of Public Health’s Vital Statistics Office may provide a certified copy of a birth or death record to an authorized person only.</b>
+      If a requestor does not meet the requirement of an authorized person the Vital Statistics Office can only issue an informational certified copy of the 
+      record with a legend stating “INFORMATIONAL, NOT A VALID DOCUMENT TO ESTABLISH IDENTITY.”
+    </p>
+    <h3>Authorized Persons As Described In Health & Safety Code Section 103526</h3>
+    <ol>
+      <li>The registrant or a parent or legal guardian of the registrant.</li>
+      <li>A party entitled to receive the record as a result of a court order, or an attorney or a licensed adoption agency seeking the birth record in order to comply with the requirements of Section 3140 or 7603 of the Family Code.</li>
+      <li>A member of a law enforcement agency or a representative of another governmental agency, as provided by law, who is conducting official business.</li>
+      <li>A child, grandparent, grandchild, sibling, spouse, or domestic partner of the registrant.</li>
+      <li>An attorney representing the registrant or the registrant’s estate, or any person or agency empowered by statute or appointed by a court to act on behalf of the registrant or the registrant’s estate.</li>
+      <li>Any funeral director who orders certified copies of a death certificate on behalf of any individual specified in paragraphs (1) to (5), inclusive, of subdivision (a) of Health and Safety Code Section 7100. (Notary acknowledgment not required).</li>
+    </ol>
+    <h3>Certified Copy – Walk In Customers</h3>
+    <p>The Vital Statistics Office must receive a written request (sworn statement) signed under penalty of perjury that the individual requesting the certificate is an authorized person, as described above, for each certificate.</p>
+
+    <h3>Certified Copy – By Mail</h3>
+    <p>The Vital Statistics Office must receive a written request (sworn statement) signed under penalty of perjury that the individual requesting the certificate is an authorized person, as described above. The sworn statement must also be notarized.</p>
+
+    <h3>Informational Copy Requested By Mail Or Walk In</h3>
+    <p>The Vital Statistics Office must receive a written request. The Vital Statistics Office shall provide an informational copy and shall display a legend that states “INFORMATIONAL, NOT A VALID DOCUMENT TO ESTABLISH IDENTITY.” The statement shall be placed on the certificate in a manner that will not conceal information. Note: Informational copies should not be purchased in order to obtain a driver’s license, social security card, state I.D. card, passport, or for insurance claims or coverage.</p>
+    </section>
+    </div>
+  </div>
+  `,
+  "Immunizations": `
+<div class="content-row">
+    <div class="text-col">
+      <section style="text-align: left;">
+        <h2>Burial Permits</h2>
+        <h3>Types of Filings</h3>
+        <h3>Individual Filing</h3>
+        <p>Family members and others that need to obtain a burial permit may do so either by mail or in person at our location at 340 N. Mt. View, San Bernardino, CA 92415-0038. An original transit permit or certified copy of the death certificate is required along with the fee in order to receive the permit. Please contact our office at (909) 381-8990 for additional information during regular business hours, Monday-Friday, 8:00 AM – 5:00 PM.</p>
+        <h3>Mortuary Filing</h3>
+        <p>The burial permit is prepared at the time of filing of the death certificate within the Electronic Death Registration System (EDRS) with cooperation of doctors, hospitals, coroner, and mortuaries, and filed prior to disposition of the deceased.</p>
+        <!--Need another modal or section for link: https://dph.sbcounty.gov/programs/vsro/funeralhomeinfo/-->
+        <h3>Fees</h3>
+        <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 15px; text-align: left;">
+                  <tr style="background-color: #f7f7f7;">
+                    <td style="padding: 12px;">Burial Permit</td>
+                    <td style="text-align: right; padding: 12px;">$12.00</td>
+                  </tr>
+                  <tr style="background-color: #ffffff;">
+                    <td style="padding: 12px;">Refile Permit (additional to Burial Permit) </td>
+                    <td style="text-align: right; padding: 12px;">$2.00</td>
+                  </tr>
+                  <tr style="background-color: #f7f7f7;">
+                    <td style="padding: 12px;">Letter of Transport </td>
+                    <td style="text-align: right; padding: 12px;">$10.00</td>
+                  </tr>
+                  <tr style="background-color: #f7f7f7;">
+                    <td style="padding: 12px;">Emergency Filing Fee </td>
+                    <td style="text-align: right; padding: 12px;">$50.00</td>
+                  </tr>
+                </table>
+        </section>
+      </div>
+    </div>
+
+  `,
+  "dental": `
+<div class="content-row">
+    <div class="text-col">
+      <section style="text-align: left;">
+        <h2 style="text-align: center;">Privacy Information</h2>
+        <p>Amendments are processed by the California Department of Public Health – Vital Records.</p>
+        <p>P.O. Box 997410</p>
+        <p>Sacramento, CA 95899-7410</p>
+        <p>Phone: (916) 445-2684 California Relay: 711/800-735-2929</p>
+        <p>Pamphlets with information regarding correcting vital records may be obtained at the State Vital Records Office website.</p><!--https://www.cdph.ca.gov/Programs/CHSI/Pages/Vital-Records.aspx-->
+        <p>For assistance, please contact our office at (909) 381-8990.</p>
+      </section>
+    </div>
+  </div>
+
+  `,
+  "sexual health": `
+<div class="content-row">
+    <div class="text-col">
+      <section style="text-align: left;">
+        <h2 style="text-align: center;">Funeral Home Information</h2>
+        <p>Funeral homes may submit request to unlock records, refile permits, appointments for a Letter of Transport, order status and general questions by emailing VS@dph.sbcounty.gov</p>
+        <p><b>Orders are currently expected to be sent by mail and have an estimated time for arrival of 2 weeks. Please call the Vital Statistics Registration Office (VSRO) in cases of emergencies.  For further information please email us.</b></p>
+        <h3>Emergency Filing</h3>
+        <p>After-hours filing is available on weekends and holidays for the immediate filing of death certificates and burial permits. There is a fee for all after-hours filings and the need for emergency filing must be demonstrated (e.g. religious reasons, shipping out of the country).</p>
+        <p>The mortuary must ensure that the death certificate and burial permit are completed in EDRS, and ready for acceptance by the local registrar (our staff). Mortuary staff may then call the number below to request filing on an emergency basis (must state reason). Our staff will assist with the completion of the filing. Please note that the Emergency Filing Fee will apply.</p>
+        <p><b>Emergency Filing Hours</b></p>
+        <p>9:00 AM – 1:00 PM</p>
+        <p>Saturday, Sunday, and all County Holidays.</p>
+        <h3>Emergency Filing Phone Number</h3>
+        <p>(909) 379-2411</p>
+        <p>Only active after hours. For mortuary use only</p>
+        <h3>Fees Schedule</h3>
+        <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 15px; text-align: left;">
+            <tr style="background-color: #f7f7f7;">
+              <td style="padding: 12px;">Birth Certificates</td>
+              <td style="text-align: right; padding: 12px;">$32.00</td>
+            </tr>
+            <tr style="background-color: #ffffff;">
+              <td style="padding: 12px;">Burial Permit</td>
+              <td style="text-align: right; padding: 12px;">$12.00</td>
+            </tr>
+            <tr style="background-color: #ffffff;">
+              <td style="padding: 12px;">Death Certificates</td>
+              <td style="text-align: right; padding: 12px;">$24.00</td>
+            </tr>
+            <tr style="background-color: #ffffff;">
+              <td style="padding: 12px;">Emergency Filing Fee</td>
+              <td style="text-align: right; padding: 12px;">$50.00</td>
+            </tr>
+            <tr style="background-color: #f7f7f7;">
+              <td style="padding: 12px;">Fetal Death Certificates</td>
+              <td style="text-align: right; padding: 12px;">$21.00</td>
+            </tr>
+            <tr style="background-color: #ffffff;">
+              <td style="padding: 12px;">Letter of Transport</td>
+              <td style="text-align: right; padding: 12px;">$10.00</td>
+            </tr>
+            <tr style="background-color: #ffffff;">
+              <td style="padding: 12px;">Refile Permit (Additional to Burial Permit)</td>
+              <td style="text-align: right; padding: 12px;">$2.00</td>
+            </tr>
+          </table>
+      </section>
+    </div>
+  </div>
+
+  `,
+  "teen": `
+<div class="content-row">
+    <div class="text-col">
+      <section style="text-align: left;">
+        <h2 style="text-align: center;">Out of Hospital Births</h2>
+        <p>If your baby was born at a birthing center, at home or any other location other than a hospital, this is considered a Out of Hospital Birth.  The Vital Statistics Registration Office is required to register the birth within 21 days of the birth. This is the responsibility of the licensed midwife if they were present, or the parents if the birth was unattended.</p>
+        <h3>Midwife Responsibilities</h3>
+        <p>Professionally licensed midwifes that attend an out-of-hospital birth, it is their duty under Health and Safety Code (HSC) sections 102400 and 102415 to register the birth with the local registrar within twenty-one days of the date of birth.</p>
+        
+        <h3>Documentation to register your child’s birth are listed below:</h3>
+        <ol>
+          <li>Proof of Pregnancy Letter (should include LMP, expected due date, number of visits, and must be signed by doctor or midwife. Also, must be printed on medical office letterhead and have <b>original signature</b> with license number.)</li>
+          <li><b>Current</b> ID or driver’s license</li>
+          <li>Affidavit with original signature by the midwife</li>
+          <li>Ambulance report (if applicable)</li>
+          <li>Proof of Residency (utility bill) if baby was born at home</li>
+          <li>Newborn Screening Test form if one was performed or refused</li>
+          <li>Out-of-Hospital Worksheet(s)</li>
+        </ol>
+
+        <h3>Obtaining a Social Security Number</h3>
+        <p>For babies born outside a licensed birthing hospital whether at a Birthing Center, at home, or another location, you will need to apply with the Social Security Administration (SSA) office directly for your child’s social security number. SSA recommends applying in 8-12 weeks.  For more information go to https://www.ssa.gov/</p>
+      </section>
+    </div>
+  </div>
+  `,
+  "services-guide": `
+  <div class="content-row">
+    <div class="text-col">
+      <section style="text-align: left;">
+        <h2 style="text-align: center;">Authentication/Apostille Seals</h2>
+        <h3>Signature of Authentication Only</h3>
+        <p>If the Certified Copy was issued by the Department of Public Health, you will first need to obtain the Authentication of Signature at the San Bernardino County Recorder’s Office at:</p>
+        <p>If the Certified Copy was issued by the Department of Public Health, you will first need to obtain the Authentication of Signature at the San Bernardino County Recorder’s Office at:</p>
+        <p>San Bernardino County Recorder</p>
+        <p>222 W. Hospitality Lane</p>
+        <p>San Bernardino, CA 92415-0022</p>
+        <p>(855) 732-2575</p>
+        <p>To obtain an exemplified copy of a vital record, the applicant must mail the certified copy, required fee, and the name of the country in which the document is to be used to the Secretary of State. Documents may be mailed to the following address:</p>
+        <p>P.O. Box 942877</p>
+        <p>Sacramento, CA 94277-0001</p>
+        <p>The telephone number for the Secretary of State is (916) 653-3595. Additional information may be found on their website at www.sos.ca.gov.</p>
+        <h3>Exemplified Copy/Apostille</h3>
+        <p>An Apostille seal may be applied to a certified copy of a California vital event record when required by a foreign country by the Secretary of State.</p>
+        <p>Los Angeles
+          300 S Spring St., Rm 12513
+          Los Angeles, CA 90013
+          (213) 897-3062</p>
+        <p>Sacramento
+          1500 11th St.
+          Sacramento, CA 95814
+          (916) 657-5448</p>
+      </section>
+    </div>
+  </div>
+  `,
+  "FAQ": `
+<div class="content-row">
+    <div class="text-col">
+      <section style="text-align: left;">
+        <h2 style="text-align: center;">Frequently Asked Questions</h2>
+        <h3>Q: What if there’s a mistake on the Certificate?</h3>
+        <p>A: After the Certificate has been registered, the original certificate cannot be changed, with the exception of gender error. Errors may be corrected by filling out an Affidavit to Amend a Record (VS24).</p>
+        <h3>Q: What if I want to add the father to the Birth Certificate?</h3>
+        <p>A: If the father’s name is not added to the Birth Certificate at the time of birth, the parents must sign an Acknowledgement of Paternity form (VS22) along with a Declaration of Paternity. If you were married at the time of birth you must send a copy of your Marriage Certificate.</p>
+        <h3>Q: When can I pick up a Certificate?</h3>
+        <p>A: Please allow 2-3 weeks to purchase Certificates after the time of event. An application, sworn statement, Identification, and fee are required.</p>
+        <h3>Q: How do I get a Social Security Number for my baby?</h3>
+        <p>A: When filling out the Newborn Automatic Number Assignment (NANA) form in the hospital, if you selected “yes”, the Social Security card will be mailed to you within six weeks. If you selected “no”, you will have to visit the Social Security Office in person with evidence of your child’s identity, birth date, and citizenship.</p>
+        <h3>Q: Why is the mother/father/hospital staff signature on the Birth Certificate?</h3>
+        <p>A: After the Birth Certificate is prepared, the parent signs it. Only one signature is required. If both parents are there, they may both sign it. If the patient is discharged before the certificate is signed, the hospital staff signs it.</p>
+        <h3>Q: My baby has both our last names, how do I change it to just one of our last names?</h3>
+        <p>A: A court order name change must be obtained if you are completely changing the first, middle, and last name; transposing first and middle names; adding or deleting first, middle, or last name.</p>
+        <h3>Q: What is an Apostilles and Signature of Authentication? Where do I go if I need one?</h3>
+        <p>A: An “apostille” is a form of authentication. Regarding Signature of Authentication, the California Secretary of State provides authentication of public official signatures on documents to be used outside the United States of America. The country of destination determines whether the authentication is an Apostille or Certification.</p>
+      
+      
+      </section>
+    </div>
+  </div>
+
+  `,
+  };
+
+  // Modal logic
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modal-body");
+  const modalCloseBtn = modal.querySelector(".modal-close");
+
+  function openModal(contentKey) {
+    modalBody.innerHTML = modalContents[contentKey] || "<p>Content not available.</p>";
+    modal.setAttribute("aria-hidden", "false");
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    modal.setAttribute("aria-hidden", "true");
+    modal.style.display = "none";
+    modalBody.innerHTML = "";
+  }
+
+  // Open modal when a .modal-trigger is clicked
+  document.querySelectorAll(".modal-trigger").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      openModal(link.dataset.modalId);
+    });
+  });
+
+  // Close modal on "×" click
+  modalCloseBtn.addEventListener("click", closeModal);
+
+  // Close modal when clicking outside the content
+  modal.addEventListener("click", e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
+  });
+</script>
 </body>
