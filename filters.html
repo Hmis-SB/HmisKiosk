@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+</head>
+<!--
+Jevita Requests: 
+
+
+What needs to be done:
+- a center divs
+- rounded premade buttons
+- animations with JS
+- ADA compliance is going to be huge
+- beginning screen asking if they're a veteran 
+- maybe change the buttons? I'm not sure how these will actaully work from scratch
+                        Pages should be copy and paste for ease of use
+- for pages make them look like a website view almost
+-->
+
+<body background="images\BackgroundofCounty.png" class="center-background">
+  <!-- This is your header so only nav items and a title please https://stage.portal.clarityhs.com/auth/signin?redirect=%2Fdashboard-->
+  <div class="main-homepage">
+    <header
+      class="main-nav-bar"
+      style="font-size: 20px; display: flex; justify-content: center"
+    >
+      <h1 style="text-align: center">
+        Office Of Homeless Services Kiosk Options
+      </h1>
+    </header>
+    <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
+    <!-- Main content under the header -->
+    <div class="main-content" style="background-color: transparent !important">
+
+      <div class="row-of-buttons">
+        
+        <button
+          class="btn-base box2" 
+          onclick="location.href='https://portal.clarityhs.com/auth/signin?redirect=%2Fdashboard'"
+        >
+          <div class="btn-image">
+            <img src="images/clarity-removebg-preview.png" alt="Icon 1" />
+          </div>
+          <div class="btn-label" alt="HMIS Clinet Portal">
+            HMIS Client Portal
+          </div>
+        </button>
+
+        <button class="btn-base box2" onclick="location.href='home.html'">
+          <div class="btn-image">
+            <img src="images/OHS_Version2_FullColor_WORD.png" alt="Icon 2" />
+          </div>
+          <div class="btn-label">Office Of Homeless Services</div>
+        </button>
+
+        <button class="btn-base box2" onclick="location.href='DBH.html'">
+          <div class="btn-image">
+            <img src="images/behavioral-health-logo.png" alt="Icon 3" />
+          </div>
+          <div class="btn-label" style="font-size: 18px">
+            Department of Behavioral Health
+          </div>
+        </button>
+      </div>
+      <div class="row-of-buttons">
+        <button
+          class="btn-base box2 cars"
+          onclick="location.href='Public Health.html'"
+        >
+          <div class="btn-image">
+            <img src="images/publicH-removebg-preview.png" alt="Icon 1" />
+          </div>
+          <div class="btn-label">Public Health</div>
+        </button>
+
+        <button class="btn-base box2" onclick="location.href='Veterans.html'">
+          <div class="btn-image">
+            <!--images/County Logo Transparent.png-->
+            <img src="Veterans Affairs.png" alt="Icon 2" />
+          </div>
+          <div class="btn-label">Veterans Affairs</div>
+        </button>
+
+        <button class="btn-base box2">
+          <div class="btn-image">
+            <img
+              src="images/realcountylogo-removebg-preview.png"
+              onclick="location.href='How it Works.html'"
+              alt="Icon 3"
+            />
+          </div>
+          <div class="btn-label">How It Works</div>
+        </button>
+      </div>
+      <div class="row-of-buttons">
+        
+
+        <button class="btn-base box2" onclick="location.href='Preschool.html'">
+          <div class="btn-image">
+            <!--images/County Logo Transparent.png-->
+            <img src="images/test3-removebg-preview.png" alt="Icon 2" />
+          </div>
+          <div class="btn-label">Preschool Services</div>
+        </button>
+
+        <button class="btn-base box2">
+          <div class="btn-image">
+            <img
+              src="images/TAD.png"
+              onclick="location.href='TAD.html'"
+              alt="Icon 3"
+            />
+          </div>
+          <div class="btn-label">Transitional Assistance</div>
+        </button>
+      </div>
+
+    </div>
+  </div>
+      <script>
+const buttons = document.querySelectorAll('.btn');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Toggle active class on click
+    button.classList.toggle('active');
+
+    // Optional: check which filters are active
+    const activeFilters = [...document.querySelectorAll('.btn.active')]
+      .map(b => b.dataset.filter);
+    console.log('Active filters:', activeFilters);
+  });
+});
+</script>
+</body>

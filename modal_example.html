@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+This is by no means the only way to do modals but I find it a lot more friendly than the alternatives.
+Please excuse my grammar & spelling. 
+
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example Modal Page</title>
+  <style>
+    /* --- ignore this. Just making the button easy to click --- */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* --- Modal Style this you can control the modal with --- */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #modal[aria-hidden="false"] {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .modal-body {
+      margin-top: 1.5rem;
+    }
+
+    /* --- Ignore this its just for the button --- */
+    .open-modal-btn {
+      background: #0078d4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    /*Ignore this as well just a hover affect*/
+    .open-modal-btn:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="open-modal-btn modal-trigger" data-modal-id="example">Open Modal</button>
+
+  <!-- This is the modal structure  which can be thrown at the bottom of the body. This needs to be somewhere in the body otherwise the modal wont open. It needs to be declared somewhere -->
+  <div id="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    // This allows you to easily do more than 1 modal without having to redefine a bunch of them. It makes life easier. The HTML inside of the modal is normal and the css styling still applies to whats inside
+    const modalContents = {
+      "example": `
+        <h2>Example Modal</h2>
+        <p>This is a blank modal for demonstration purposes. You can add any HTML content here.</p>
+      `,
+      "example2": `
+        <h2>More than 1</h2>
+        <p>If you need more than one defined just add a ,</p>
+      `,
+    };
+
+    // Modal elements referenced inside of the body. 
+    const modal = document.getElementById("modal");
+    const modalBody = document.getElementById("modal-body");
+    const modalCloseBtn = modal.querySelector(".modal-close");
+
+    function openModal(contentKey) {
+      modalBody.innerHTML = modalContents[contentKey] || "<p>No content available.</p>";
+      modal.setAttribute("aria-hidden", "false");
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.setAttribute("aria-hidden", "true");
+      modal.style.display = "none";
+      modalBody.innerHTML = "";
+    }
+
+    // Open modal when clicked 
+    document.querySelectorAll(".modal-trigger").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        openModal(link.dataset.modalId);
+      });
+    });
+
+    // Close button
+    modalCloseBtn.addEventListener("click", closeModal);
+
+    // Close on background click
+    modal.addEventListener("click", e => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Close when escape is pressed 
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
+    });
+  </script>
+</body>
+</html>
