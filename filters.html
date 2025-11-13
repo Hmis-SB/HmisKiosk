@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -6,45 +7,44 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/x-icon" href="images/favicon.png" />
   <style>
-  html, body {
-    height: 100%;
-    margin: 0;
-  }
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-</style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      z-index: 1; /* background layer */
+    }
+    .round-button {
+      position: absolute;
+      top: 20px;     /* adjust as needed */
+      left: 20px;    /* adjust as needed */
+      z-index: 10;   /* higher than iframe */
+      border-radius: 50%;
+      padding: 10px 15px;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+      color: white;
+      background-color: #727476;
+    }
+  </style>
 </head>
-<!--
-Jevita Requests: 
 
+<body>
+  <button
+    onclick="location.href='index.html'"
+    class="round-button"
+    alt="Go Back"
+  >
+    &#8592;
+  </button>
 
-What needs to be done:
-- a center divs
-- rounded premade buttons
-- animations with JS
-- ADA compliance is going to be huge
-- beginning screen asking if they're a veteran 
-- maybe change the buttons? I'm not sure how these will actaully work from scratch
-                        Pages should be copy and paste for ease of use
-- for pages make them look like a website view almost
--->
-
-<body background="images\BackgroundofCounty.png" class="center-background">
-  
-    <button
-      onclick="location.href='index.html'"
-      class="round-button"
-      alt="Go Back"
-      style="background-color: #727476"
-    >
-      &#8592;
-    </button>
-  
   <iframe src="https://arcg.is/0TjzKz2"></iframe>
 </body>
+</html>
