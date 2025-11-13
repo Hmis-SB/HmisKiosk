@@ -22,39 +22,14 @@ What needs to be done:
 -->
 
 <body background="images\BackgroundofCounty.png" class="center-background">
-  <!-- This is your header so only nav items and a title please https://stage.portal.clarityhs.com/auth/signin?redirect=%2Fdashboard-->
-  <div class="main-homepage">
-    <header
-      class="main-nav-bar"
-      style="font-size: 20px; display: flex; justify-content: center"
+  
+    <button
+      onclick="location.href='index.html'"
+      class="round-button"
+      alt="Go Back"
     >
-      <h1 style="text-align: center">
-        Office Of Homeless Services Kiosk Options
-      </h1>
-    </header>
-    <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
-    <!-- Main content under the header -->
-    <div class="main-content" style="background-color: transparent !important">
-
-      
-      
-
-      <iframe width="1000" height="700" frameborder="0" allowfullscreen src="https://arcg.is/0TjzKz2"></iframe>
-    </div>
-  </div>
-      <script>
-const buttons = document.querySelectorAll('.btn');
-
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Toggle active class on click
-    button.classList.toggle('active');
-
-    // Optional: check which filters are active
-    const activeFilters = [...document.querySelectorAll('.btn.active')]
-      .map(b => b.dataset.filter);
-    console.log('Active filters:', activeFilters);
-  });
-});
-</script>
+      &#8592;
+    </button>
+  
+  <iframe width="1920" height="1080" frameborder="0" allowfullscreen src="https://arcg.is/0TjzKz2"></iframe>
 </body>
