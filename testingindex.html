@@ -90,10 +90,21 @@ section button {
 <button class="toggle-btn" data-target="Mental Health">Mental Health</button>
 <button class="toggle-btn" data-target="Health">Health Resources</button>
 <button class="toggle-btn" data-target="Veteran Affairs">Veteran Affairs</button>
+<button class="toggle-btn" data-target="Mental Health">Housing</button>
+<button class="toggle-btn" data-target="Health">Immunizations</button>
+
+</div>
+
+<div class="row-of-buttons">
+<button class="toggle-btn" data-target="Clarity">HMIS Client Portal</button>
+<button class="toggle-btn" data-target="Health">Preschool Services</button>
+<button class="toggle-btn" data-target="Veteran Affairs">Transitional Assistance</button>
+<button class="toggle-btn" data-target="Health">Immunizations</button>
 </div>
 
 <section id="Mental Health" style="display:none;">
   <div class="banner">Mental Health</div>
+  <div class="row-of-buttons">
   <button id="dbh" class="btn-base box2" onclick="location.href='DBH.html'">
      
     <div class="btn-image">
@@ -103,11 +114,12 @@ section button {
             Department of Behavioral Health
           </div>
         </button>
-    
+    </div>
 </section>
 
 <section id="Health" style="display:none;">
   <div class="banner">Health</div>
+  <div class="row-of-buttons">
   <button
           id="ph"
           class="btn-base box2"
@@ -119,17 +131,28 @@ section button {
           <div class="btn-label">Public Health</div>
         </button>
 
+        <button id="dbh" class="btn-base box2" onclick="location.href='DBH.html'">
+     
+         <div class="btn-image">
+            <img src="images/behavioral-health-logo.png" alt="Icon 3" />
+          </div>
+          <div class="btn-label" style="font-size: 18px">
+            Department of Behavioral Health
+          </div>
+        </button>
+
         <button id="ph" class="btn-base box2" onclick="location.href='Public Health.html'">
           <div class="btn-image">
             <img src="images/publicH-removebg-preview.png" alt="Icon 1" />
           </div>
-          <div class="btn-label">Public Health</div>
+          <div class="btn-label">Immunizations</div>
         </button>
-        
+</div>
 </section>
 
 <section id="Veteran Affairs" style="display:none;">
   <div class="banner">Veteran Affairs</div>
+  <div class="row-of-buttons">
   <button id="vets" class="btn-base box2" onclick="location.href='Veterans.html'">
           <div class="btn-image">
           
@@ -137,12 +160,13 @@ section button {
           </div>
           <div class="btn-label">Veterans Affairs</div>
         </button>
+      </div>
 </section>
 
-    <!--
-      <div class="row-of-buttons">
-        
-        <button
+<section id="Clarity" style="display:none;">
+  <div class="banner">HMIS Client Portal</div>
+  <div class="row-of-buttons">
+  <button
         id="clarity"
           class="btn-base box2"
           onclick="location.href='Clarity.html'"
@@ -154,6 +178,13 @@ section button {
             HMIS Client Portal
           </div>
         </button>
+      </div>
+</section>
+
+    <!--
+      <div class="row-of-buttons">
+        
+        
 
         <button id="ohs" class="btn-base box2" onclick="location.href='home.html'">
           <div class="btn-image">
