@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Toggle Button Questionnaire</title>
+
+<style>
+    .hidden { display: none; }
+
+    .toggle-btn {
+        padding: 12px 22px;
+        margin: 8px;
+        border: 2px solid #333;
+        border-radius: 6px;
+        background-color: #e0e0e0;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.15s ease;
+    }
+
+    /* Pressed down style */
+    .toggle-btn.active {
+        background-color: #4CAF50;
+        color: white;
+        border-color: #2d7a34;
+        box-shadow: inset 0 4px 8px rgba(0,0,0,0.3);
+        transform: translateY(2px);
+    }
+
+    .feature-btn {
+        padding: 12px 22px;
+        margin: 8px;
+        border: 2px solid #333;
+        border-radius: 6px;
+        background-color: #ddd;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<!---------------- QUESTIONNAIRE SECTION ---------------->
+<div id="questionnaire">
+    <h2>Select all features you want:</h2>
+
+    <button id="q1" class="toggle-btn" onclick="toggle(this)">Feature 1</button>
+    <button id="q2" class="toggle-btn" onclick="toggle(this)">Feature 2</button>
+    <button id="q3" class="toggle-btn" onclick="toggle(this)">Feature 3</button>
+    <button id="q4" class="toggle-btn" onclick="toggle(this)">Feature 4</button>
+    <button id="q5" class="toggle-btn" onclick="toggle(this)">Feature 5</button>
+    <button id="q6" class="toggle-btn" onclick="toggle(this)">Feature 6</button>
+
+    <br><br>
+    <button onclick="submitSelection()">Submit</button>
+</div>
+
+<!---------------- RESULTING FEATURE BUTTONS ---------------->
+<div id="features" class="hidden">
+    <h2>Your Features:</h2>
+
+    <button id="feature1" class="feature-btn hidden">Feature 1</button>
+    <button id="feature2" class="feature-btn hidden">Feature 2</button>
+    <button id="feature3" class="feature-btn hidden">Feature 3</button>
+    <button id="feature4" class="feature-btn hidden">Feature 4</button>
+    <button id="feature5" class="feature-btn hidden">Feature 5</button>
+    <button id="feature6" class="feature-btn hidden">Feature 6</button>
+</div>
+
+<script>
+function toggle(btn) {
+    btn.classList.toggle("active");
+}
+
+function submitSelection() {
+    const selected = [];
+
+    // Collect all active buttons
+    document.querySelectorAll(".toggle-btn.active").forEach(btn => {
+        selected.push(btn.id);
+    });
+
+    if (selected.length === 0) {
+        alert("Please select at least one feature.");
+        return;
+    }
+
+    // Hide questionnaire
+    document.getElementById("questionnaire").classList.add("hidden");
+
+    // Show features section
+    document.getElementById("features").classList.remove("hidden");
+
+    // Show only selected features
+    selected.forEach(id => {
+        const num = id.replace("q", ""); // q1 → 1
+        document.getElementById("feature" + num).classList.remove("hidden");
+    });
+}
+</script>
+
+</body>
+</html>

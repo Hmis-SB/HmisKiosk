@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+</head>
+<!--
+Jevita Requests: 
+
+
+What needs to be done:
+- a center divs
+- rounded premade buttons
+- animations with JS
+- ADA compliance is going to be huge
+- beginning screen asking if they're a veteran 
+- maybe change the buttons? I'm not sure how these will actaully work from scratch
+                        Pages should be copy and paste for ease of use
+- for pages make them look like a website view almost
+-->
+<body background="images\BackgroundofCounty.png" class="center-background">
+  <style>
+    .main-homepage {
+
+  width: 1200px;
+}
+  </style>
+  <!-- This is your header so only nav items and a title please https://stage.portal.clarityhs.com/auth/signin?redirect=%2Fdashboard-->
+  <div class="main-homepage">
+    <header
+      class="main-nav-bar"
+      style="font-size: 20px; display: flex; justify-content: center"
+    >
+      <h1 style="text-align: center">
+        Office Of Homeless Services Kiosk Options
+      </h1>
+    </header>
+    <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
+    <!-- Main content under the header -->
+    <div class="main-content" style="background-color: transparent !important">
+      <h2>What resources are you looking for?</h2>
+
+      <label><input type="checkbox" class="resource-check" value="food"> Food & Water</label><br>
+      <label><input type="checkbox" class="resource-check" value="housing"> Housing Assistance</label><br>
+      <label><input type="checkbox" class="resource-check" value="preschool"> Preschool Enrollment</label><br>
+      <label><input type="checkbox" class="resource-check" value="benefits"> Benefits Cal</label><br>
+      <label><input type="checkbox" class="resource-check" value="portal"> Client Portal Access</label><br>
+
+      <button onclick="showSelectedResources()">Submit</button>
+
+      <div id="resources">
+
+      <div id="food" class="resource-section" style="display:none;">
+        <h3>Food & Water Resources</h3>
+        <ul>
+          <li><a href="/food-distribution">Food Distribution</a></li>
+          <li><a href="/water-resources">Water Access</a></li>
+        </ul>
+      </div>
+
+      <div id="housing" class="resource-section" style="display:none;">
+        <h3>Housing Assistance</h3>
+        <ul>
+          <li><a href="/housing-programs">Housing Programs</a></li>
+          <li><a href="/emergency-shelters">Emergency Shelters</a></li>
+        </ul>
+      </div>
+
+      <div id="preschool" class="resource-section" style="display:none;">
+        <h3>Preschool Enrollment</h3>
+        <ul>
+          <li><a href="/preschool-enrollment">Enrollment Info</a></li>
+        </ul>
+      </div>
+
+      <div id="benefits" class="resource-section" style="display:none;">
+        <h3>Benefits Cal</h3>
+        <ul>
+          <li><a href="/benefits-cal">Manage or Apply for Benefits</a></li>
+        </ul>
+      </div>
+
+      <div id="portal" class="resource-section" style="display:none;">
+        <h3>Client Portal</h3>
+        <ul>
+          <li><a href="/client-portal">Log in</a></li>
+          <li><a href="/portal-help">Portal Support</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    </div>
+
+    
+  </div>
+  <script>
+    function showSelectedResources() {
+  // Hide all resource sections first
+  document.querySelectorAll('.resource-section').forEach(div => {
+    div.style.display = "none";
+  });
+
+  // Get checked boxes
+  const checks = document.querySelectorAll('.resource-check:checked');
+
+  checks.forEach(check => {
+    const section = document.getElementById(check.value);
+    if (section) {
+      section.style.display = "block";
+    }
+  });
+
+  // Scroll to results (optional)
+  document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
+}
+
+  </script>
+</body>
