@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OHS KIOSK - DBH Resources</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <style>
+    /* Keep your existing embedded and modal styling */
+    .embed-container {
+      position: relative;
+      height: 0;
+      padding-bottom: 80%;
+      max-width: 100%;
+    }
+    .embed-container iframe,
+    .embed-container object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Modal styles */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+    #modal[aria-hidden="false"] {
+      display: flex;
+    }
+    .modal-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .modal-body {
+      margin-top: 1.5rem;
+    }
+
+    .collapsible {
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+    .collapsible {
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
+    }
+
+    .collapsible:after {
+      content: "\002B";
+      float: right;
+      font-weight: bold;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+
+    /* Add some indent to nested items */
+    .content .collapsible {
+      padding: 18px 20px;
+      background-color: #003366;
+    }
+    .content .content {
+      padding: 0 20px;
+      background-color: #eaeaea;
+    }
+    .active,
+    .collapsible:hover {
+      background-color: #0055aa;
+      color: #ffcc00;
+    }
+
+    .collapsible:after {
+      content: "\002B";
+      float: right;
+      font-weight: bold;
+    }
+    .kiosk-button img {
+  width: 200px;   /* Adjust width as needed */
+  height: auto;   /* Keeps aspect ratio */
+}
+
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body class="center-background">
+  <div class="top-bar">
+    <button onclick="location.href='../testingindex.html'" class="round-button" alt="Go Back">&#8592;</button>
+  </div>
+
+  <div class="main-page">
+    <header class="main-nav-bar" style="font-size: 20px; display: flex; justify-content: center">
+      <h1>Clinic Operations</h1>
+    </header>
+
+    <div class="main-content">
+      <img
+        src="./Images/flu.png"
+        class="banner-img"
+        alt="San Bernardino County Homeless Partnership"
+      />
+
+      <div class="content-row">
+        <div class="text-col">
+          <p>
+            Clinic Operations provide a wide range of low-cost, confidential health services. 
+            Our mission is to protect health, prevent disease, and promote health and well-being. 
+            We are here to give you excellent health care in a friendly atmosphere.
+          </p>
+        </div>
+      </div>
+
+      <div class="row-of-buttons">
+        <div class="kiosk-button">
+          <a href="#" class="modal-trigger" data-modal-id="primary-care">
+            <img src="Images/Primary_Care.png" alt="Home Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" class="modal-trigger" data-modal-id="Pediatrics">
+            <img src="Images/Pediatrics.png" alt="Bird Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" class="modal-trigger" data-modal-id="Immunizations">
+            <img src="Images/Immunizations.png" alt="Hand Icon" />
+          </a>
+        </div>
+         <div class="kiosk-button">
+          <a href="#" class="modal-trigger" data-modal-id="dental">
+            <img src="Images/Dental.png" alt="Hand Icon" />
+          </a>
+        </div>
+      </div>
+
+      <div class="row-of-buttons">
+        <div class="kiosk-button">
+          <a href="#" class="modal-trigger" data-modal-id="sexual health">
+            <img src="Images/Sexual_Health.png" alt="Home Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" class="modal-trigger" data-modal-id="teen">
+            <img src="Images/Teen_Health.png" alt="Bird Icon" />
+          </a>
+        </div>
+        <div class="kiosk-button">
+          <a href="#" class="modal-trigger" data-modal-id="patient">
+            <img src="Images/Patient_Information.png" alt="Hand Icon" />
+          </a>
+        </div>
+         <div class="kiosk-button">
+          <a href="#" class="modal-trigger" data-modal-id="services-guide">
+            <img src="Images/Health_Centers_Health_Library.png" alt="Hand Icon" />
+          </a>
+        </div>
+      </div>
+      <!--<b>Services Guide</b><a href="#" class="modal-trigger" data-modal-id="services-guide"> English</a>-->
+      <h2 style="text-align: center;">Health Center Locations</h2>
+            <div class="content-row">
+                <div class="text-col">
+                    <h2>Adelanto Health Center</h2>
+                    <p>
+                      11336 Bartlett Avenue, Suite 11
+                    </p>
+                    <p>
+                      Adelanto, CA 92301
+                    </p>
+                </div>
+
+                <div class="text-col">
+                   <h2>Hesperia Health Center</h2>
+                   <p>16453 Bear Valley Rd</p>
+                   <p>Hesperia, CA 92345</p>
+                </div>
+
+                <div class="text-col" >
+                   <h2>Ontario Health Center</h2>
+                   <p>150 E. Holt Blvd.</p>
+                   <p>Ontario, CA 91761</p>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <div class="text-col">
+                    <h2>Barstow Public Health Clinic</h2>
+                    <p>
+                      303 E. Mountain View St.
+                    </p>
+                    <p>
+                      Barstow, CA 92311
+                    </p>
+                </div>
+
+                
+                <div class="text-col" >
+                   <h2>San Bernardino Health Center</h2>
+                   <p>590 N. D St.</p>
+                   <p>San Bernardino, CA 92401</p>
+                </div>
+
+                <div class="text-col">
+                   <h2>Big Bear Public Health Clinic</h2>
+                   <p>477 Summit Blvd.</p>
+                   <p>P.O. Box 2835</p>
+                   <p>Big Bear Lake, CA 92315</p>
+                </div>
+            </div>
+
+            <div class="content-row">
+              <div class="text-col" >
+                   <h2>Needles Public Health Clinic</h2>
+                   <p>1406 Bailey Ave., Ste D</p>
+                   <p>Needles, CA 92363</p>
+                </div>
+            </div>
+            <div class="content-row">
+              <div class="text-col" >
+                <p style="text-align: center;"><b>To schedule a clinic appointment, please call 1 (800) 722-4777.</b></p>
+                <p style="text-align: center;"><b>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for</b></p>
+                <p style="text-align: center;"><b>IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</b></p>
+            
+              </div>
+            </div>
+
+
+            
+    </div>
+  </div>
+
+
+<!-- Modal structure -->
+<div id="modal" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div id="modal-body" class="modal-body"></div>
+  </div>
+</div>
+
+
+  <script>
+  // Modal content definitions (edit or add more as needed)
+  const modalContents = {
+    "primary-care": `
+
+   
+    <div class="content-row" style="text-align: left;">
+  <div class="text-col" >
+   <h1>Primary Care</h1>
+   <p>Clinic Operations provides primary care services to all residents in San Bernardino County, focusing on disease prevention, chronic disease management, and screenings.</p>
+   <p>Examples of services include:</p>
+   <ul>
+    <li>Adult Check-ups and Physical Exams</li>
+    <li>Screenings: Pap Smears, Breast with Mammogram Referral, Colorectal Screenings, and Behavioral Health</li>
+    <li>Immunizations, Flu Shots, and Pneumonia vaccine</li>
+    <li>Nutrition Counseling</li>
+    <li>Referrals</li>
+   </ul>
+
+   <p>Currently accepting patients with the following health insurance:</p>
+   <ul>
+    <li>Inland Empire Health Plan (IEHP)</li>
+    <li>Medical</li>
+    <li>Medicare</li>
+    <li>Health Net Direct</li>
+    <li>Tri-West Direct</li>
+    <li>Private pay</li>
+    <li>Uninsured</li>
+   </ul>
+  </div>
+</div>
+  `,
+  "Pediatrics": `
+
+   
+    <div class="content-row" style="text-align: left;">
+  <div class="text-col" >
+   <h1>Pediatrics</h1>
+   <p>Pediatric services include the following:</p>
+   <p>Examples of services include:</p>
+   <ul>
+    <li>Well Child Check-ups</li>
+    <li>Sick Visits</li>
+    <li>
+      <h3>Screenings:</h3>
+      <ul>
+        <li>Vision</li>
+        <li>Hearing</li>
+        <li>Lead Testing</li>
+        <li>Hemoglobin</li>
+      </ul>
+    </li>
+    <li>Immunizations</li>
+    <li>Nutrition Counseling</li>
+    <li>Ages and Stages</li>
+    <li>
+      <h3>Helpful Links for Parents:</h3>
+      <ul>
+        <li>Women, Infants, and Children (WIC)</li>
+        <li>Safety Tips</li>
+        <li>Dental Health</li>
+      </ul>
+    </li>
+   </ul>
+
+   <p>Currently accepting patients with the following health insurance:</p>
+   <ul>
+    <li>Inland Empire Health Plan (IEHP)</li>
+    <li>Medical</li>
+    <li>Medicare</li>
+    <li>Health Net Direct</li>
+    <li>Tri-West Direct</li>
+    <li>Private pay</li>
+    <li>Uninsured</li>
+   </ul>
+  </div>
+</div>
+  `,
+  "Immunizations": `
+
+   
+    <div class="content-row" style="text-align: left;">
+  <div class="text-col">
+    <h1>Immunizations</h1>
+    <p>Immunizations help prevent harmful disease in children, adolescents and adults. Timely immunizations can mean healthier children, families and communities. Clinic Operations also offers Tuberculosis services. View the Tuberculin (TB) Skin Tests Flyer for additional information.</p>
+    <p>The Vaccines for Children (VFC) Program offers vaccines at no cost for eligible children. To find out more information about locations near you view the Immunizations Clinics Flyer.</p>
+    <p>Get email updates when this information changes.</p>
+
+    <p><strong>Information On Specific Immunizations</strong></p>
+    <p><strong>Helpful Online Links On Immunizations</strong></p>
+
+    <ul>
+      <li>DTaP</li>
+      <li>Hepatitis A</li>
+      <li>Hepatitis B</li>
+      <li>Hib (Haemophilus Influenzae type b)</li>
+      <li>HPV – Gardasil-9</li>
+      <li>HPV – Gardasil</li>
+      <li>Influenza – Live, Intranasal</li>
+      <li>Influenza – Inactivated</li>
+      <li>Measles/Mumps/Rubella (MMR)</li>
+      <li>Measles/Mumps/Rubella & Varicella (MMRV)</li>
+      <li>Meningococcal ACWY (MenACWY and MPSV4)</li>
+      <li>Serogroup B Meningococcal (MenB)</li>
+      <li>Pneumococcal Conjugate (PCV13)</li>
+      <li>Pneumococcal Polysaccharide (PPSV23)</li>
+      <li>Polio</li>
+      <li>Rotavirus</li>
+      <li>Shingles (Herpes Zoster)</li>
+      <li>Tdap (Tetanus, Diphtheria, Pertussis)</li>
+      <li>Td (Tetanus, Diphtheria)</li>
+      <li>Varicella (Chickenpox)</li>
+    </ul>
+
+    <ul>
+      <li>San Bernardino County Department of Public Health Immunization Information</li>
+      <li>Centers for Disease Control and Prevention</li>
+      <li>California Vaccines For Children</li>
+    </ul>
+  </div>
+</div>
+
+  `,
+  "dental": `
+<div class="content-row" style="text-align: left;">
+  <div class="text-col">
+    <h1>Dental Services</h1>
+    <p>The Clinic Operations Dental Program aims to promote overall health for patients and their families by increasing awareness of better oral hygiene and healthy eating. The program is committed to prevent, maintain and eliminate oral disease.</p>
+    <p>Dental services are available at the Hesperia Health Center, Ontario Health Center & San Bernardino Health Center.</p>
+
+    <p>Services include:</p>
+    <ul>
+      <li>Diagnostic and preventative care: exams, X-rays, cleanings, sealants, and varnish</li>
+      <li>Restorative (fillings)</li>
+      <li>Basic endodontic (root canals)</li>
+      <li>Periodontal (deep cleanings)</li>
+      <li>Limited oral surgery (extractions)</li>
+      <li>Denture adjustments</li>
+      <li>Relines</li>
+      <li>Emergency dental services</li>
+    </ul>
+
+    <p>Insurances accepted:</p>
+    <ul>
+      <li>Medi-Cal managed care</li>
+      <li>Medi-Cal</li>
+      <li>Private Pay</li>
+      <li>Sliding fee scale (based on income)</li>
+    </ul>
+
+    <p>Get email updates when this information changes.</p>
+    <p>Call 1 (800) 722-4777 to make an appointment at our health centers.</p>
+  </div>
+</div>
+
+  `,
+  "sexual health": `
+
+   
+    <div class="content-row" style="text-align: left;">
+  <div class="text-col">
+    <h1>Sexual Health</h1>
+    <p>There are a wide range of available services offered at our health centers. Health services provide low-cost, confidential services to men and women who want to make an informed decision about family planning and reproductive health care. To find the clinic nearest to you, please visit the Clinic Locations page.</p>
+    <p>Get email updates when this information changes.</p>
+
+    <p>Services include:</p>
+    <ul>
+      <li>Sexually Transmitted Diseases</li>
+      <li>Pap Smears</li>
+      <li>Breast Cancer Screening</li>
+      <li>Birth Control Methods</li>
+      <li>Testicular Cancer</li>
+    </ul>
+
+    <h2>Sexually Transmitted Diseases</h2>
+    <p>Sexually Transmitted Diseases (STDs) are infections that people can get by having sex with someone who is infected. There are many different kinds of STDs. Chlamydia, Gonorrhea, Syphilis, HIV, Human Papilloma Virus (HPV), and Herpes are some of the most common.</p>
+    <p>Visit the CDC website for more information on specific STDs. Visit the It’s Your (Sex) Life website to learn more about STDs and testing.</p>
+    <p>STDs can be transmitted by having any type of unprotected vaginal, anal or oral sex.</p>
+    <p>Any direct contact with the following bodily fluids can transmit an STD: Blood, Vaginal Fluid, Semen, or Pre Seminal Fluid (pre cum).</p>
+
+    <p><strong>Other Things To Remember</strong></p>
+    <ul>
+      <li>You can get an STD even if you have sex just once.</li>
+      <li>You can get the same STD more than once.</li>
+      <li>You can have more than one STD at a time.</li>
+      <li>The only sure way to protect yourself is not to have sex.</li>
+      <li>STDs can be passed without ejaculation.</li>
+      <li>STDs can be passed even with no actual penetration during sex.</li>
+      <li>STDs can be passed even when there are no signs or symptoms.</li>
+      <li>Some STDs can be passed to or from the mouth or throat during oral sex.</li>
+      <li>Some STDs can be passed through direct skin to skin contact.</li>
+      <li>Syphilis, gonorrhea, or chlamydia can be cured if treated right away. Others, like HIV, HPV or herpes, cannot be cured, but treatment is available.</li>
+      <li>If left untreated, some STDs can cause permanent damage to your reproductive organs, like infertility.</li>
+      <li>Since the most common symptom of STDs is having no symptoms at all, the only way to know for sure is to get tested.</li>
+      <li>Most of the time, you can’t tell if someone has an STD by looking at them. A person can look healthy and still have an STD. A person can have an STD and not know it!</li>
+    </ul>
+
+    <p><strong>You should get tested if:</strong></p>
+    <ul>
+      <li>You are sexually active.</li>
+      <li>You had sex without a condom, or if a condom broke.</li>
+      <li>You think your partner had sex with someone else.</li>
+      <li>You are having sex with multiple partners.</li>
+    </ul>
+
+    <p><strong>Get a check-up right away if you feel or see any of these signs:</strong></p>
+    <ul>
+      <li>Burning or pain while urinating.</li>
+      <li>Unusual discharge or smell from the vagina or penis.</li>
+      <li>Itching, burning, or pain around the vagina or penis.</li>
+    </ul>
+
+    <p><strong>Prevention and Care</strong></p>
+    <ul>
+      <li><strong>Abstinence:</strong> Abstinence from vaginal, anal, and oral intercourse is the only 100% effective way to prevent HIV, other STDs, and pregnancy.</li>
+      <li><strong>Barrier Methods:</strong> Use a male or female condom every time you have sex. Latex or polyurethane (plastic) condoms are best. You can buy condoms in a drug store or come to one of our Health Centers and get FREE condoms! Birth control methods, other than condoms, will not protect you from STDs. Use a condom (for men or women) along with your birth control method.</li>
+      <li><strong>Monogamy:</strong> Having only one sex partner.</li>
+      <li>Limit the number of sex partners.</li>
+      <li>Don’t mix sex with alcohol or other drugs.</li>
+      <li>Don’t have sex when it isn’t right for you. It’s your body and your choice whether or not to have sex. Decide ahead of time what is right for you.</li>
+      <li>Get treated. Finish taking all of your medicine. Don’t stop even if you feel better.</li>
+      <li>Ask your partner(s) to get checked. The nurse can give you a partner notification letter.</li>
+      <li>Don’t have sex until you and your partner are cured or your clinic tells you it is safe.</li>
+      <li>Use a condom every time you have sex.</li>
+      <li>Learn more about STDs. Talk to your doctor or clinic nurse.</li>
+    </ul>
+
+    <p>GYT STD flyer</p>
+
+    <h2>Pap Smears</h2>
+    <p>A Pap smear is a short, painless procedure that is used to detect cancerous or precancerous conditions of the cervix. The examiner gathers some cells from the cervix and then smears them on a slide. This slide is then sent to a laboratory where it is examined under the microscope to search for abnormal cells and any Sexually Transmitted Diseases (STDs). It is an important tool in preventing cervical cancer and detecting any STDs.</p>
+
+    <p><strong>Who Should Get a Pap Smear?</strong></p>
+    <p>The Pap test is recommended for all women between the ages of 21 and 65 years old, and can be done in a doctor’s office. To be sure when to get your Pap test, talk to a doctor or clinician.</p>
+
+    <p><strong>Can Certain Sexually Transmitted Infections Lead to Cervical Cancer?</strong></p>
+    <p>Yes. Certain types of HPV (human papillomavirus), the virus that causes genital warts, have been associated with a higher risk of developing cervical cancer. HPV is very common but most people don’t know they have it. It is passed during sex from the genital skin of one person to the genital skin of another. There are more than 100 different types of HPV. Some types cause genital warts that you can see. Some types cause cell changes on the cervix that might lead to cervical cancer.</p>
+
+    <p><strong>What Can Be Done to Prevent Cervical Cancer?</strong></p>
+    <p>Postponing sexual intercourse until later in life, limiting the number of sexual partners, and using protection, such as condoms, against sexually transmitted diseases, may reduce the risk of developing cervical cancer. It is also very important to get a Pap smear regularly.</p>
+
+    <p><strong>How to Prepare For Your Pap Smear</strong></p>
+    <ul>
+      <li>Make your appointment for a day you will not be having your period.</li>
+      <li>Do not have sex for 2 days before your Pap smear.</li>
+      <li>Do not use douches, vaginal creams, foams, gels or tampons for 2 days before your Pap smear.</li>
+    </ul>
+
+    <p><strong>What Does It Mean If I Get an Abnormal Pap Smear Result?</strong></p>
+    <p>You will need more tests and treatment, or have more frequent follow-up Pap smears, depending on the result of the Pap smear. It is very important that you follow the recommendations of your doctor or clinician.</p>
+
+    <h2>Breast Cancer Screening</h2>
+    <p><strong>Breast Cancer Screening Recommendations</strong></p>
+    <p>The United States Preventive Services Task Force (USPSTF) has the following recommendations for breast cancer screening:</p>
+    <ul>
+      <li>Women 50 to 74 years old and at average risk for breast cancer should get a mammogram every two years.</li>
+      <li>Women who are 40 to 49 years old should talk to their doctor or other health care professional about when to start and how often to get a mammogram.</li>
+      <li>Women should weigh the benefits and risks of screening tests when deciding whether to begin getting mammograms at age 40.</li>
+    </ul>
+
+    <p><strong>Types of Breast Cancer Screening Tests</strong></p>
+    <ul>
+      <li>Mammogram</li>
+      <li>Breast Magnetic Resonance Imaging (MRI)</li>
+      <li>Clinical Breast Exams</li>
+      <li>Breast Self-Awareness</li>
+    </ul>
+
+    <p>To find out more information please visit the Centers for Disease Control – Breast Cancer Screening page.</p>
+
+    <h2>Birth Control Methods</h2>
+    <p>There are many types of birth control methods a female can use to prevent a pregnancy. Below you can see the effectiveness of each method. Visit the BEDSIDER website to find out which method is best for you!</p>
+    <p>Birth control page</p>
+
+    <h2>Testicular Cancer</h2>
+    <p>Cancer that starts in the testicles is called testicular cancer. Most cases of testicular cancer can be found at an early stage. In some cases, early testicular cancers cause symptoms that lead men to seek medical attention. Most of the time a lump on the testicle is the first sign. Unfortunately some testicular cancers may not cause symptoms until after reaching an advanced stage.</p>
+    <p>To learn more about testicular cancer visit the American Cancer Society website.</p>
+  </div>
+</div>
+
+  `,
+  "teen": `
+<div class="content-row" style="text-align: left;">
+  <div class="text-col">
+    <h1>Teen Health</h1>
+    <p>If you’re a teen in California, you have rights to accessing sexual and reproductive health care. As a teen you have the right to confidential and affordable health care.</p>
+
+    <p>These services include:</p>
+    <ul>
+      <li>Birth Control (including Emergency Contraception)</li>
+      <li>Sexually Transmitted Disease Testing + Treatment</li>
+      <li>Pregnancy Testing</li>
+      <li>Pregnancy Options</li>
+      <li>Mental Health Services</li>
+    </ul>
+
+    <p>Learn more about your rights by visiting the TeenSource website.</p>
+
+    <p>In the County of San Bernardino teens can find free condoms at multiple locations. All you need to do is visit the Find a Clinic page on the TeenSource website and fill out your city, zip code and date of birth to find the closest locations to you!</p>
+
+    <p><strong>Resources</strong></p>
+    <p>Please visit these online resources to get more information on reproductive health topics:</p>
+    <ul>
+      <li>TeenSource</li>
+      <li>Bedsider</li>
+      <li>Planned Parenthood</li>
+    </ul>
+  </div>
+</div>
+
+  `,
+  "services-guide": `
+
+   
+    <div class="embed-container">
+      <iframe
+        src="https://sbcountydepartmentofpublichealth.staywellsolutionsonline.com/"
+        frameborder="0"
+        allowfullscreen
+        aria-label="Services Guide document"
+        title="Services Guide PDF"
+        sandbox="allow-scripts allow-forms allow-same-origin"
+      ></iframe>
+    </div>
+  `,
+  "patient": `
+<div class="content-row" style="text-align: left;">
+  <div class="text-col">
+    <h1>Patient Information</h1>
+    <p>Clinic Operations provides preventative and primary care services for underserved and vulnerable populations in the County. Cost of services is determined by a discount schedule (sliding fee scale), which ensures that no patient will be denied services due to inability to pay, while also providing fair and equitable fees in line with locally prevailing rates for those who are able to pay. To ensure fair and equitable application of the discount schedule, Clinic Operations requires that all prospective patients provide evidence of income and family composition before determining eligibility.</p>
+
+    <p>Call 1 (800) 722-4777 to make an appointment at our Public Health Centers and Clinics.</p>
+
+    <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+
+    <h2>Required Documentation</h2>
+    <p>The following information must be obtained before the first visit and periodically thereafter. This information must be obtained from all new and established patients.</p>
+
+    <p>Get email updates when this information changes.</p>
+
+    <p><strong>Income Verification</strong> (one (1) or more of the following is required):</p>
+    <ul>
+      <li>Three (3) Current Paycheck Stubs</li>
+      <li>Two (2) Current Bank Statements</li>
+      <li>SSI or SSDI Letter</li>
+    </ul>
+
+    <p><strong>Residency Verification</strong> (we need two (2) of the following):</p>
+    <ul>
+      <li>Utility Bill (Gas, Electricity, Home, Phone – NO CELL PHONE BILLS)</li>
+      <li>Rental or Lease Agreement (NO PO BOXES)</li>
+      <li>Mortgage Statement</li>
+      <li>Voter Registration</li>
+    </ul>
+
+    <p><strong>Insurance Verification</strong></p>
+    <p>All new and established patients will be referred to apply for Medi-Cal. Proof of enrollment or denial of eligibility is required.</p>
+
+    <p><strong>Current Picture ID</strong></p>
+    <ul>
+      <li>Driver’s License</li>
+      <li>Immigration Card (Matricula Consular)</li>
+      <li>United States Passport</li>
+    </ul>
+
+    <h2>Public Health Centers and Clinics</h2>
+    <p>Call 1 (800) 722-4777 to make an appointment at our Public Health Centers and Clinics. Visit each one below to find out what services each location provides.</p>
+
+    <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+    <div class="text-col">
+            <button type="button" class="collapsible">Adelanto Health Center</button>
+            <div class="content">
+                <h1>Adelanto Health Center</h1>
+                <p>Location:</p>
+                <p>11336 Bartlett Ave., Ste 11</p>
+                <p>Adelanto, CA 92301</p>
+
+                <h3>Hours of Operation:</h3>
+                <p>Monday – Friday, 8AM – 5PM</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Immunizations</p>
+                <p>Pediatrics</p>
+                <p>Primary Care</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+            </div>
+            <button type="button" class="collapsible">Ontario Health Center</button>
+            <div class="content">
+                <h1>Ontario Health Center</h1>
+                <p>Location:</p>
+                <p>150 E. Holt Blvd.</p>
+                <p>Ontario, CA 91761</p>
+                <p>Monday – Friday, 8AM – 5PM</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Maternal Health</p>
+                <p>HIV Services</p>
+                <p>Pediatrics</p>
+                <p>Immunizations</p>
+                <p>TB Skin Testing</p>
+                <p>Primary Care</p>
+                <p>Dental</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+            </div>
+            <button type="button" class="collapsible">Barstow Public Health Clinic</button>
+            <div class="content">
+                <h1>Barstow Public Health Clinic</h1>
+                <p>Location:</p>
+                <p>303 E. Mountain View St.</p>
+                <p>Barstow, CA 92311</p>
+                <p>Thursday only, 9 a.m. – 4 p.m.</p>
+
+                <h3>Services:</h3>
+                <p>Immunizations</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+            </div>
+            <button type="button" class="collapsible">Needles Public Health Clinic</button>
+            <div class="content">
+                <h1>Needles Public Health Clinic</h1>
+                <p>Location:</p>
+                <p>1406 Bailey Ave., Ste. D</p>
+                <p>Needles, CA 92363</p>
+                <p>Monday – Thursday, 7 a.m. – 5:30 p.m.</p>
+                <p>For Primary Care appointments, call</p>
+                <p>(760) 326-9230.</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Immunizations</p>
+                <p>TB Skin Testing</p>
+                <p>Primary Care</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+            </div>
+            <button type="button" class="collapsible">Hesperia Health Center</button>
+            <div class="content">
+               <h1>Hesperia Health Center</h1>
+                <p>Location:</p>
+                <p>16453 Bear Valley Rd</p>
+                <p>Hesperia, CA 92345</p>
+
+                <h3>Hours of Operation:</h3>
+                <p>Monday – Friday, 8AM – 5PM</p>
+                <p>Wednesday Only 5PM – 8PM (Primary Care and Reproductive Health Services only)</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Immunizations</p>
+                <p>Pediatrics</p>
+                <p>Primary Care</p>
+                <p>Maternal Health</p>
+                <p>Dental</p>
+                <p>HIV Services</p>
+                <p>Dog Licensing</p>
+                <p>TB Skin Testing</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+
+            </div>
+            <button type="button" class="collapsible">San Bernardino Health Center</button>
+            <div class="content">
+               <h1>San Bernardino Health Center</h1>
+                <p>Location:</p>
+                <p>590 N. D St.</p>
+                <p>San Bernardino, CA 92401</p>
+
+                <h3>Hours of Operation:</h3>
+                <p>Monday – Friday, 8 a.m.-5 p.m.</p>
+                <p>Monday, 5PM – 7PM (HIV-Specialty Clinic)</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+                <p>Immunizations</p>
+                <p>Pediatrics</p>
+                <p>Primary Care</p>
+                <p>Maternal Health</p>
+                <p>HIV Services</p>
+                <p>TB Skin Testing</p>
+                <p>Dental</p>
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+
+            </div>
+            <button type="button" class="collapsible">Redlands Community Center</button>
+            <div class="content">
+               <h1>Redlands Community Center</h1>
+                <p>Location:</p>
+                <p>111 West Lugonia Ave.</p>
+                <p>Redlands, CA 92374</p>
+                <p>Phone: 9097987572</p>
+            </div>
+            <button type="button" class="collapsible">Big Bear Public Health Center</button>
+            <div class="content">
+               <h1>Big Bear Public Health Center</h1>
+                <p>Location:</p>
+                <p>477 Summit Blvd.</p>
+                <p>P.O. Box 2835</p>
+                <p>Big Bear Lake, CA 92315</p>
+
+                <h3>Hours of Operation:</h3>
+                <p>Fridays only, 9AM – 4PM</p>
+
+                <h3>Services:</h3>
+                <p>Reproductive Health</p>
+
+                <p>Call 1 (800) 722-4777 to make an appointment for all clinic services.</p>
+                <p>For after hours care, please call 1-800-722-4777 (TDD 909-387-4859) or for IEHP Members, please call the IEHP Nurse Advice Line at 1-888-244-4347 (TTY 1-866-577-8355).</p>
+
+            </div>
+            </div>
+            </div>
+    </div>
+</div>
+
+  `,
+  };
+
+  // Modal logic
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modal-body");
+  const modalCloseBtn = modal.querySelector(".modal-close");
+
+  function openModal(contentKey) {
+  modalBody.innerHTML = modalContents[contentKey] || "<p>Content not available.</p>";
+  modal.setAttribute("aria-hidden", "false");
+  modal.style.display = "flex";
+
+  // Rebind collapsible logic here
+  modalBody.querySelectorAll(".collapsible").forEach((button) => {
+    button.addEventListener("click", function () {
+      const content = this.nextElementSibling;
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+
+      // Update parent heights
+      let parent = content.parentElement;
+      while (parent) {
+        if (parent.classList && parent.classList.contains("content")) {
+          parent.style.maxHeight = parent.scrollHeight + "px";
+        }
+        parent = parent.parentElement;
+      }
+    });
+  });}
+
+  function closeModal() {
+    modal.setAttribute("aria-hidden", "true");
+    modal.style.display = "none";
+    modalBody.innerHTML = "";
+  }
+
+  // Open modal when a .modal-trigger is clicked
+  document.querySelectorAll(".modal-trigger").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      openModal(link.dataset.modalId);
+    });
+  });
+
+  // Close modal on "×" click
+  modalCloseBtn.addEventListener("click", closeModal);
+
+  // Close modal when clicking outside the content
+  modal.addEventListener("click", e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
+  });
+   function expandContent(content) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+
+    function collapseContent(content) {
+      content.style.maxHeight = null;
+    }
+
+    function updateParentHeights(element) {
+      let parent = element.parentElement;
+      while (parent) {
+        if (parent.classList.contains("content")) {
+          parent.style.maxHeight = parent.scrollHeight + "px";
+        }
+        parent = parent.parentElement;
+      }
+    }
+
+    document.querySelectorAll(".collapsible").forEach((button) => {
+      button.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+
+        if (content.style.maxHeight) {
+          collapseContent(content);
+        } else {
+          expandContent(content);
+        }
+
+        // Recalculate parent heights to ensure smooth nesting
+        setTimeout(() => updateParentHeights(content), 300);
+      });
+    });
+</script>
+
+</body>
+</html>
