@@ -6,25 +6,9 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/x-icon" href="images/favicon.png" />
 </head>
-<!--
-Jevita Requests: 
 
-
-What needs to be done:
-- a center divs
-- rounded premade buttons
-- animations with JS
-- ADA compliance is going to be huge
-- beginning screen asking if they're a veteran 
-- maybe change the buttons? I'm not sure how these will actaully work from scratch
-                        Pages should be copy and paste for ease of use
-- for pages make them look like a website view almost
--->
 <body background="images\BackgroundofCounty.png" class="center-background">
-  <!-- This is your header so only nav items and a title please https://stage.portal.clarityhs.com/auth/signin?redirect=%2Fdashboard-->
-  <!-- ===========================
-     QUESTIONNAIRE SCREEN
-=========================== -->
+ 
 <style>
     .toggle-btn {
       padding: 15px 25px;
@@ -62,7 +46,7 @@ What needs to be done:
 
     
 section button {
-  margin: 20px;   /* space between banner and button */
+  margin: 20px;   /* space between banner and button so its not touching anything.... it doesnt want covid */
 }
 
 </style>
@@ -90,7 +74,7 @@ section button {
 <button class="toggle-btn" data-target="Mental Health">Mental Health</button>
 <button class="toggle-btn" data-target="Health">Health Resources</button>
 <button class="toggle-btn" data-target="Veteran Affairs">Veteran Affairs</button>
-<button class="toggle-btn" data-target="Mental Health">Housing</button>
+<button class="toggle-btn" data-target="Housing">Housing</button>
 <button class="toggle-btn" data-target="Immunizations">Immunizations</button>
 
 </div>
@@ -240,6 +224,16 @@ section button {
   </div>
 </section>
 
+<section id="Housing" style="display:none;">
+  <div class="banner">Housing</div>
+  <div class="row-of-buttons">
+  <!-- Add the content here-->
+  </div>
+</section>
+
+
+
+<!--This is the template you can copy and paste to display options -->
 <section id="ID name" style="display:none;">
   <div class="banner">Name</div>
   <div class="row-of-buttons">
@@ -293,11 +287,9 @@ section button {
 
     </div>
   </div>
-  <script>
-// Toggle questionnaire buttons
-// Make questionnaire buttons selectable
-
   
+  <script>
+// Toggle q buttons and make em selectable. Remeber your not build a rocket. DONT OVER THINK A SIMPLE SWITCH 
 document.querySelectorAll(".toggle-btn").forEach(button => {
     button.addEventListener("click", () => {
       const targetId = button.getAttribute("data-target");
@@ -318,5 +310,5 @@ document.querySelectorAll(".toggle-btn").forEach(button => {
 
 </script>
 
-
+<!--Could go for some ice cold water about now...-->
 </body>

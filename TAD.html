@@ -115,7 +115,7 @@
           </div>
 
           <h2 style="text-align: center">Programs</h2>
-          <!-- Full-width iframe with 20px side margins -->
+          <!-- Full-width iframe with 20px side margins anything bigger breaks-->
           <div class="content-row">
             <div class="text-col">
               <button type="button" class="collapsible">
@@ -729,8 +729,9 @@
           expandContent(content);
         }
 
-        // Recalculate parent heights to ensure smooth nesting
+        // checking parents height so the scaling makes sense. Hopefully muhahahahahahahahaha
         setTimeout(() => updateParentHeights(content), 300);
+        //Note to self that one line might be the most annoying thing I've done to date. Went right over my head. I'm a programmer and am terrible at Javascript
       });
     });
   </script>
