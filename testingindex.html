@@ -29,11 +29,38 @@
       transform: translateY(2px);
     }
 
+    section {
+    margin-top: 28px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
 
     .main-homepage {
 
       width: 1200px;
     }
+    
 
     .banner {
       text-align: center;
@@ -58,18 +85,14 @@ section button {
       style="font-size: 20px; display: flex; justify-content: center"
     >
       <h1 style="text-align: center">
-        What resources are you currently in need of?(This is an unfinished example.)
+        Office Of Homeless Services Kiosk Options
       </h1>
     </header>
     <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
-    <!-- Main content under the header -->
+ 
     <div class="main-content" style="background-color: transparent !important">
      
-<!--
-      <header class="banner">
-      Test
-    </header>
--->
+
 <div class="row-of-buttons">
 <button class="toggle-btn" data-target="Mental Health">Mental Health</button>
 <button class="toggle-btn" data-target="Health">Health Resources</button>
@@ -168,7 +191,7 @@ section button {
 <section id="Preschool Services" style="display:none;">
   <div class="banner">Preschool Services</div>
   <div class="row-of-buttons">
-  <!-- Add the content here-->
+  <!-- Ray place the content in this div-->
    <button id="preschool" class="btn-base box2" onclick="location.href='Preschool.html'">
       <div class="btn-image">
            
@@ -182,7 +205,7 @@ section button {
 <section id="Transitional Assistance" style="display:none;">
   <div class="banner">Transitional Assistance</div>
   <div class="row-of-buttons">
-  <!-- Add the content here-->
+  <!-- Ray place the content in this div-->
     <button class="btn-base box2" id="TAD">
           <div class="btn-image">
             <img
@@ -214,7 +237,7 @@ section button {
 <section id="Immunizations" style="display:none;">
   <div class="banner">Immunizations</div>
   <div class="row-of-buttons">
-  <!-- Add the content here-->
+  <!-- Ray place the content in this div-->
    <button id="ph" class="btn-base box2" onclick="location.href='./Public Health/immunizations.html'">
           <div class="btn-image">
             <img src="images/publicH-removebg-preview.png" alt="Icon 1" />
@@ -227,7 +250,7 @@ section button {
 <section id="Housing" style="display:none;">
   <div class="banner">Housing</div>
   <div class="row-of-buttons">
-  <!-- Add the content here-->
+  <!-- Ray place the content in this div-->
   </div>
 </section>
 
@@ -237,7 +260,7 @@ section button {
 <section id="ID name" style="display:none;">
   <div class="banner">Name</div>
   <div class="row-of-buttons">
-  <!-- Add the content here-->
+  <!-- Ray place the content in this div-->
   </div>
 </section>
     <!--
@@ -298,12 +321,23 @@ document.querySelectorAll(".toggle-btn").forEach(button => {
       button.classList.toggle("active");
 
       if (button.classList.contains("active")) {
-        section.style.display = "block";
-        
-      } else {
-        section.style.display = "none";
+  section.style.display = "block";
 
-      }
+  // allow display before transition
+  //dont ask me how but it works.... Not sure whats different from what I first tried but it now works 
+  requestAnimationFrame(() => {
+    section.classList.add("show");
+  });
+
+} else {
+  section.classList.remove("show");
+
+  // wait for fade-out before hiding
+  setTimeout(() => {
+    section.style.display = "none";
+  }, 350);
+}
+
     });
   });
 
