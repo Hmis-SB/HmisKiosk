@@ -21,17 +21,41 @@ What needs to be done:
 - for pages make them look like a website view almost
 -->
 <body background="images\BackgroundofCounty.png" class="center-background">
+  <style>
+    .main-nav-bar {
+  display: flex;
+  align-items: center;
+}
 
+.left-spacer {
+  flex: 1;
+}
+
+.main-nav {
+  flex: 1;
+  text-align: right;
+}
+
+.main-nav-bar h1 {
+  margin: 0;
+  text-align: center;
+}
+
+
+  </style>
   <!-- This is your header so only nav items and a title please https://stage.portal.clarityhs.com/auth/signin?redirect=%2Fdashboard-->
   <div class="main-homepage">
-    <header
-      class="main-nav-bar"
-      style="font-size: 20px; display: flex; justify-content: center"
-    >
-      <h1 style="text-align: center">
-        Office Of Homeless Services Kiosk Options
-      </h1>
-    </header>
+    <header class="main-nav-bar">
+  <div class="left-spacer"></div>
+
+  <h1>Office Of Homeless Services Kiosk Options</h1>
+
+  <nav class="main-nav">
+    <a href="./testingindex.html">Filter Search</a>
+  </nav>
+</header>
+
+    
     <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
     <!-- Main content under the header -->
     <div class="main-content" style="background-color: transparent !important">
