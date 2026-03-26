@@ -9,13 +9,12 @@
 <!--
 Jevita Requests: 
 
-
 What needs to be done:
 - a center divs
 - rounded premade buttons
 - animations with JS
 - ADA compliance is going to be huge
-- beginning screen asking if they're a veteran 
+- beginning screen asking if they're a veteran
 - maybe change the buttons? I'm not sure how these will actaully work from scratch
                         Pages should be copy and paste for ease of use
 - for pages make them look like a website view almost
@@ -23,41 +22,102 @@ What needs to be done:
 <body background="images\BackgroundofCounty.png" class="center-background">
   <style>
     .main-nav-bar {
-  display: flex;
-  align-items: center;
-}
+      display: flex;
+      align-items: center;
+    }
 
-.left-spacer {
-  flex: 1;
-}
+    .left-spacer {
+      flex: 1;
+    }
 
-.main-nav {
-  flex: 1;
-  text-align: right;
-}
+    .main-nav {
+      flex: 1;
+      text-align: right;
+    }
 
-.main-nav-bar h1 {
-  margin: 0;
-  text-align: center;
-}
+    .main-nav-bar h1 {
+      margin: 0;
+      text-align: center;
+    }
 
+    /* Feedback modal styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
+    .modal-content {
+      background: white;
+      width: 90%;
+      max-width: 1000px;
+      height: 85vh;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .embed-container {
+      flex: 1;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .close-modal-btn {
+      margin-top: 15px;
+      align-self: flex-end;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #003366;
+      color: white;
+      cursor: pointer;
+    }
+
+    .close-modal-btn:hover {
+      background-color: #0055aa;
+    }
+
+    .feedback-link {
+      cursor: pointer;
+    }
   </style>
-  <!-- This is your header so only nav items and a title please https://stage.portal.clarityhs.com/auth/signin?redirect=%2Fdashboard-->
+
   <div class="main-homepage">
     <header class="main-nav-bar">
-  <div class="left-spacer"></div>
+      <div class="left-spacer"></div>
 
-  <h1>Office Of Homeless Services Kiosk Options</h1>
+      <h1>Office Of Homeless Services Kiosk Options</h1>
 
-  <nav class="main-nav">
-    <a href="./testingindex.html">Filter Search</a>
-  </nav>
-</header>
+      <nav class="main-nav">
+        <a href="#" id="openFeedbackModal" class="feedback-link">Feedback</a>
+      </nav>
+      <nav class="main-nav">
+        <a href="./testingindex.html">Filter Search</a>
+      </nav>
+    </header>
 
-    
-    <!-- This is where we will put moving banners if needed for departments. I'll also make the banner part a copy and paste function for ease of use-->
-    <!-- Main content under the header -->
     <div class="main-content" style="background-color: transparent !important">
       <div class="row-of-buttons">
         <button
@@ -88,6 +148,7 @@ What needs to be done:
           </div>
         </button>
       </div>
+
       <div class="row-of-buttons">
         <button
           class="btn-base box2"
@@ -101,7 +162,6 @@ What needs to be done:
 
         <button class="btn-base box2" onclick="location.href='Veterans.html'">
           <div class="btn-image">
-            <!--images/County Logo Transparent.png-->
             <img src="Veterans Affairs.png" alt="Icon 2" />
           </div>
           <div class="btn-label">Veterans Affairs</div>
@@ -118,12 +178,10 @@ What needs to be done:
           <div class="btn-label">How It Works</div>
         </button>
       </div>
-      <div class="row-of-buttons">
-        
 
+      <div class="row-of-buttons">
         <button class="btn-base box2" onclick="location.href='Preschool.html'">
           <div class="btn-image">
-            <!--images/County Logo Transparent.png-->
             <img src="images/test3-removebg-preview.png" alt="Icon 2" />
           </div>
           <div class="btn-label">Preschool Services</div>
@@ -140,11 +198,58 @@ What needs to be done:
           <div class="btn-label">Transitional Assistance</div>
         </button>
       </div>
-      
-     
     </div>
-  </div>  
- 
+  </div>
 
-  
+  <!-- P.I.T.A modal -->
+  <div
+    id="feedbackModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="feedbackModalTitle"
+    tabindex="-1"
+  >
+    <div class="modal-content">
+      <h2 id="feedbackModalTitle">Feedback Survey</h2>
+
+      <div class="embed-container">
+        <iframe
+          title="Feedback Survey"
+          src="https://survey123.arcgis.com/share/eacae3ea86234880b68b19bf7e032710"
+          allow="geolocation https://survey123.arcgis.com; camera https://survey123.arcgis.com"
+        ></iframe>
+      </div>
+
+      <button id="closeFeedbackModal" class="close-modal-btn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const openFeedbackModal = document.getElementById("openFeedbackModal");
+    const feedbackModal = document.getElementById("feedbackModal");
+    const closeFeedbackModal = document.getElementById("closeFeedbackModal");
+
+    openFeedbackModal.addEventListener("click", function (e) {
+      e.preventDefault();
+      feedbackModal.style.display = "flex";
+      feedbackModal.focus();
+    });
+
+    closeFeedbackModal.addEventListener("click", function () {
+      feedbackModal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (e) {
+      if (e.target === feedbackModal) {
+        feedbackModal.style.display = "none";
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        feedbackModal.style.display = "none";
+      }
+    });
+  </script>
 </body>
